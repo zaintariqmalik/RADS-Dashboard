@@ -20,7 +20,7 @@ class LoginController extends CI_Controller {
 
     }
 
-    public  function  checkLogin(){
+    public function checkLogin(){
         $email = $this->input->post('email');
         $password = $this->input->post('password');
         $this->load->model('LoginModel');

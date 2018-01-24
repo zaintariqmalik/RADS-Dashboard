@@ -11,13 +11,13 @@ class  LoginModel extends CI_Model{
         $this->load->database(true);
         $this->load->library('session');
 
-        $this->db->select('email','password');
-        $this->db->from('admin');
-        $this->db->where('email',$email);
-        $this->db->where('password',$password);
+        $this->db->select('userUsername','userPassword');
+        $this->db->from('user');
+        $this->db->where('userUsername',$email);
+        $this->db->where('userPassword',$password);
 
         $query = $this->db->get();
-
+        echo $query->num_rows();
        // $query = $this->db->query("SELECT id FROM user WHERE email LIKE '$email' and password LIKE '$password';");
         if($query->num_rows()>0){
             return true;

@@ -13,19 +13,20 @@ class  DisplayData extends CI_Model{
         // $this->db->select('email');
          //$this->db->from('user');
 
-       $this->db->select('*');
-        $this->db->from('questions');
+        $this->db->select('*');
+        $this->db->from('user');
         $query =$this->db->get();
 
-         $result1 =$query->result();
+        $result1 =$query->result();
         return $result1;
          //die(print_r($result1));
     }
+    
 
     // when clicked on a an question
     public function getQuestionDetails($question_id){
 
-
+/*
         $this->load->database(true);
         // $this->db->select('email');
         //$this->db->from('user');
@@ -38,7 +39,8 @@ class  DisplayData extends CI_Model{
 
         $result1 =$query->result();
         //die(print_r($result1));
-        return $result1;
+        return $result1;*/
+        echo 'Commented';
     }
 }
 ?>

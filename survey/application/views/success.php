@@ -8,9 +8,15 @@
     <tr>
         <th>Question</th>
     </tr>
-    <?php foreach($fetch_data as $row){?>
+    <?php 
+    foreach($fetch_data as $row)
+        {?>
         <tr>
-            <td><a href="<?php echo site_url('DisplayController/getQuestionData?var1='.$row->id) ?>"><?php echo $row->question;?></a></td>
+            <td>
+                <a href="<?php echo site_url('DisplayController/getQuestionData?var1='.$row->userId) ?>">
+                   <?php echo $row->userUsername;?>
+                    </a>
+            </td>
         </tr>
     <?php }?>
     <table>
