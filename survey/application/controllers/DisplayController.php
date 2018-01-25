@@ -13,10 +13,10 @@ class DisplayController extends CI_Controller{
     }
 
     public  function getQuestionData(){
-       /* $question_id = $this->input->get('var1');
+        $question_id = $this->input->get('var1');
         $this->load->model('DisplayData');
         $data["fetch_data"] = $this->DisplayData->getQuestionDetails($question_id);
-        $this->load->view('survey', $data);*/
+        $this->load->view('survey', $data);
     }
 }
 ?>

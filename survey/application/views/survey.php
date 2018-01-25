@@ -9,17 +9,13 @@
         <th>Survey Results</th>
     </tr>
     <tr>
-        <td>Survery ID</td>
-        <td>User ID</td>
-        <td>Name</td>
-        <td>Ans</td>
+        <td>Survery Answer</td>
+        <td>Count</td>
     </tr>
     <?php foreach($fetch_data as $row){?>
         <tr>
-            <td><?php echo $row->survey_id;?></td>
-            <td><?php echo $row->user_id;?></td>
-            <td><?php echo $row->name;?></td>
-            <td><?php echo $row->ans;?></td>
+            <td><?php echo $row->surveyanswerAnswer;?></td>
+            <td><?php echo $row->total;?></td>
               </tr>
     <?php }?>
     <table>

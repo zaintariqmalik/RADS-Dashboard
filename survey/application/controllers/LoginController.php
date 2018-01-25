@@ -28,7 +28,7 @@ class LoginController extends CI_Controller {
         if($this->LoginModel->login($email,$password))
         {
             $this->load->model('DisplayData');
-            $this->data['fetch_data'] = $this->DisplayData->getData();
+            $this->data['fetch_data'] = $this->DisplayData->getSurveyQuestions();
 
 
             $this->session->set_userdata('User_Logged_In', 'true');

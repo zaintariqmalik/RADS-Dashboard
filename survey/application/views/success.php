@@ -1,20 +1,20 @@
 <html>
 <head>
-    <title>My Form</title>
+    <title>Survey Questions</title>
 </head>
 <body>
 
 <table>
     <tr>
-        <th>Question</th>
+        <th>Questions</th>
     </tr>
     <?php 
     foreach($fetch_data as $row)
         {?>
         <tr>
             <td>
-                <a href="<?php echo site_url('DisplayController/getQuestionData?var1='.$row->userId) ?>">
-                   <?php echo $row->userUsername;?>
+                <a href="<?php echo site_url('DisplayController/getQuestionData?var1='.$row->surveyquestionId) ?>">
+                   <?php echo $row->surveyquestionQuestion;?>
                     </a>
             </td>
         </tr>
