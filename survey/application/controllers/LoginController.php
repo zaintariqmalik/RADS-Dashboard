@@ -1,41 +1,76 @@
 <?php
-
+/*
+*file name: LoginController.php
+ * created by : waqas ahmad
+ * change history: 26/01/2018 /update routing/ waqas ahmad
+*/
 class LoginController extends CI_Controller {
+
+    /*
+     * The function will executed by default
+     * @see load helper
+     * @see load library('session')
+     * @see  check if session(User_logged_in) is created ..
+     * @see model DisplayDate:: getSurveyQuestions()
+     */
 
     public function index()
     {
+        // Load helper  & libraries
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('session');
        // $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         //$this->form_validation->set_rules('password', 'Password', 'required');
 
+        // IF session is set then call the model::getSurveyQuestions() to get data and pass to success
         if($this->session->userdata('User_Logged_In')) {
             $this->load->model('DisplayData');
-            $data["fetch_data"] = $this->DisplayData->getData();
-            $this->load->view('success', $data);
+            $this->data["fetch_data"] = $this->DisplayData->getSurveyQuestions();
+            $this->load->view('index', $this->data);
         }
         else // Display login page session is not set
             $this->load->view('login');
 
     }
 
-    public  function  checkLogin(){
+    /* This will be executed when user will enter data in form or press the back button
+     * @see model DisplayData:: getSurveyQuestions
+     * @see model LoginModel:: login($email,$password)
+     *  @see session::set_userdata // set session that user is logged in...
+     *
+    */
+
+    public function checkLogin()
+    {
+
+
+
+        // Load session
+        // IF session is set then call the model::getSurveyQuestions() to get data and pass to success
+        $this->load->library('session');
+        $sess = $this->session->userdata('User_Logged_In');
+
+        if(!empty($sess)) {
+            $this->load->model('DisplayData');
+            $this->data["fetch_data"] = $this->DisplayData->getSurveyQuestions();
+            $this->load->view('index', $this->data);
+        }
+        else
+        {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
         $this->load->model('LoginModel');
 
-        if($this->LoginModel->login($email,$password))
-        {
-            $this->load->model('DisplayData');
-            $this->data['fetch_data'] = $this->DisplayData->getData();
-
-
-            $this->session->set_userdata('User_Logged_In', 'true');
-            $this->load->view('success', $this->data);
-        }
-        else {
+        // calling LoginModel::login($email,$password)
+        if ($this->LoginModel->login($email, $password)) {
+                $this->load->model('DisplayData');
+                $this->data['fetch_data'] = $this->DisplayData->getSurveyQuestions();
+                $this->session->set_userdata('User_Logged_In', 'true');
+                $this->load->view('index', $this->data);
+        } else {
             $this->load->view('login');
         }
+    }
     }
 }
