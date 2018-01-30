@@ -14,7 +14,7 @@ class DisplayMapController extends CI_Controller {
     public function index(){
         $this->load->model('DisplayMap');
         $data["fetch_data"] = $this->DisplayMap->getMapData();
-        $this->load->view('Map', $data);
+        $this->load->view('Map2', $data);
     }
 }
 
