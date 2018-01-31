@@ -30,7 +30,7 @@ class LoginController extends CI_Controller {
             $this->load->view('index', $this->data);
         }
         else // Display login page session is not set
-            $this->load->view('login');
+            $this->load->view('Login');
 
     }
 
@@ -69,7 +69,7 @@ class LoginController extends CI_Controller {
                 $this->session->set_userdata('User_Logged_In', 'true');
                 $this->load->view('index', $this->data);
         } else {
-            $this->load->view('login');
+            $this->load->view('Login');
         }
     }
     }

@@ -13,7 +13,7 @@
      public function index(){
          $this->load->library('session');
          unset($_SESSION['User_Logged_In']);
-         $this->load->view("login");
+         $this->load->view("Login");
      }
  }
 ?>

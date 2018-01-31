@@ -14,12 +14,14 @@ class DisplayMap extends CI_Model {
     */
     public function getMapData(){
 
-        $this->load->database(true);
+        $otherdb = $this->load->database('otherdb',TRUE);
 
+        $query = $otherdb->query('select lat,lng from locations');
+/*
         $this->db->select('lat');
         $this->db->select('lng');
         $this->db->from('locations');
-        $query =$this->db->get();
+        $query =$this->db->get();*/
 
         $result1 =$query->result();
         //die(print_r($result1));
