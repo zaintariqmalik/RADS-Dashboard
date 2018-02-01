@@ -12,11 +12,19 @@ class DisplayController extends CI_Controller{
 
     }
 
-    public  function getQuestionData(){
+    /**
+     * [getQuestionData: on selecting specific question from UI,
+     * will display results in result_graph page]
+     * @param  [int] $question_id [form UI (success.php) on selecting question Id is passed to this function]
+     * @see DisplayData::getQuestionDetails() --> will return question responses
+     * @see DisplayData::getQuestionTitle() --> will return question title
+     */
+
+    public  function getQuestionData($question_id){
         $this->load->library('session');
         $sess = $this->session->userdata('User_Logged_In');
         if(!empty($sess)) {
-                    $question_id = $this->input->get('var1');
+                    //$question_id = $this->input->get('var1');
                     $this->load->model('DisplayData');
                     $data["fetch_data"] = $this->DisplayData->getQuestionDetails($question_id);
                     $data["question_title"] = $this->DisplayData->getQuestionTitle($question_id);

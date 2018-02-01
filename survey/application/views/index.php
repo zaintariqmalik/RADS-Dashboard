@@ -47,11 +47,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                    {
                        if($index<5)
                            continue;
-
                        ?>
                        <tr>
                            <td>
-                               <a href="<?php echo site_url('DisplayController/getQuestionData?var1='.$row->surveyquestionId) ?>">
+                               <a href="<?php echo site_url('DisplayController/getQuestionData/'.$row->surveyquestionId) ?>">
                                    <?php echo $row->surveyquestionQuestion;
                                    ?>
                                </a>

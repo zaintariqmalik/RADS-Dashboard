@@ -54,16 +54,18 @@ class  DisplayData extends CI_Model{
         // $this->db->select('email');
         //$this->db->from('user');
 
+        $where = "surveyquestionId ='$question_id' And surveylistId =102 ";
         $this->db->select('surveyanswerAnswer, count(surveyanswerAnswer) as total');
         $this->db->from('surveyanswer');
-        $this->db->where('surveyquestionId',$question_id);
+        //$this->db->where('surveyquestionId',$question_id);
+        $this->db->where($where);
         $this->db->group_by('surveyanswerAnswer');
         $this->db->order_by('total','desc');
         $query =$this->db->get();
 
         $result =$query->result();
-        //die(print_r($result));
-        return $result;
+           // die(print_r($result));
+      return $result;
     }
 
     /**

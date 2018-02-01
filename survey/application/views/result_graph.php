@@ -115,6 +115,9 @@
 </head>
 
 <?php
+if(sizeof($fetch_data)<1){
+    show_404();
+}
 
 $categories = array();
 $categories_count = array();
