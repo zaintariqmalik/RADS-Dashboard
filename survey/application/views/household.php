@@ -45,77 +45,77 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getPregnantWomenCount') ?>">
-                               <?php echo "Are You Pregnant"?>
+                               <?php echo "Currently Pregnant"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getPregnancyCheckupVisitCount') ?>">
-                               <?php echo "Visit anywhere for pregnancy checkup"?>
+                               <?php echo "Did you visit anywhere for pregnancy checkup"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getFPMethodUsageCount') ?>">
-                               <?php echo "Ever use FP Method"?>
+                               <?php echo "Did you ever use FP Method"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getFPMethodCount') ?>">
-                               <?php echo "Which FP Method used"?>
+                               <?php echo "Which FP Method you used"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getCurrentFPMethodUsageCount') ?>">
-                               <?php echo "Currently using FP Method"?>
+                               <?php echo "Are you currently using FP Method"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getCurrentFPMethodCount') ?>">
-                               <?php echo "Which FP Method currently using"?>
+                               <?php echo "Which FP Method you are currently using"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getSideEffectsCount') ?>">
-                               <?php echo "Side effects faced"?>
+                               <?php echo "Did you face side effects"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getFPProviderVisitCount') ?>">
-                               <?php echo "Visit any FP Provider"?>
+                               <?php echo "Did you visit any FP Provider"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getFPProviderVisitReason') ?>">
-                               <?php echo "Reason for visiting FP Provider"?>
+                               <?php echo "Reasons for visiting FP Provider"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getInterestedFPMethodCount') ?>">
-                               <?php echo "Want to use any FP Method"?>
+                               <?php echo "Do you want to use any FP Method"?>
                            </a>
                        </td>
                    </tr>
                    <tr>
                        <td>
                            <a href="<?php echo site_url('HouseholdController/getReasonNotInterestedCount') ?>">
-                               <?php echo "Reason for not using FP Method"?>
+                               <?php echo "Reasons for not using FP Method"?>
                            </a>
                        </td>
                    </tr>

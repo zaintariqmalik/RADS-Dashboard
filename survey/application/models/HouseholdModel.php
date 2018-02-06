@@ -54,6 +54,7 @@ class HouseholdModel extends CI_Model
 									    ELSE "Missing"
 									END as value
 									from household 
+									where pregnancyCheckUp <> 3
 									group by pregnancyCheckUp;');
 		$data = $query->result();
 		return $data;
@@ -82,16 +83,17 @@ class HouseholdModel extends CI_Model
 		$query = $otherdb->query('select fpMethodName, count(fpMethodName) as total,
 									CASE
 									    WHEN fpMethodName = 1 THEN "Condom"
-									    WHEN fpMethodName = 2 THEN "Tardinal Method"
+									    WHEN fpMethodName = 2 THEN "Traditional Method"
 									    WHEN fpMethodName = 3 THEN "Pills"
 									    WHEN fpMethodName = 4 THEN "Injections"
-									    WHEN fpMethodName = 5 THEN "Operation"
+									    WHEN fpMethodName = 5 THEN "Tubal Ligation"
 									    WHEN fpMethodName = 6 THEN "IUCD"
 									    WHEN fpMethodName = 7 THEN "Implant"
 									    WHEN fpMethodName = 8 THEN "Missing"
 									    ELSE "Not using any FP Method"
 									END as value
 									from household 
+									where useFPMethod = 1
 									group by fpMethodName');
 		$data = $query->result();
 		return $data;
@@ -109,6 +111,7 @@ class HouseholdModel extends CI_Model
 									    ELSE "Missing"
 									END as value
 									from household 
+									where useFPMethod = 1
 									group by currentUseFPMethod;');
 		$data = $query->result();
 		return $data;
@@ -121,16 +124,17 @@ class HouseholdModel extends CI_Model
 		$query = $otherdb->query('select currentFPMethod, count(currentFPMethod) as total,
 									CASE
 									    WHEN currentFPMethod = 1 THEN "Condom"
-									    WHEN currentFPMethod = 2 THEN "Tardinal Method"
+									    WHEN currentFPMethod = 2 THEN "Traditional Method"
 									    WHEN currentFPMethod = 3 THEN "Pills"
 									    WHEN currentFPMethod = 4 THEN "Injections"
-									    WHEN currentFPMethod = 5 THEN "Operation"
+									    WHEN currentFPMethod = 5 THEN "Tubal Ligation"
 									    WHEN currentFPMethod = 6 THEN "IUCD"
 									    WHEN currentFPMethod = 7 THEN "Implant"
 									    WHEN currentFPMethod = 8 THEN "Missing"
 									    ELSE "Not using any FP Method"
 									END as value
 									from household 
+									where currentUseFPMethod = 1
 									group by currentFPMethod;');
 		$data = $query->result();
 		return $data;
@@ -148,6 +152,7 @@ class HouseholdModel extends CI_Model
 									    ELSE "Missing"
 									END as value
 									from household 
+									where useFPMethod = 1
 									group by sideEffects;');
 		$data = $query->result();
 		return $data;
@@ -165,6 +170,7 @@ class HouseholdModel extends CI_Model
 									    ELSE "Missing"
 									END as value
 									from household 
+									where useFPMethod = 1
 									group by fpProviderVisit;');
 		$data = $query->result();
 		return $data;
@@ -187,6 +193,7 @@ class HouseholdModel extends CI_Model
 									    ELSE "Not using any FP Method"
 									END as value
 									from household 
+									where useFPMethod = 1 and fpProviderVisit = 1
 									group by visitReason;');
 		$data = $query->result();
 		return $data;
@@ -222,6 +229,7 @@ class HouseholdModel extends CI_Model
 									    ELSE "Missing"
 									END as value
 									from household 
+									where fpMethodInterest = 2 and useFPMethod = 2
 									group by reasonNoFP;');
 		$data = $query->result();
 		return $data;
