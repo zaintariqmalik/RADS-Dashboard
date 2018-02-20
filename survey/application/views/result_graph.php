@@ -221,7 +221,7 @@ print_r($counts);
             datasets: [
                 {
                     label: "People Answered",
-                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#28B463","#EC7063","#F1C40F"],
                     data: count
                 }
             ]
