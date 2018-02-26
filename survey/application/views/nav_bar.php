@@ -30,8 +30,13 @@
                     <li>
                         <a href="<?php echo site_url('HouseholdController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Household</span> </a>
                     </li>
+
                     <li>
-                        <a href="<?php echo site_url('DisplayMapController')?>"  class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i> <span class="nav-label">Map</span> </a>
+                        <a href="#"  class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i> <span class="nav-label">Map</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="<?php echo site_url('DisplayMapDivisionController')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>Dhok Hassu Division</a></li>
+                            <li><a href="<?php echo site_url('DisplayMapController')?>" class=" hvr-bounce-to-right"> <i class="fa fa-map-pin nav_icon"></i>Interview Count</a></li>
+                             </ul>
                     </li>
                     <li>
                         <a href="<?php echo site_url('LogoutController')?>"class=" hvr-bounce-to-right"><i class="fa fa-sign-out  nav_icon"></i> <span class="nav-label">Logout</span> </a>

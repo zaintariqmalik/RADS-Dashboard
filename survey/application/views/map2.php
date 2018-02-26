@@ -46,7 +46,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 
-               <div id="map" style="width:inherit;height:400px"></div>
+               <div id="map" style="width:inherit;height:600px"></div>
 
 			<div class="clearfix"> </div>
 
@@ -74,28 +74,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         // function will automatically called when we will call google maps apr
         function initMap() {
-            var myLatLng = {lat: 33.6239, lng: 73.0249};//Center Point to display Map
+            var myLatLng = {lat: 33.626952, lng: 73.031462};//Center Point to display Map
 
+                //33.627546, 73.031022
+            //33.626952, 73.031462
             /*   var locations = [
-                   [33.626048, 73.030648],
-                   [33.626146, 73.032547],
-                   [33.624877, 73.036302],
-                   [33.626853, 73.036021],
-                   [33.627539, 73.035937]
+                   [33.626048, 73.030648,'Place name', 'Number of interviews'],
+                   [33.626146, 73.032547,'Place name', 'Number of interviews'],
+                   [33.624877, 73.036302,'Place name', 'Number of interviews'],
+                   [33.626853, 73.036021,'Place name', 'Number of interviews'],
+                   [33.627539, 73.035937,'Place name', 'Number of interviews']
                ];
        */
             /* The locations will be an array containing lat and lng.. The array will look like above variable
               The data is passed from controller as the variable named $fetch_data
               */
             var locations = [<?php foreach($fetch_data as $row){?>
-                [<?php echo $row->lat;?>,<?php echo $row->lng;?>],
+                [
+                    <?php echo $row->lat;?>,
+                    <?php echo $row->lng;?>,
+                    '<?php echo $row->title;?>',
+                    <?php echo $row->interviews_conducted;?>
+                ],
                 <?php
                 }
                 ?>];
 
+
             // Displays map . with the zoom scale 15 and having a centeral point definec above
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
+                zoom: 16,
                 center: myLatLng
             });
 
@@ -105,9 +113,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(locations[i][0], locations[i][1]),
                     map: map,
+
+                    title:locations[i][2]
                 });
+
+
+                var content = '<b>'+locations[i][2]+'</b> <br/> Interviews Conducted : '+locations[i][3]+'';
+
+                var infowindow = new google.maps.InfoWindow();
+                google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                    return function() {
+                        infowindow.setContent(content);
+                        infowindow.open(map,marker);
+                    };
+                })(marker,content,infowindow));
+
             }
-        }
+            }
+
 
     </script>
     <script async defer

@@ -16,7 +16,7 @@ class DisplayMap extends CI_Model {
 
         $otherdb = $this->load->database('otherdb',TRUE);
 
-        $query = $otherdb->query('select lat,lng from locations');
+        $query = $otherdb->query('select * from locations');
 /*
         $this->db->select('lat');
         $this->db->select('lng');
