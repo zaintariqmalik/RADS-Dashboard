@@ -118,6 +118,7 @@
 
 $categories = array();
 $categories_count = array();
+
 // Getting data in 2 arrays
 foreach($fetch_data as $row){
     array_push($categories,$row->value);
