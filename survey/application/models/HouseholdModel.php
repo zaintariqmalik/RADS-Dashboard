@@ -31,12 +31,7 @@ class HouseholdModel extends CI_Model
 
 		//another method
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select areYouPregnant, count(areYouPregnant) as total,
-									CASE
-									    WHEN areYouPregnant = 1 THEN "Yes"
-									    WHEN areYouPregnant = 2 THEN "No"
-									    ELSE "Missing"
-									END as value
+		$query = $otherdb->query('select areYouPregnant as value , count(areYouPregnant) as total
 									from household 
 									group by areYouPregnant');
 		$data = $query->result();
@@ -47,12 +42,8 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select pregnancyCheckUp, count(pregnancyCheckUp) as total,
-									CASE
-									    WHEN pregnancyCheckUp = 1 THEN "Yes"
-									    WHEN pregnancyCheckUp = 2 THEN "No"
-									    ELSE "Missing"
-									END as value
+		$query = $otherdb->query('select pregnancyCheckUp as value , count(pregnancyCheckUp) as total
+							  
 									from household 
 									where pregnancyCheckUp <> 3
 									group by pregnancyCheckUp;');
@@ -64,14 +55,10 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select useFPMethod, count(useFPMethod) as total,
-									CASE
-									    WHEN useFPMethod = 1 THEN "Yes"
-									    WHEN useFPMethod = 2 THEN "No"
-									    ELSE "Missing"
-									END as value
+		$query = $otherdb->query('select EveryUseFPMethod as value, count(EveryUseFPMethod) as total
+								  
 									from household 
-									group by useFPMethod;');
+									group by EveryUseFPMethod;');
 		$data = $query->result();
 		return $data;
 	}
@@ -80,21 +67,10 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select fpMethodName, count(fpMethodName) as total,
-									CASE
-									    WHEN fpMethodName = 1 THEN "Condom"
-									    WHEN fpMethodName = 2 THEN "Traditional Method"
-									    WHEN fpMethodName = 3 THEN "Pills"
-									    WHEN fpMethodName = 4 THEN "Injections"
-									    WHEN fpMethodName = 5 THEN "Tubal Ligation"
-									    WHEN fpMethodName = 6 THEN "IUCD"
-									    WHEN fpMethodName = 7 THEN "Implant"
-									    WHEN fpMethodName = 8 THEN "Missing"
-									    ELSE "Not using any FP Method"
-									END as value
+		$query = $otherdb->query('select DISTINCT (everFPMethod) as value, count(everFPMethod) as total
 									from household 
-									where useFPMethod = 1
-									group by fpMethodName');
+									where EveryUseFPMethod Like "Yes" 
+									group by everFPMethod');
 		$data = $query->result();
 		return $data;
 	}
@@ -103,16 +79,9 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select currentUseFPMethod, count(currentUseFPMethod) as total,
-									CASE
-									    WHEN currentUseFPMethod = 1 THEN "Yes"
-									    WHEN currentUseFPMethod = 2 THEN "No"
-									    WHEN currentUseFPMethod = "" THEN "Not using any FP Method"
-									    ELSE "Missing"
-									END as value
+		$query = $otherdb->query('select CurrentlyUsingFPMethod as value, count(CurrentlyUsingFPMethod) as total
 									from household 
-									where useFPMethod = 1
-									group by currentUseFPMethod;');
+									group by CurrentlyUsingFPMethod;');
 		$data = $query->result();
 		return $data;
 	}
@@ -121,21 +90,11 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select currentFPMethod, count(currentFPMethod) as total,
-									CASE
-									    WHEN currentFPMethod = 1 THEN "Condom"
-									    WHEN currentFPMethod = 2 THEN "Traditional Method"
-									    WHEN currentFPMethod = 3 THEN "Pills"
-									    WHEN currentFPMethod = 4 THEN "Injections"
-									    WHEN currentFPMethod = 5 THEN "Tubal Ligation"
-									    WHEN currentFPMethod = 6 THEN "IUCD"
-									    WHEN currentFPMethod = 7 THEN "Implant"
-									    WHEN currentFPMethod = 8 THEN "Missing"
-									    ELSE "Not using any FP Method"
-									END as value
+		$query = $otherdb->query('select DISTINCT (currentFPMethodName) as value, count(currentFPMethodName) as total
+									
 									from household 
-									where currentUseFPMethod = 1
-									group by currentFPMethod;');
+									where CurrentlyUsingFPMethod Like "Yes"
+									group by currentFPMethodName;');
 		$data = $query->result();
 		return $data;
 	}
@@ -144,16 +103,9 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select sideEffects, count(sideEffects) as total,
-									CASE
-									    WHEN sideEffects = 1 THEN "Yes"
-									    WHEN sideEffects = 2 THEN "No"
-									    WHEN sideEffects = "" THEN "Not using any FP Method"
-									    ELSE "Missing"
-									END as value
+		$query = $otherdb->query('select FaceSideEffects as value, count(FaceSideEffects) as total
 									from household 
-									where useFPMethod = 1
-									group by sideEffects;');
+						     		group by FaceSideEffects;');
 		$data = $query->result();
 		return $data;
 	}
@@ -162,20 +114,15 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select fpProviderVisit, count(fpProviderVisit) as total,
-									CASE
-									    WHEN fpProviderVisit = 1 THEN "Yes"
-									    WHEN fpProviderVisit = 2 THEN "No"
-									    WHEN fpProviderVisit = "" THEN "Not using any FP Method"
-									    ELSE "Missing"
-									END as value
-									from household 
-									where useFPMethod = 1
-									group by fpProviderVisit;');
+		$query = $otherdb->query('select VisitAnyFPProvider as value, count(	VisitAnyFPProvider) as total
+										from household 
+									where CurrentlyUsingFPMethod = "Yes"
+									group by VisitAnyFPProvider;');
 		$data = $query->result();
 		return $data;
 	}
 
+	// TODO
 	public function getFPProviderVisitReason()
 	{
 		//TRUE parameter tells CI to return otherdb database object
@@ -199,42 +146,170 @@ class HouseholdModel extends CI_Model
 		return $data;
 	}
 
-	public function getInterestedFPMethodCount()
+	
+    public function getFPProviderVisitReasonFPConsulatation()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('select count(`FPConsulatation`) as result from household
+                                  where `FPConsulatation` LIKE \'Yes\' 
+                                  and `EveryUseFPMethod` LIKE \'Yes\'
+                                  and `VisitAnyFPProvider` LIKE \'Yes\'');
+
+        $data = $query->result();
+        return $data;
+    }
+
+    public function getFPProviderVisitReasonForIUD()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('select count(`ForIUD`) as result from household
+                                  where `ForIUD` LIKE \'Yes\' 
+                                  and `EveryUseFPMethod` LIKE \'Yes\'
+                                  and `VisitAnyFPProvider` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+    public function getFPProviderVisitReasonImplant()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('select count(`Implant`) as result from household
+                                  where `Implant` LIKE \'Yes\' 
+                                  and `EveryUseFPMethod` LIKE \'Yes\'
+                                  and `VisitAnyFPProvider` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+
+    public function getFPProviderVisitReasonTubalLigation()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('select count(`TubalLigation`) as result from household
+                                  where `TubalLigation` LIKE \'Yes\' 
+                                  and `EveryUseFPMethod` LIKE \'Yes\'
+                                  and `VisitAnyFPProvider` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+    public function getFPProviderVisitReasonOperation()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('select count(`Operation`) as result from household
+                                  where `Operation` LIKE \'Yes\' 
+                                  and `EveryUseFPMethod` LIKE \'Yes\'
+                                  and `VisitAnyFPProvider` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+
+    public function getFPProviderVisitReasonSideEffects()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('select count(`SideEffects`) as result from household
+                                  where `SideEffects` LIKE \'Yes\' 
+                                  and `EveryUseFPMethod` LIKE \'Yes\'
+                                  and `VisitAnyFPProvider` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+
+    public function getFPProviderVisitReasonOtherReasonForVisit()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('select count(`OtherReasonForVisit`) as result from household
+                                  where `OtherReasonForVisit` <> \'\' 
+                                  and `EveryUseFPMethod` LIKE \'Yes\'
+                                  and `VisitAnyFPProvider` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+
+
+
+    public function getInterestedFPMethodCount()
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select fpMethodInterest, count(fpMethodInterest) as total,
-									CASE
-									    WHEN fpMethodInterest = 1 THEN "Yes"
-									    WHEN fpMethodInterest = 2 THEN "No"
-									    ELSE "Missing"
-									END as value
-									from household 
-									group by fpMethodInterest;');
+		$query = $otherdb->query('select WantToUseAnyFPMethod as value, count(WantToUseAnyFPMethod) as total
+						  			from household 
+									group by WantToUseAnyFPMethod;');
 		$data = $query->result();
 		return $data;
 	}
 
-	public function getReasonNotInterestedCount()
-	{
-		//TRUE parameter tells CI to return otherdb database object
-		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select reasonNoFP, count(reasonNoFP) as total,
-									CASE
-									    WHEN reasonNoFP = 1 THEN "Side Effects"
-									    WHEN reasonNoFP = 2 THEN "Family not complete"
-									    WHEN reasonNoFP = 3 THEN "No permission from husband"
-									    WHEN reasonNoFP = 4 THEN "No permission from mother in law"
-									    WHEN reasonNoFP = 5 THEN "Missing"
-									    ELSE "Missing"
-									END as value
-									from household 
-									where fpMethodInterest = 2 and useFPMethod = 2
-									group by reasonNoFP;');
-		$data = $query->result();
-		return $data;
-	}
+	/* This function gives us counts that how many people are not using Any FP with having reason  Fear
+	 * Getting data from the 'Fear' column of table 'household'.
+	 * @returns integer array indicates the figures
+	 */
+    public function getReasonNotInterestedFear()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT COUNT(`Fear`)  as result FROM `household` WHERE `Fear` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+
+    /*   This function gives us counts that how many people are not using Any FP with having reason  No Permission From Husband
+     *   Getting data from the 'NoPermissionFromHusband' column of table 'household'.
+     *   @returns integer array indicates the figures
+     */
+    public function getReasonNotInterestedNoPermissionFromHusband()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT COUNT(`NoPermissionFromHusband`) as result FROM `household` WHERE `NoPermissionFromHusband` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+
+    /* This function gives us counts that how many people are not using Any FP with having reason  "Family Not Complete"
+	 * Getting data from the 'FamilyNotComplete' column of table 'household'.
+	 * @returns integer array indicates the figures
+	 * */
+    public function getReasonNotInterestedFamilyNotComplete()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT COUNT(`FamilyNotComplete`) as result FROM `household` WHERE `FamilyNotComplete` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+
+    /*  This function gives us counts that how many people are not using Any FP with having reason "NoPermissionFromMotherInLaw"
+	 *  Getting data from the 'NoPermissionFromMotherInLaw' column of table 'household'.
+	 *  @returns integer array indicates the figures
+	 */
+    public function getReasonNotInterestedNoPermissionFromMotherInLaw()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT COUNT(`NoPermissionFromMotherInLaw`) as result FROM `household` WHERE `NoPermissionFromMotherInLaw` LIKE \'Yes\'');
+        $data = $query->result();
+        return $data;
+    }
+
+    /*  This function gives us counts that how many people are not using Any FP with having reason  "Other"
+	 *  Getting data from the 'OtherReasonForNotUsing' column of table 'household'.
+	 *  @returns integer array indicates the figures
+	 */
+    public function getReasonNotInterestedOtherReasonForNotUsing()
+    {
+        //TRUE parameter tells CI to return otherdb database object
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT COUNT(`OtherReasonForNotUsing`) as result FROM `household` WHERE `OtherReasonForNotUsing` <> \'\'');
+        $data = $query->result();
+        return $data;
+    }
+
 }
+
 
 
 ?>

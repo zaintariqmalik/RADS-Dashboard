@@ -116,6 +116,7 @@ class HouseholdController extends CI_Controller{
         $this->load->view('HouseholdView', $data);
 	}
 
+	/* Old function
 	public function getFPProviderVisitReason()
 	{
 		$this->load->model('HouseholdModel');
@@ -125,6 +126,89 @@ class HouseholdController extends CI_Controller{
         //pass the fetched data to view
         $this->load->view('HouseholdView', $data);
 	}
+	*/
+
+
+    /*
+     * The function will give us reasons and their counts for Visiting Doctor.
+     * we have 5 columns in the database and we have to get data from each column and merge them in a single array.
+     * @see HouseholdModel::getFPProviderVisitReasonFPConsulatation()
+     * @see HouseholdModel::getFPProviderVisitReasonForIUD()
+     * @see HouseholdModel::getFPProviderVisitReasonImplant()
+     * @see HouseholdModel::getFPProviderVisitReasonTubalLigation()
+     * @see HouseholdModel::getFPProviderVisitReasonOperation()
+     * @see HouseholdModel::getFPProviderVisitReasonSideEffects()
+     * @see HouseholdModel::getFPProviderVisitReasonOtherReasonForVisit()
+     * @return array of objects
+    */
+    public function getFPProviderVisitReason()
+    {
+        $this->load->model('HouseholdModel');
+        $ArrayWithResult = array();
+
+        // Storing array in $res variable
+        // Getting Data form FPConsulatation column
+        $res=$this->HouseholdModel->getFPProviderVisitReasonFPConsulatation();
+        $FPConsulatationObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $FPConsulatationObj->value = 'FP Consulatation';
+        $FPConsulatationObj->total = $res[0]->result;
+        $ArrayWithResult[0] = $FPConsulatationObj; // saving object in array
+
+        // Storing array in $res variable
+        // Getting Data form ForIUD column
+        $res=$this->HouseholdModel->getFPProviderVisitReasonForIUD();
+        $ForIUDObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $ForIUDObj->value = 'For IUD';
+        $ForIUDObj->total = $res[0]->result;
+        $ArrayWithResult[1] = $ForIUDObj; // saving object in array
+
+
+        // Storing array in $res variable
+        // Getting Data form Implant column
+        $res=$this->HouseholdModel->getFPProviderVisitReasonImplant();
+        $ImplantObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $ImplantObj->value = 'Implant';
+        $ImplantObj->total = $res[0]->result;
+        $ArrayWithResult[2] = $ImplantObj; // saving object in array
+
+        // Storing array in $res variable
+        // Getting Data form TubalLigation column
+        $res=$this->HouseholdModel->getFPProviderVisitReasonTubalLigation();
+        $TubalLigationObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $TubalLigationObj->value = 'Tubal Ligation';
+        $TubalLigationObj->total = $res[0]->result;
+        $ArrayWithResult[3] = $TubalLigationObj; // saving object in array
+
+        // Storing array in $res variable
+        // Getting Data form Operation column
+        $res=$this->HouseholdModel->getFPProviderVisitReasonOperation();
+        $OperationObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $OperationObj->value = 'Operation';
+        $OperationObj->total = $res[0]->result;
+        $ArrayWithResult[4] = $OperationObj; // saving object in array
+
+        // Storing array in $res variable
+        // Getting Data form SideEffects column
+        $res=$this->HouseholdModel->getFPProviderVisitReasonSideEffects();
+        $SideEffectsObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $SideEffectsObj->value = 'Side Effects';
+        $SideEffectsObj->total = $res[0]->result;
+        $ArrayWithResult[5] = $SideEffectsObj; // saving object in array
+
+        // Storing array in $res variable
+        // Getting Data form OtherReasonForVisit column
+        $res=$this->HouseholdModel->getFPProviderVisitReasonOtherReasonForVisit();
+        $OtherReasonForVisitObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $OtherReasonForVisitObj->value = 'Other';
+        $OtherReasonForVisitObj->total = $res[0]->result;
+        $ArrayWithResult[6] = $OtherReasonForVisitObj; // saving object in array
+
+        $data["fetch_data"] = $ArrayWithResult;
+        $data["question_title"] = "Reason for visiting FP Provider";
+
+        //pass the fetched data to view
+        $this->load->view('HouseholdView', $data);
+    }
 
 	public function getInterestedFPMethodCount()
 	{
@@ -136,15 +220,66 @@ class HouseholdController extends CI_Controller{
         $this->load->view('HouseholdView', $data);
 	}
 
-	public function getReasonNotInterestedCount()
-	{
-		$this->load->model('HouseholdModel');
-		$data["fetch_data"] = $this->HouseholdModel->getReasonNotInterestedCount();
+
+
+	/*
+	 * The function will give us reasons and their counts for not using any Fp method.
+	 * we have 5 columns in the database and we have to get data from each column and merge them in a single array.
+	 * @see HouseholdModel::getReasonNotInterestedFear()
+	 * @see HouseholdModel::getReasonNotInterestedNoPermissionFromHusband()
+	 * @see HouseholdModel::getReasonNotInterestedFamilyNotComplete()
+	 * @see HouseholdModel::getReasonNotInterestedNoPermissionFromMotherInLaw()
+	 * @see HouseholdModel::getReasonNotInterestedOtherReasonForNotUsing()
+	 * @return array of objects
+	*/
+    public function getReasonNotInterestedCount()
+    {
+        $this->load->model('HouseholdModel');
+        $ArrayWithResult = array();
+
+        // Storing array in $res variable
+		// Getting Data form Fear column
+        $res=$this->HouseholdModel->getReasonNotInterestedFear();
+        $FearObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $FearObj->value = 'Fear';
+        $FearObj->total = $res[0]->result;
+        $ArrayWithResult[0] = $FearObj; // saving object in array
+
+        // Storing array in $res variable
+        $res = $this->HouseholdModel->getReasonNotInterestedNoPermissionFromHusband();
+        $NoPermissionFromHusbandObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $NoPermissionFromHusbandObj->value = 'No Permission From Husband';
+        $NoPermissionFromHusbandObj->total = $res[0]->result;
+        $ArrayWithResult[1] = $NoPermissionFromHusbandObj;
+
+        // Storing array in $res variable
+        $res = $this->HouseholdModel->getReasonNotInterestedFamilyNotComplete();
+        $FamilyIncompleteObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $FamilyIncompleteObj->value = 'Family Incomplete';
+        $FamilyIncompleteObj->total = $res[0]->result;
+        $ArrayWithResult[2] = $FamilyIncompleteObj;
+
+        // Storing array in $res variable
+        $res = $this->HouseholdModel->getReasonNotInterestedNoPermissionFromMotherInLaw();
+        $NoPermissionFromMotherInLawObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $NoPermissionFromMotherInLawObj->value = 'No Permission From MotherInLaw';
+        $NoPermissionFromMotherInLawObj->total = $res[0]->result;
+        $ArrayWithResult[3] = $NoPermissionFromMotherInLawObj;
+
+        // Storing array in $res variable
+        $res = $this->HouseholdModel->getReasonNotInterestedOtherReasonForNotUsing();
+        $OtherObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        $OtherObj->value = 'Other';
+        $OtherObj->total = $res[0]->result;
+        $ArrayWithResult[4] = $OtherObj;
+
+
+        $data["fetch_data"] = $ArrayWithResult;
         $data["question_title"] = "Reason for not using FP Method";
-		
         //pass the fetched data to view
         $this->load->view('HouseholdView', $data);
-	}
+
+    }
 
 }
 
