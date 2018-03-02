@@ -45,10 +45,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                    <?php
                    foreach($fetch_data as $index => $row)
                    {
-                       if($index<5){
+                       if($index<9){
                           continue;
                        }
-                        else if ($row->surveyquestionQuestion == "Date of Counselling (ddmmyyyy)")
+                        else if ($row->surveyquestionQuestion == "Date of Counselling")
+                          continue;
+                        else if ($row->surveyquestionQuestion == "Next Meeting")
                           continue;
                        ?>
                        <tr>
