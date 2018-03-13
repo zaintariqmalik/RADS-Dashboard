@@ -18,6 +18,7 @@
         body, html{
             height: 100%;
             background-repeat: no-repeat;
+            background-image: url("<?php echo base_url(); ?>images/background-login.jpg");
             background-color: #d3d3d3;
             font-family: 'Oxygen', sans-serif;
         }
@@ -30,6 +31,7 @@
             font-size: 50px;
             font-family: 'Passion One', cursive;
             font-weight: 400;
+            color: white;
         }
 
         hr{
@@ -56,7 +58,7 @@
             /* shadows and rounded borders */
             -moz-border-radius: 2px;
             -webkit-border-radius: 2px;
-            border-radius: 2px;
+            border-radius: 12px;
             -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
             -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -66,7 +68,7 @@
         .main-center{
             margin-top: 30px;
             margin: 0 auto;
-            max-width: 330px;
+            max-width: 530px;
             padding: 40px 40px;
 
         }
@@ -89,10 +91,10 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/css/bootstrap.min.css">
 
     <!-- Website CSS style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/css/main.css">
 
     <!-- Website Font style -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -108,14 +110,20 @@
     <div class="row main">
         <div class="panel-heading">
             <div class="panel-title text-center">
-                <h1 class="title">AHKRC</h1>
-                <hr />
+
             </div>
         </div>
         <div class="main-login main-center">
           <!--  <p id="message"> Check</p>-->
             <?php echo form_open('LoginController/checkLogin'); ?>
             <div class="form-group">
+                <div class="copy container-fluid" style="padding-bottom: 20px;" align="center">
+                    <p>
+                        <img src="<?php echo base_url(); ?>images\logo\ppif.png" >
+                        &nbsp;&nbsp;
+                        <img src="<?php echo base_url(); ?>images\logo\ahkrc.png"   width="35%">
+                    </p>
+                </div>
                 <label for="email" class="cols-sm-2 control-label">Email</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
@@ -139,12 +147,13 @@
                 <input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Login">
             </div>
 
+
             </form>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
 </body>
 </html>
 <script type="text/javascript">

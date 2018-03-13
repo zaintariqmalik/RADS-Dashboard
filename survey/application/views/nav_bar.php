@@ -8,9 +8,18 @@
             <span class="icon-bar"></span>
         </button>
         <h1> <a class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF</a></h1>
+
     </div>
     <div class=" border-bottom">
-
+        <div class="container-fluid" >
+            <div style="padding-top: 15px;margin-left: 10px;color: #d95459; text-align: center;">
+                    <h5>
+                        The information contained in this Dashboard is confidential, privileged and only for the
+                        information of the intended recipient and may not be used, published or redistributed without
+                        the prior written consent of AHKRC and PPIF.
+                    </h5>
+            </div>
+        </div>
 
         <!-- Brand and toggle get grouped for better mobile display -->
 

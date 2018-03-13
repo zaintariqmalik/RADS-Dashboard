@@ -131,9 +131,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 	 
 		<!---->
-          <div class="copy container-fluid">
-            <p> &copy; 2018 AHKRC. All Rights Reserved  </p>
-	    </div>
+           <?php include "footer.php"?>
 		</div>
 		<div class="clearfix"> </div>
        </div>
