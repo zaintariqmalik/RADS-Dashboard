@@ -25,7 +25,7 @@
         body, html{
             height: 100%;
             background-repeat: no-repeat;
-            background-color: #d3d3d3;
+            background-color: #ffc57f;
             font-family: 'Oxygen', sans-serif;
         }
 
@@ -165,11 +165,11 @@ print_r($counts);
 */
 ?>
 <body>
-<div class="container">
+<div class="container" >
     <div class="row main">
         <div class="panel-heading">
-            <div class="panel-title text-center">
-                <h1 class="title">AHKRC</h1>
+            <div class="panel-title text-center" >
+                <h1 class="title" style="color: #920000">AHKRC</h1>
                 <hr />
             </div>
         </div>
@@ -179,7 +179,7 @@ print_r($counts);
                 <canvas id="bar-chart"></canvas>
             </div>
             <div class="form-group ">
-                <button class="btn btn-primary btn-lg btn-block login-button" onclick="window.location='<?php echo site_url("HouseholdController");?>'">
+                <button style="background-color: #920000" class="btn btn-primary btn-lg btn-block login-button" onclick="window.location='<?php echo site_url("HouseholdController");?>'">
                  back
                  </button>
             </div>
@@ -217,7 +217,7 @@ print_r($counts);
             datasets: [
                 {
                     label: "People Answered",
-                    backgroundColor: ["#3e95cd", "#8e5ea2"],
+                    backgroundColor: ["#000040", "#c81309","#e46e25","#EC7063","#F1C40F"],
                     data: count
                 }
             ]
@@ -226,7 +226,9 @@ print_r($counts);
             legend: { display: false },
             title: {
                 display: true,
-                text: 'Calculated Results'
+                text: 'Time Period: January (2018) - February (2018)',
+                fontColor: '#000',
+                fontSize: 13,
             },
             scales: {
                 yAxes: [{
