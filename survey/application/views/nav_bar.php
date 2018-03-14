@@ -13,11 +13,11 @@
     <div class=" border-bottom">
         <div class="container-fluid" >
             <div style="padding-top: 15px;margin-left: 10px;color: #d95459; text-align: center;">
-                    <h5>
+                   <!--  <h5>
                         The information contained in this Dashboard is confidential, privileged and only for the
                         information of the intended recipient and may not be used, published or redistributed without
                         the prior written consent of AHKRC and PPIF.
-                    </h5>
+                    </h5> -->
             </div>
         </div>
 
@@ -54,6 +54,14 @@
                     </li>
                     <li>
                         <a href="<?php echo site_url('LogoutController')?>"class=" hvr-bounce-to-right"><i class="fa fa-sign-out  nav_icon"></i> <span class="nav-label">Logout</span> </a>
+                    </li>
+                    <li>
+                        <div style="padding: 15px;color: #d95459; text-align: center;background-color: #EAEAEA">
+                            <h6 style="padding-top: 20px; text-overflow: clip;">
+                                The information contained in this Dashboard is confidential, privileged and only for the
+                                information of the intended recipients.<br> No part of this information may be used, published and redistributed without prior written permission from AHKRC.
+                            </h6>
+                        </div>
                     </li>
 
 
