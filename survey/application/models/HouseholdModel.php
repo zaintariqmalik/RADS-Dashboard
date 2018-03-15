@@ -33,7 +33,8 @@ class HouseholdModel extends CI_Model
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select areYouPregnant as value , count(areYouPregnant) as total
 									from household 
-									group by areYouPregnant');
+									group by areYouPregnant
+									order by areYouPregnant desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -46,7 +47,8 @@ class HouseholdModel extends CI_Model
 							  
 									from household 
 									where pregnancyCheckUp <> 3
-									group by pregnancyCheckUp;');
+									group by pregnancyCheckUp
+									order by pregnancyCheckUp desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -58,7 +60,8 @@ class HouseholdModel extends CI_Model
 		$query = $otherdb->query('select EveryUseFPMethod as value, count(EveryUseFPMethod) as total
 								  
 									from household 
-									group by EveryUseFPMethod;');
+									group by EveryUseFPMethod
+									order by EveryUseFPMethod desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -70,7 +73,8 @@ class HouseholdModel extends CI_Model
 		$query = $otherdb->query('select DISTINCT (everFPMethod) as value, count(everFPMethod) as total
 									from household 
 									where EveryUseFPMethod Like "Yes" 
-									group by everFPMethod');
+									group by everFPMethod
+									order by everFPMethod desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -81,7 +85,8 @@ class HouseholdModel extends CI_Model
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select CurrentlyUsingFPMethod as value, count(CurrentlyUsingFPMethod) as total
 									from household 
-									group by CurrentlyUsingFPMethod;');
+									group by CurrentlyUsingFPMethod
+									order by CurrentlyUsingFPMethod desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -94,7 +99,8 @@ class HouseholdModel extends CI_Model
 									
 									from household 
 									where CurrentlyUsingFPMethod Like "Yes"
-									group by currentFPMethodName;');
+									group by currentFPMethodName
+									order by currentFPMethodName desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -105,7 +111,8 @@ class HouseholdModel extends CI_Model
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select FaceSideEffects as value, count(FaceSideEffects) as total
 									from household 
-						     		group by FaceSideEffects;');
+						     		group by FaceSideEffects
+						     		order by FaceSideEffects desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -117,7 +124,8 @@ class HouseholdModel extends CI_Model
 		$query = $otherdb->query('select VisitAnyFPProvider as value, count(	VisitAnyFPProvider) as total
 										from household 
 									where CurrentlyUsingFPMethod = "Yes"
-									group by VisitAnyFPProvider;');
+									group by VisitAnyFPProvider
+									order by VisitAnyFPProvider desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -141,7 +149,8 @@ class HouseholdModel extends CI_Model
 									END as value
 									from household 
 									where useFPMethod = 1 and fpProviderVisit = 1
-									group by visitReason;');
+									group by visitReason
+									order by visitReason desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -238,7 +247,8 @@ class HouseholdModel extends CI_Model
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select WantToUseAnyFPMethod as value, count(WantToUseAnyFPMethod) as total
 						  			from household 
-									group by WantToUseAnyFPMethod;');
+									group by WantToUseAnyFPMethod
+									order by WantToUseAnyFPMethod desc;');
 		$data = $query->result();
 		return $data;
 	}

@@ -207,10 +207,17 @@ print_r($counts);
     //Display counts of each category with them
     var cat1 =cat ;
     var i ;
-    for(i = 0 ;i<cat.length;i++){
+    for(i = 0;i<cat.length;i++){
         cat1[i] = cat[i]+"("+count[i]+")";
     }
 
+    //total count of each question
+    var j;
+    var total_count = 0;
+    for (j=0;j<cat.length;j++)
+    {
+        total_count = total_count + count[j];
+    }
 
     // Bar chart
     new Chart(document.getElementById("bar-chart"), {
@@ -230,7 +237,7 @@ print_r($counts);
             legend: { display: false },
             title: {
                 display: true,
-                text: 'Time Period: January (2018) - February (2018)',
+                text: 'Time Period: January (2018) - February (2018) \n N = ' + total_count,
                 fontColor: '#000',
                 fontSize: 13,
                 showInlineValues : true,

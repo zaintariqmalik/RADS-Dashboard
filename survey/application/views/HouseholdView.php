@@ -208,6 +208,14 @@ print_r($counts);
         cat1[i] = cat[i]+"("+count[i]+")";
     }
 
+    //total count of each question
+    var j;
+    var total_count = 0;
+    for (j=0;j<cat.length;j++)
+    {
+        total_count = total_count + count[j];
+    }
+
     // Bar chart
     new Chart(document.getElementById("bar-chart"), {
         type: 'bar',
@@ -226,7 +234,7 @@ print_r($counts);
             legend: { display: false },
             title: {
                 display: true,
-                text: 'Time Period: January (2018) - February (2018)',
+                text: 'Time Period: January (2018) - February (2018) \n N = ' + total_count,
                 fontColor: '#000',
                 fontSize: 13,
             },
