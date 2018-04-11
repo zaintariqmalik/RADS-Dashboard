@@ -34,7 +34,7 @@ class HouseholdModel extends CI_Model
 		$query = $otherdb->query('select areYouPregnant as value , count(areYouPregnant) as total
 									from household 
 									group by areYouPregnant
-									order by areYouPregnant desc');
+									order by total desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -45,8 +45,9 @@ class HouseholdModel extends CI_Model
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select pregnancyCheckUp as value , count(pregnancyCheckUp) as total
 									from household 
+									where pregnancyCheckUp <> ""
 									group by pregnancyCheckUp
-									order by pregnancyCheckUp desc;');
+									order by total desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -56,10 +57,10 @@ class HouseholdModel extends CI_Model
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select EveryUseFPMethod as value, count(EveryUseFPMethod) as total
-								  
 									from household 
+									where EveryUseFPMethod <> ""
 									group by EveryUseFPMethod
-									order by EveryUseFPMethod desc;');
+									order by total desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -70,12 +71,14 @@ class HouseholdModel extends CI_Model
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select DISTINCT (everFPMethod) as value, count(everFPMethod) as total
 									from household 
-									where EveryUseFPMethod Like "Yes" 
+									where EveryUseFPMethod Like "Yes"
 									group by everFPMethod
-									order by everFPMethod desc');
+									order by total desc');
 		$data = $query->result();
 		return $data;
 	}
+
+
 
 	public function getCurrentFPMethodUsageCount()
 	{
@@ -85,7 +88,7 @@ class HouseholdModel extends CI_Model
 									from household 
 									where CurrentlyUsingFPMethod <> ""
 									group by CurrentlyUsingFPMethod
-									order by CurrentlyUsingFPMethod desc;');
+									order by total desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -109,8 +112,9 @@ class HouseholdModel extends CI_Model
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select FaceSideEffects as value, count(FaceSideEffects) as total
 									from household 
+									where FaceSideEffects <> ""
 						     		group by FaceSideEffects
-						     		order by FaceSideEffects desc;');
+						     		order by total desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -119,11 +123,11 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select VisitAnyFPProvider as value, count(	VisitAnyFPProvider) as total
+		$query = $otherdb->query('select VisitAnyFPProvider as value, count(VisitAnyFPProvider) as total
 										from household 
-									where CurrentlyUsingFPMethod = "Yes"
+									where CurrentlyUsingFPMethod = "Yes" and VisitAnyFPProvider <> ""
 									group by VisitAnyFPProvider
-									order by VisitAnyFPProvider desc;');
+									order by total desc;');
 		$data = $query->result();
 		return $data;
 	}
@@ -148,10 +152,11 @@ class HouseholdModel extends CI_Model
 									from household 
 									where useFPMethod = 1 and fpProviderVisit = 1
 									group by visitReason
-									order by visitReason desc;');
+									order by total desc;');
 		$data = $query->result();
 		return $data;
 	}
+	
 
 	
     public function getFPProviderVisitReasonFPConsulatation()
@@ -165,7 +170,7 @@ class HouseholdModel extends CI_Model
 
         $data = $query->result();
         return $data;
-    }
+	}
 
     public function getFPProviderVisitReasonForIUD()
     {
@@ -244,9 +249,10 @@ class HouseholdModel extends CI_Model
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select WantToUseAnyFPMethod as value, count(WantToUseAnyFPMethod) as total
-						  			from household 
+									  from household 
+									  where WantToUseAnyFPMethod <> ""
 									group by WantToUseAnyFPMethod
-									order by WantToUseAnyFPMethod desc;');
+									order by total desc;');
 		$data = $query->result();
 		return $data;
 	}

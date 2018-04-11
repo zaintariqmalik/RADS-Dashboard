@@ -158,7 +158,7 @@ class HouseholdController extends CI_Controller{
         // Getting Data form ForIUD column
         $res=$this->HouseholdModel->getFPProviderVisitReasonForIUD();
         $ForIUDObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
-        $ForIUDObj->value = 'For IUD';
+        $ForIUDObj->value = 'For IUCD';
         $ForIUDObj->total = $res[0]->result;
         $ArrayWithResult[1] = $ForIUDObj; // saving object in array
 
