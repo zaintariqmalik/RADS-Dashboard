@@ -85,6 +85,7 @@ class HouseholdModel extends CI_Model
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select CurrentlyUsingFPMethod as value, count(CurrentlyUsingFPMethod) as total
 									from household 
+									where CurrentlyUsingFPMethod <> ""
 									group by CurrentlyUsingFPMethod
 									order by CurrentlyUsingFPMethod desc;');
 		$data = $query->result();

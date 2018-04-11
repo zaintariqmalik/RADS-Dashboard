@@ -88,6 +88,10 @@
             text-align: center;
         }
 
+        #grad2 {
+            background: red; /* For browsers that do not support gradients */
+            background: radial-gradient(circle, orange, salmon,  #f5cba7 ); /* Standard syntax (must be last) */
+
     </style>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
@@ -164,7 +168,7 @@ echo "<br/>unique Counts <br/>";
 print_r($counts);
 */
 ?>
-<body>
+<body id="grad2">
 <div class="container" >
     <div class="row main">
         <div class="panel-heading">
@@ -225,7 +229,7 @@ print_r($counts);
             datasets: [
                 {
                     label: "People Answered",
-                    backgroundColor: ["#000040", "#c81309","#e46e25","#EC7063","#F1C40F"],
+                    backgroundColor: ["#000040", "#c81309","#e46e25","#CD5C5C","#F1C40F","#900C3F", "#581845", "#1a5276","#117864","#633974"],
                     data: count
                 }
             ]
