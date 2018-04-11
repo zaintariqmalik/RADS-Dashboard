@@ -44,9 +44,7 @@ class HouseholdModel extends CI_Model
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select pregnancyCheckUp as value , count(pregnancyCheckUp) as total
-							  
 									from household 
-									where pregnancyCheckUp <> 3
 									group by pregnancyCheckUp
 									order by pregnancyCheckUp desc;');
 		$data = $query->result();
@@ -97,11 +95,10 @@ class HouseholdModel extends CI_Model
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
 		$query = $otherdb->query('select DISTINCT (currentFPMethodName) as value, count(currentFPMethodName) as total
-									
 									from household 
 									where CurrentlyUsingFPMethod Like "Yes"
 									group by currentFPMethodName
-									order by currentFPMethodName desc;');
+									order by total desc;');
 		$data = $query->result();
 		return $data;
 	}
