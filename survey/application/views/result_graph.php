@@ -87,6 +87,9 @@
             font-size: 11px;
             text-align: center;
         }
+        #grad2 {
+            background: red; /* For browsers that do not support gradients */
+            background: radial-gradient(circle, white, sandybrown , salmon); /* Standard syntax (must be last) */
 
     </style>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -166,7 +169,7 @@ echo "<br/>unique Counts <br/>";
 print_r($counts);
 */
 ?>
-<body>
+<body id="grad2">
 <div class="container">
     <div class="row main">
         <div class="panel-heading">
