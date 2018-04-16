@@ -20,14 +20,14 @@
        <div class="content-main">
  
   		<!--banner-->	
-		    <div class="banner">
+		    <div class="banner" style = "background: #ecad86">
 		   
 				<h2>
 				<a href="<?php echo site_url('DisplayController/showIndexFile')?>">Home</a>
 				<i class="fa fa-angle-right"></i>
 				<span>Search</span> <i class="fa fa-angle-right"></i>
 
-                    <span>Woman Details</span>
+                    <span>Woman Details (<bold style="color: blue">Household Data </bold>)</span>
 				</h2>
 		    </div>
 		<!--//banner-->
@@ -195,9 +195,21 @@
                                <?php }?>
                        </tbody>
                    </table>
+
+
+                   
                </div>
 
 
+
+			<div class="clearfix"> </div>
+		</div>
+   <br/>
+   <br/>
+   <br/>
+		<!----->
+
+        <?php include "ShowWomenFollowupInfoView.php"?>
 
 			<div class="clearfix"> </div>
 		</div>
@@ -208,7 +220,7 @@
 
 	 
 		<!---->
-           <?php include "footer.php"?>
+          <?php include "footer.php"?>
 		</div>
 		<div class="clearfix"> </div>
        </div>

@@ -26,7 +26,7 @@ class SearchController extends CI_Controller{
         }
         else // Display login page session is not set
             $this->load->view('login');
-    }
+    } 
 
     public function getDetailsOfWomenBySNo($SNO)
     {
@@ -35,13 +35,30 @@ class SearchController extends CI_Controller{
             if($SNO != null) {
                 $this->load->model('SearchModel');
                 $data["fetch_data"] = $this->SearchModel->getWomenSpecificInfo($SNO);
-
+                $data["fetch_data1"] = $this->SearchModel->getWomenSpecificInfo_FollowUp($SNO);
                 $this->load->view('ShowWomenHouseholdInfoView', $data);
+               // $this->load->view('ShowWomenFollowupInfoView', $data);
             }
             else show_404();
         }
         else // Display login page session is not set
             $this->load->view('login');
     }
+/*
+    public function getDetailsOfWomenBySNo_FollowUp($SNO)
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            if($SNO != null) {
+                $this->load->model('SearchModel');
+                $data["fetch_data"] = $this->SearchModel->getWomenSpecificInfo_FollowUp($SNO);
+                $this->load->view('ShowWomenFollowupInfoView', $data);
+            }
+            else show_404();
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    }
+    */
 }
 ?>

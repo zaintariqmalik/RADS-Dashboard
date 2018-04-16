@@ -8,6 +8,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Custom Theme files -->
 <link href="<?php echo base_url(); ?>css/style.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo base_url(); ?>css/font-awesome.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
 <script src="<?php echo base_url(); ?>js/jquery.min.js"> </script>
 <!-- Mainly scripts -->
 <script src="<?php echo base_url(); ?>js/jquery.metisMenu.js"></script>

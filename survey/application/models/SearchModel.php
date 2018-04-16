@@ -25,5 +25,13 @@ class SearchModel extends CI_Model{
         $result1 =$query->result();
         return $result1;
     }
+
+    public  function getWomenSpecificInfo_FollowUp($SNO){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT * FROM `followup` where `SNO` ='$SNO'");
+
+        $result2 =$query->result();
+        return $result2;
+    }
 }
 ?>
