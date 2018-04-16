@@ -23,6 +23,16 @@ class DisplayMapController extends CI_Controller {
 
 
     }
+
+    public function sm_data(){
+        if($this->session->userdata('User_Logged_In')){
+            $this->load->model('DisplayMap');
+            $data["fetch_data"] = $this->DisplayMap->getSM_MapData();
+            $this->load->view('Map2',$data);
+        }
+        else
+            $this->load->view('Login');
+    }
 }
 
 ?>

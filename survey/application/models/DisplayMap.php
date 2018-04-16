@@ -28,6 +28,24 @@ class DisplayMap extends CI_Model {
         return $result1;
     }
 
+    
+    public function getSM_MapData(){
+
+        $otherdb = $this->load->database('otherdb',TRUE);
+
+        $query = $otherdb->query('select * from location_sm');
+/*
+        $this->db->select('lat');
+        $this->db->select('lng');
+        $this->db->from('locations');
+        $query =$this->db->get();*/
+
+        $result1 =$query->result();
+        //die(print_r($result1));
+        return $result1;
+    }
+
+
 
 }
 ?>

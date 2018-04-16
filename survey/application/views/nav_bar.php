@@ -50,6 +50,7 @@
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo site_url('DisplayMapDivisionController')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>Dhok Hassu Division</a></li>
                             <li><a href="<?php echo site_url('DisplayMapController')?>" class=" hvr-bounce-to-right"> <i class="fa fa-map-pin nav_icon"></i>Household visits</a></li>
+                            <li><a href="<?php echo site_url('DisplayMapController/sm_data')?>" class=" hvr-bounce-to-right"> <i class="fa fa-map-pin nav_icon"></i>SM visits</a></li>
                              </ul>
                     </li>
                     <li>
