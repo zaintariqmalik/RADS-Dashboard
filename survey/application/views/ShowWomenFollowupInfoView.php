@@ -6,7 +6,10 @@
     <h2>
     <a href="<?php echo site_url('DisplayController/showIndexFile')?>">Home</a>
     <i class="fa fa-angle-right"></i>
-    <span>Search</span> <i class="fa fa-angle-right"></i>
+    <a href="<?php echo site_url('SearchController'); ?>">
+        <span>Search</span> 
+    </a>
+        <i class="fa fa-angle-right"></i>
 
         <span>Woman Details (<bold style="color: blue">Follow-Ups Data </bold>)</span>
     </h2>
@@ -17,7 +20,7 @@
 <div class="container-fluid" >
 
     <div class="table-responsive" style="background-color: white;border-radius: 3px">
-        <table id="women_data" class="table table-striped table-bordered">
+        <table id="women_data" class="table table-striped table-bordered display">
 
             <tbody>
                     <?php $count = 1;
@@ -82,7 +85,14 @@
                             <td>Comments</td>
                             <td><?php echo $row->comment?></td>
                         </tr>
-
+                        <?php
+                            if ($count == 3){
+                        ?>
+                        <tr>
+                            <td>Conclusion</td>
+                            <td><?php echo $row->conclusion?></td>
+                        </tr>
+                            <?php } ?>
                     <?php $count = $count + 1;}?>
             </tbody>
         </table>

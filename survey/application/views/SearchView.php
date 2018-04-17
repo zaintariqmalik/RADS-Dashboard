@@ -34,8 +34,8 @@
 		<!--content-->
 		<div class="container-fluid" >
 
-               <div class="table-responsive" style="background-color: white;border-radius: 3">
-                   <table id="women_data" class="table table-striped table-bordered">
+               <div class="table table-striped table-bordered table-responsive table-display" style="background-color: white;border-radius: 3">
+                   <table id="women_data" class="table table-striped table-bordered text-center">
                        <thead>
                        <tr>
                            <td>Serial Number</td>
