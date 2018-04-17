@@ -20,7 +20,7 @@
 <div class="container-fluid" >
 
     <div class="table-responsive" style="background-color: white;border-radius: 3px">
-        <table id="women_data" class="table table-striped table-bordered display">
+        <table id="women_data" class="table table-striped display">
 
             <tbody>
                     <?php $count = 1;

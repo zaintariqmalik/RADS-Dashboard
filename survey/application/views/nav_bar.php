@@ -1,25 +1,18 @@
-<!----->
-<nav class="navbar-default navbar-static-top" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <h1> <a style="background-color:#e46e25;" class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF</a></h1>
 
-    </div>
+
+    <!--
     <div class=" border-bottom">
         <div class="container-fluid" >
             <div style="padding-top: 15px;margin-left: 10px;color: #d95459; text-align: center;">
-                   <!--  <h5>
+                    
+                    
+                    <h5>
                         The information contained in this Dashboard is confidential, privileged and only for the
                         information of the intended recipient and may not be used, published or redistributed without
                         the prior written consent of AHKRC and PPIF.
-                    </h5> -->
+                    </h5> 
             </div>
-        </div>
+        </div>-->
 
         <!-- Brand and toggle get grouped for better mobile display -->
 
@@ -29,6 +22,18 @@
         </div>
 
         <div class="navbar-default sidebar" role="navigation">
+        <nav class="navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1> <a style="background-color:#e46e25;" class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF</a></h1>
+
+            </div>
+        </nav>
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
 

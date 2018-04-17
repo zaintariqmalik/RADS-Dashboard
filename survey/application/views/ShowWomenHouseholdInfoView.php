@@ -39,7 +39,7 @@
 		<div class="container-fluid" >
 
                <div class="table-responsive" style="background-color: white;border-radius: 3px">
-                   <table id="women_data" class="table table-striped table-bordered table-display">
+                   <table id="women_data" class="table table-striped table-display">
 
                        <tbody>
                                <?php foreach ($fetch_data as $row){?>

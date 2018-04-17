@@ -34,7 +34,7 @@
 		<!--content-->
 		<div class="container-fluid" >
 
-               <div class="table table-striped table-bordered table-responsive table-display" style="background-color: white;border-radius: 3">
+               <div class="table table-striped table-responsive table-display" style="background-color: white;border-radius: 3">
                    <table id="women_data" class="table table-striped table-bordered text-center">
                        <thead>
                        <tr>
