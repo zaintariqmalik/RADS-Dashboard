@@ -42,6 +42,10 @@
                     </li>
 
                     <li>
+                        <a href="<?php echo site_url('SocialMobilizerController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Social Mobilizer Data</span> </a>
+                    </li>
+                    
+                    <li>
                         <a href="<?php echo site_url('HouseholdController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Household Form</span> </a>
                     </li>
 
