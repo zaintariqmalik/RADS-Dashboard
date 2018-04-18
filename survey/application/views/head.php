@@ -9,6 +9,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="<?php echo base_url(); ?>css/style.css" rel='stylesheet' type='text/css' />
 <link href="<?php echo base_url(); ?>css/font-awesome.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
 
 <script src="<?php echo base_url(); ?>js/jquery.min.js"> </script>
 <!-- Mainly scripts -->
@@ -18,6 +21,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
 <script src="<?php echo base_url(); ?>js/custom.js"></script>
 <script src="<?php echo base_url(); ?>js/screenfull.js"></script>
+
+
+
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css" />
+
 <script>
     $(function () {
         $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);

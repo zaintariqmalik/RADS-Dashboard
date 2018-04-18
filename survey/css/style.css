@@ -220,7 +220,7 @@ h1 a.navbar-brand {
 	font-size: 30px;
 	font-weight: 500;
     padding: 20px 0px;
-    background: #d95459;
+    background: #5bc0de;
     text-align: center;
 	width:248px;
 	height: 60px;
@@ -527,7 +527,7 @@ i.fa.fa-globe {
 }
 /*----*/
 .banner { 
-    background: #fff;
+    background: #e8f6fb;
     display: block;
     margin: 0em 1em ;
 	padding:1em;
@@ -2841,4 +2841,18 @@ ul.dropdown-menu.dropdown-menu-right {
 .top-content label {
     font-size: 1.6em;
 }
+}
+table.dataTable thead .sorting_asc:after{
+    color: green;
+}
+table.dataTable thead .sorting:after{
+    color: green;
+}
+div.dataTables_wrapper div.dataTables_length label {
+    margin: 0 20px;
+    text-transform: capitalize;
+}
+div.dataTables_wrapper div.dataTables_filter label{
+    margin: 0 20px;
+    text-transform: capitalize;
 }

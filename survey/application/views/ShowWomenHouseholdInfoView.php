@@ -20,7 +20,7 @@
        <div class="content-main">
  
   		<!--banner-->	
-		    <div class="banner" style = "background: #ecad86">
+		    <div class="banner">
 		   
 				<h2>
 				<a href="<?php echo site_url('DisplayController/showIndexFile')?>">Home</a>
@@ -39,7 +39,7 @@
 		<div class="container-fluid" >
 
                <div class="table-responsive" style="background-color: white;border-radius: 3px">
-                   <table id="women_data" class="table table-striped table-display">
+                   <table id="women_data" class="table table-striped dt-responsive nowrap table-display">
 
                        <tbody>
                                <?php foreach ($fetch_data as $row){?>

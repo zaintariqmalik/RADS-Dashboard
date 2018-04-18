@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1> <a style="background-color:#e46e25;" class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF</a></h1>
+                <h1> <a class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF</a></h1>
 
             </div>
         </nav>
@@ -66,10 +66,10 @@
                         <a href="<?php echo site_url('LogoutController')?>"class=" hvr-bounce-to-right"><i class="fa fa-sign-out  nav_icon"></i> <span class="nav-label">Logout</span> </a>
                     </li>
                     <li>
-                        <div style="padding: 15px;color: #d95459; text-align: center;background-color: #EAEAEA">
+                        <div style="padding: 15px;color: #066a88; text-align: left;background-color: #EAEAEA">
                             <h6 style="padding-top: 20px; text-overflow: clip;">
                                 The information contained in this Dashboard is confidential, privileged and only for the
-                                information of the intended recipients.<br> No part of this information may be used, published and redistributed without prior written permission from AHKRC.
+                                information of the intended recipients.<br><br> No part of this information may be used, published and redistributed without prior written permission from AHKRC.
                             </h6>
                         </div>
                     </li>

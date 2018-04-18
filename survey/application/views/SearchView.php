@@ -6,10 +6,6 @@
     <?php
     $this->load->view('head');
     ?>
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
-
 </head>
 <body>
 <div id="wrapper">
@@ -35,7 +31,7 @@
 		<div class="container-fluid" >
 
                <div class="table table-striped table-responsive table-display" style="background-color: white;border-radius: 3">
-                   <table id="women_data" class="table table-striped table-bordered text-center">
+                   <table id="women_data" class="table table-striped text-capitalize dt-responsive nowrap text-center">
                        <thead>
                        <tr>
                            <td>Serial Number</td>

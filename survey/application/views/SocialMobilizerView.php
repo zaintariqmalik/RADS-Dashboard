@@ -35,10 +35,12 @@
 		<div class="container-fluid" >
 
                <div class="table-responsive" style="background-color: white;border-radius: 3">
-                   <table id="women_data" class="table table-striped table-bordered">
+                   <table id="women_data" class="table table-striped dt-responsive nowrap">
                        <thead>
                        <tr>
                                  <td>Serial Number</td>
+                                 <td>Question</td>
+                                 <td>Response</td>
                                  <td>View More</td>
                        </tr>
                        </thead>
@@ -46,6 +48,8 @@
                        <tbody>
                                <?php foreach ($fetch_data as $row){?>
                                    <tr>
+                                            <td><?php echo $row->ID?></td>
+                                            <td><?php echo $row->Question?></td>
                                             <td><?php echo $row->Response?></td>
                                             <td><a href="<?php echo site_url('SocialMobilizerController/getDetailsOfSMBySNo/'.$row->ID)?>"><button type="button" class="btn btn-info">View</button> </a></td>
                                    </tr>

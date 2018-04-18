@@ -1,4 +1,0 @@
-UPDATE household SET everFPMethod = "injection" WHERE everFPMethod = "injections";
-
-
-UPDATE household SET everFPMethod = "Traditional Method" WHERE everFPMethod = "tardinal method";
