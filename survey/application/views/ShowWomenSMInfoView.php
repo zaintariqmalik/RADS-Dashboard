@@ -47,7 +47,9 @@
                                <?php }?>
                        </tbody>
                    </table>
+                   <a href="<?php echo site_url('SocialMobilizerController/index')?>"><button type="button" class="btn btn-info" style="width: 100%">Back</button> </a>
                </div>
+
 
 
 

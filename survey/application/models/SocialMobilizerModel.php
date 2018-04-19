@@ -28,7 +28,8 @@ class SocialMobilizerModel extends CI_Model{
                                     from surveyquestion as q
                                     left join surveyanswer as a
                                     on a.surveyquestionId = q.surveyquestionId
-                                    where a.surveylistId = '103'");
+                                    where q.surveyquestionQuestion in ('Serial number') and 
+                                    a.surveylistId = '103'");
 
         /*$this->db->select('surveyanswer.surveyresultsId, surveyquestion.surveyquestionQuestion, surveyanswer.surveyanswerAnswer');
         $this->db->from('surveyquestion');
