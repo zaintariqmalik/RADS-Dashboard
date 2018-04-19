@@ -31,27 +31,45 @@
 		<div class="container-fluid" >
 
                <div class="table table-striped table-responsive table-display" style="background-color: white;border-radius: 3">
-                   <table id="women_data" class="table table-striped text-capitalize dt-responsive nowrap text-center">
+                   <table data-page-length='25' id="women_data" class="search table table-striped text-capitalize dt-responsive nowrap ">
                        <thead>
                        <tr>
-                           <td>Serial Number</td>
-                           <td>Women Name</td>
-                           <td>Muhalah</td>
-                           <td>Api Name</td>
-                           <td>Social Mobilizer Name</td>
-                           <td>ViewMore</td>
+                           <th>S.No.</th>
+                           <th>Name</th>
+                           <th>Mohallah</th>
+                           <th>Aapi Code</th>
+                           <th>Aapi Name</th>
+                           <th>SM Name</th>                           
+                           <th id="datepicker">Date</th>                         
+                           <th>Age</th>
+                           <th>View</th>
                        </tr>
                        </thead>
-
+                       <tfoot>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Name</th>
+                                <th>Mohallah</th>
+                                <th>Aapi Code</th>
+                                <th>Aapi Name</th>
+                                <th>SM Name</th>                           
+                                <th id="datepicker">Date</th>                         
+                                <th>Age</th>
+                                <th>View</th>
+                            </tr>
+                        </tfoot>
                        <tbody>
                                <?php foreach ($fetch_data as $row){?>
                                    <tr>
                                             <td><?php echo $row->SNO?></td>
                                             <td><?php echo $row->Name?></td>
                                             <td><?php echo $row->MUHALA?></td>
+                                            <td><?php echo $row->API?></td>
                                             <td><?php echo $row->APIName?></td>
-                                            <td><?php echo $row->SM?></td>
-                                            <td><a href="<?php echo site_url('SearchController/getDetailsOfWomenBySNo/'.$row->SNO)?>"><button type="button" class="btn btn-info">View</button> </a></td>
+                                            <td><?php echo $row->SM?></td>                          
+                                            <td><?php echo $row->Date?></td>                                           
+                                            <td><?php echo $row->Age?></td>
+                                            <td><a href="<?php echo site_url('SearchController/getDetailsOfWomenBySNo/'.$row->SNO)?>" class="under"> View More..<!--<button type="button" class="btn btn-info">View</button>--> </a></td>
                                    </tr>
                                <?php }?>
                        </tbody>

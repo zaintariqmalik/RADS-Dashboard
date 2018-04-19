@@ -295,7 +295,7 @@ ul.nav.navbar-nav.navbar-right {
   transition-timing-function: ease-out;
 }
 .hvr-bounce-to-right:hover, .hvr-bounce-to-right:focus, .hvr-bounce-to-right:active {
-
+   
 }
 .hvr-bounce-to-right:hover:before, .hvr-bounce-to-right:focus:before, .hvr-bounce-to-right:active:before {
   -webkit-transform: scaleX(1);
@@ -321,7 +321,7 @@ ul.nav.navbar-nav.navbar-right {
     margin-right: 14px;
 }
 i.nav_icon {
-    color: #999;
+    color: #5bc0de;
     padding: 15px;
     width: 44px;
     height: 44px;
@@ -1733,6 +1733,10 @@ a#myTabDrop1,a#profile-tab,a#home-tab {
 div#home {
     padding: 1em 0 0;
 }
+table.search td, table.search>tbody>tr>td, table.search>tbody>tr>th, table.search>tfoot>tr>td, table.search>tfoot>tr>th, table.search>thead>tr>td, table.search>thead>tr>th {
+    padding: 8px !important;
+}
+
 .table td, .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     padding: 15px !important;
     font-size: 0.85em;
@@ -2842,6 +2846,8 @@ ul.dropdown-menu.dropdown-menu-right {
     font-size: 1.6em;
 }
 }
+
+/*Following css added by Zeeshan*/
 table.dataTable thead .sorting_asc:after{
     color: green;
 }
@@ -2849,10 +2855,36 @@ table.dataTable thead .sorting:after{
     color: green;
 }
 div.dataTables_wrapper div.dataTables_length label {
-    margin: 0 20px;
+    margin: 0 10px;
     text-transform: capitalize;
+    font-weight: bold !important;
+    color: gainsboro;
 }
 div.dataTables_wrapper div.dataTables_filter label{
-    margin: 0 20px;
+    margin: 0 10px;
     text-transform: capitalize;
+    font-weight: bold !important;
+    color: gainsboro;
+}
+div.dataTables_wrapper div.dataTables_info {
+    margin-left: 11px;
+    font-weight: bold;
+    color:#8080809e;
+}
+.pagination>li {
+    font-weight: bold !important;
+}
+div.dataTables_wrapper div.dataTables_length select {
+    font-weight: bold;
+    color: gainsboro;
+}
+.pagination>li>a{
+    color:#8080809e !important;
+    border-right: none !important;
+    border-left: none !important;
+}
+.pagination>.active>a{
+    border-right: none !important;
+    background-color: #ddd !important;
+    border-color: #ddd !important;
 }

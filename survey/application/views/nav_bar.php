@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1> <a class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF</a></h1>
+                <h1 style = "margin-top: 0px !important;"> <a class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF</a></h1>
 
             </div>
         </nav>
@@ -44,6 +44,10 @@
 
                     <li>
                         <a href="<?php echo site_url('DisplayController/showIndexFile')?>" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i> <span class="nav-label">Social Mobilizer</span> </a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo site_url('MonitoringAndEvaluationController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">M & E Data</span> </a>
                     </li>
 
                     <li>

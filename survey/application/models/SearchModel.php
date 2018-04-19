@@ -13,7 +13,7 @@ class SearchModel extends CI_Model{
 
     public  function  getWomenGeneralInfo(){
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `SM`, `Name`  FROM `household`');
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM `household`');
         $result1 =$query->result();
         return $result1;
     }
