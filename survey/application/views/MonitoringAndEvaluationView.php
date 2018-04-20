@@ -42,10 +42,10 @@
                <div class="table-responsive" style="background-color: white;border-radius: 3">
                    <table id="women_data" class="table table-striped dt-responsive nowrap">
                        <thead>
-                       <tr>
-                                 <td>Serial Number</td>
-                                 <td>View More</td>
-                       </tr>
+                            <tr>
+                                <td>Serial Number</td>
+                                <td>View More</td>
+                            </tr>
                        </thead>
 
                        <tbody>

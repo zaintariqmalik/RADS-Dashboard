@@ -34,5 +34,31 @@ class  LoginModel extends CI_Model{
             return false;
         }
     }
+
+    public function login_details($email,$password){
+
+        $this->load->helper('date');
+        $date = new DateTime("now");
+ 
+        $curr_date = $date->format('Y-m-d ');
+        $curr_time = $date->format('H:i:s ');
+
+        $this->db->select('userId');
+        $this->db->from('user');
+        $this->db->where('userUsername',$email);
+        $this->db->where('userPassword',$password);
+
+        $query = $this->db->get();
+
+        $data = array(
+            'userId'=> $query->row()->userId,
+            'userUsername' => $email,
+            'loginDate' => $curr_date,
+            'loginTime' => $curr_time
+    );
+    
+    $this->db->insert('logindetails',$data);
+
+    }
 }
 ?>

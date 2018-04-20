@@ -31,7 +31,7 @@
 				</h2>
 		    </div>
 		<!--//banner-->
-		<!--content-->custom_padding{}
+		<!--content-->
 		<div class="container-fluid" >
 
                <div class="table-responsive custom_padding" style="background-color: white;border-radius: 3">

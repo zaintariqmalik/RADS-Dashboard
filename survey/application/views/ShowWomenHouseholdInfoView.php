@@ -48,11 +48,11 @@
                                        <td><?php echo $row->SNO?></td>
                                    </tr>
                                    <tr>
-                                       <td>Api Code</td>
+                                       <td>Aapi Code</td>
                                        <td><?php echo $row->API?></td>
                                    </tr>
                                    <tr>
-                                       <td>Api Name</td>
+                                       <td>Aapi Name</td>
                                        <td><?php echo $row->APIName?></td>
                                    </tr>
                                    <tr>
@@ -60,11 +60,11 @@
                                        <td><?php echo $row->SM?></td>
                                    </tr>
                                    <tr>
-                                       <td>Muhalah</td>
+                                       <td>Mohallah</td>
                                        <td><?php echo $row->MUHALA?></td>
                                    </tr>
                                    <tr>
-                                       <td>Woman's Name</td>
+                                       <td>Client Name</td>
                                        <td><?php echo $row->Name?></td>
                                    </tr>
                                    <tr>

@@ -21,15 +21,14 @@ class MonitoringAndEvaluationModel extends CI_Model{
                                     on a.surveyquestionId = q.surveyquestionId
                                     where q.surveyquestionQuestion in ('Serial number') and 
                                     a.surveylistId = '103'");
-
                                      q.surveyquestionQuestion in ('Serial number')  and
         */
        $query = $this->db->query("select a.surveyresultsId as ID, q.surveyquestionQuestion as Question, a.surveyanswerAnswer as Response
                                     from surveyquestion as q
                                     left join surveyanswer as a
                                     on a.surveyquestionId = q.surveyquestionId
-                                    where q.surveyquestionQuestion in ('Serial number') and 
-                                    a.surveylistId = '103'");
+                                    where 
+                                    a.surveylistId = '102'");
 
         /*$this->db->select('surveyanswer.surveyresultsId, surveyquestion.surveyquestionQuestion, surveyanswer.surveyanswerAnswer');
         $this->db->from('surveyquestion');
@@ -49,7 +48,7 @@ class MonitoringAndEvaluationModel extends CI_Model{
                                     from surveyquestion as q
                                     left join surveyanswer as a
                                     on q.surveyquestionId = a.surveyquestionId
-                                    where q.surveylistId = '103' 
+                                    where q.surveylistId = '102' 
                                     and a.surveyresultsId = '$SNO'
                                     group by a.surveyanswerId
                                     ");
