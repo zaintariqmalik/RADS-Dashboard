@@ -318,7 +318,7 @@ ul.nav.navbar-nav.navbar-right {
 
 }
 .nav > li > a i {
-    margin-right: 14px;
+    margin-right: 14px;    
 }
 i.nav_icon {
     color: #5bc0de;
@@ -527,7 +527,7 @@ i.fa.fa-globe {
 }
 /*----*/
 .banner { 
-    background: #e8f6fb;
+    background: #f9f9f9;
     display: block;
     margin: 0em 1em ;
 	padding:1em;
@@ -2386,8 +2386,8 @@ ul.new {
   margin-bottom:5px;
 }
 .navbar-default .navbar-toggle {
-	border-color: #1ABC9C;
-    background-color: #1ABC9C !important;
+	border: none;
+    background: none;
     margin-right: 16px;
     margin-top: 13px;
 }
@@ -2411,7 +2411,7 @@ form.navbar-form.navbar-right {
     right: 93%;
 }
 .navbar-header {
-    background-color: #D95459;
+    background-color: #5bc0de;
 }
 h1 a.navbar-brand {
     width: 152px;
@@ -2887,4 +2887,7 @@ div.dataTables_wrapper div.dataTables_length select {
     border-right: none !important;
     background-color: #ddd !important;
     border-color: #ddd !important;
+}
+.custom_padding{ 
+    padding: 15px 54px 0px 0px !important;
 }

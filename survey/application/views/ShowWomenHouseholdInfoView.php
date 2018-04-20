@@ -209,7 +209,6 @@
 		</div>
    <br/>
    <br/>
-   <br/>
 		<!----->
 
         <?php include "ShowWomenFollowupInfoView.php"?>

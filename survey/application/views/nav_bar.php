@@ -22,18 +22,19 @@
         </div>
 
         <div class="navbar-default sidebar" role="navigation">
-        <nav class="navbar-default" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <h1 style = "margin-top: 0px !important;"> <a class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF</a></h1>
+            <div class="navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h1 style = "margin-top: 0px !important;"> <a class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF
+                  </a></h1>
 
+                </div>
             </div>
-        </nav>
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
 

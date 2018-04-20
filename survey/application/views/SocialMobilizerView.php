@@ -31,10 +31,10 @@
 				</h2>
 		    </div>
 		<!--//banner-->
-		<!--content-->
+		<!--content-->custom_padding{}
 		<div class="container-fluid" >
 
-               <div class="table-responsive" style="background-color: white;border-radius: 3">
+               <div class="table-responsive custom_padding" style="background-color: white;border-radius: 3">
                    <table id="women_data" class="table table-striped dt-responsive nowrap">
                        <thead>
                        <tr>
