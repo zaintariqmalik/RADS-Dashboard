@@ -23,21 +23,12 @@ class MonitoringAndEvaluationModel extends CI_Model{
                                     a.surveylistId = '103'");
                                      q.surveyquestionQuestion in ('Serial number')  and
         */
-       $query = $this->db->query("select a.surveyresultsId as ID, q.surveyquestionQuestion as Question, a.surveyanswerAnswer as Response
+       $query = $this->db->query("select a.surveyresultsId as ID, q.surveyquestionQuestion as Question,a.surveyanswerAnswer as Response
                                     from surveyquestion as q
                                     left join surveyanswer as a
                                     on a.surveyquestionId = q.surveyquestionId
-                                    where 
-                                    a.surveylistId = '102'");
-
-        /*$this->db->select('surveyanswer.surveyresultsId, surveyquestion.surveyquestionQuestion, surveyanswer.surveyanswerAnswer');
-        $this->db->from('surveyquestion');
-        $this->db->join('surveyanswer','surveyquestion.surveyquestionId=surveyanswer.surveyquestionId','Left'); 
-        $this->db->where('surveyquestion.surveyquestionQuestion','Serial number');
-        $this->db->where('surveyanswer.surveylistId','103');
-        $query=$this->db->get();*/
-        //print_r($query->result_array());
-        //exit();
+                                    where q.surveyquestionQuestion in ( 'Serial Number') and 
+                                    a.surveylistId = '108'");
         return $query->result() ;
     }
 
@@ -48,7 +39,7 @@ class MonitoringAndEvaluationModel extends CI_Model{
                                     from surveyquestion as q
                                     left join surveyanswer as a
                                     on q.surveyquestionId = a.surveyquestionId
-                                    where q.surveylistId = '102' 
+                                    where q.surveylistId = '108' 
                                     and a.surveyresultsId = '$SNO'
                                     group by a.surveyanswerId
                                     ");

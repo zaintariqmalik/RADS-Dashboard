@@ -19,13 +19,20 @@ class  LoginModel extends CI_Model{
 
         //$this->load->database(true);
         //$this->load->library('session');
+        
+        /* old code - data fetching from resdev db 
 
         $this->db->select('userUsername','userPassword');
         $this->db->from('user');
         $this->db->where('userUsername',$email);
         $this->db->where('userPassword',$password);
-
-        $query = $this->db->get();
+        //$query = $this->db->get();
+        */
+       
+        // seperate user table
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query("select userUsername, userPassword from user 
+                                    where userUsername = '$email' and userPassword = '$password'");
 
         if($query->num_rows()>0){
             return true;
@@ -43,12 +50,16 @@ class  LoginModel extends CI_Model{
         $curr_date = $date->format('Y-m-d ');
         $curr_time = $date->format('H:i:s ');
 
-        $this->db->select('userId');
-        $this->db->from('user');
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query("select userId from logindetails 
+                                    where userUsername = '$email'");
+
+       /* $this->db->select('userId');
+        $this->db->from('logindetails');
         $this->db->where('userUsername',$email);
         $this->db->where('userPassword',$password);
 
-        $query = $this->db->get();
+        $query = $this->db->get();*/
 
         $data = array(
             'userId'=> $query->row()->userId,
@@ -57,7 +68,7 @@ class  LoginModel extends CI_Model{
             'loginTime' => $curr_time
     );
     
-    $this->db->insert('logindetails',$data);
+    $otherdb->insert('logindetails',$data);
 
     }
 }
