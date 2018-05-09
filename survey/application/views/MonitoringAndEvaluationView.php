@@ -19,7 +19,7 @@
 <body>
 <div id="wrapper">
 
-<!----->
+<!------>
     <?php
     $this->load->view('nav_bar');
     ?>

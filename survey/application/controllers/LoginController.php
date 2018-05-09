@@ -20,14 +20,18 @@ class LoginController extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('session');
+
        // $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         //$this->form_validation->set_rules('password', 'Password', 'required');
 
         // IF session is set then call the model::getSurveyQuestions() to get data and pass to success
         if($this->session->userdata('User_Logged_In')) {
-            $this->load->model('DisplayData');
-            $this->data["fetch_data"] = $this->DisplayData->getSurveyQuestions();
-            $this->load->view('index', $this->data);
+            $this->load->model('DashboardSummaryModel');
+            $this->data["fetchHousehold"] = $this->DashboardSummaryModel->getHouseholdCount();
+            $this->data["fetchFollowUp"] = $this->DashboardSummaryModel->getFollowUpCount();
+            $this->data["fetchMonitoring"] = $this->DashboardSummaryModel->getMonitoringVisitsCount();
+            $this->data["fetchSM"] = $this->DashboardSummaryModel->getSMVisitsCount();
+            $this->load->view('DashboardSummary', $this->data);
         }
         else // Display login page session is not set
             $this->load->view('Login');
@@ -43,36 +47,41 @@ class LoginController extends CI_Controller {
 
     public function checkLogin()
     {
-
-
-
         // Load session
         // IF session is set then call the model::getSurveyQuestions() to get data and pass to success
         $this->load->library('session');
         $sess = $this->session->userdata('User_Logged_In');
 
         if(!empty($sess)) {
-            $this->load->model('DisplayData');
-            $this->data["fetch_data"] = $this->DisplayData->getSurveyQuestions();
-            $this->load->view('index', $this->data);
+            $this->load->model('DashboardSummaryModel');
+            $this->data["fetchHousehold"] = $this->DashboardSummaryModel->getHouseholdCount();
+            $this->data["fetchFollowUp"] = $this->DashboardSummaryModel->getFollowUpCount();
+            $this->data["fetchMonitoring"] = $this->DashboardSummaryModel->getMonitoringVisitsCount();
+            $this->data["fetchSM"] = $this->DashboardSummaryModel->getSMVisitsCount();
+            $this->load->view('DashboardSummary', $this->data);
         }
         else
         {
-        $email = $this->input->post('email');
-        $password = $this->input->post('password');
-        $this->load->model('LoginModel');
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+            $this->load->model('LoginModel');
 
-        // calling LoginModel::login($email,$password)
-        if ($this->LoginModel->login($email, $password)) {
-                //calling LoginModel::loginDetails(email,password);
-                $this->LoginModel->login_details($email, $password);
-                $this->load->model('DisplayData');
-                $this->data['fetch_data'] = $this->DisplayData->getSurveyQuestions();
-                $this->session->set_userdata('User_Logged_In', 'true');
-                $this->load->view('index', $this->data);
-        } else {
-            $this->load->view('Login');
+            // calling LoginModel::login($email,$password)
+            if ($this->LoginModel->login($email, $password)) {
+                    //calling LoginModel::loginDetails(email,password);
+                    $this->session->set_userdata('User_Logged_In', 'true');
+                    $this->LoginModel->login_details($email, $password);
+                    $this->load->model('DashboardSummaryModel');
+                    $this->data["fetchHousehold"] = $this->DashboardSummaryModel->getHouseholdCount();
+                    $this->data["fetchFollowUp"] = $this->DashboardSummaryModel->getFollowUpCount();
+                    $this->data["fetchMonitoring"] = $this->DashboardSummaryModel->getMonitoringVisitsCount();
+                    $this->data["fetchSM"] = $this->DashboardSummaryModel->getSMVisitsCount();
+                    $this->load->view('DashboardSummary', $this->data);
+            }
+            else 
+            {
+                $this->load->view('Login');
+            }
         }
-    }
     }
 }

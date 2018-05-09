@@ -30,34 +30,43 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <h1 style = "margin-top: 0px !important;"> <a class="navbar-brand" href="<?php echo site_url('DisplayController/showIndexFile')?>">PPIF
-                  </a></h1>
+                    <h1 style = "margin-top: 0px !important;"> 
+                        <a class="navbar-brand" href="<?php echo site_url('DashboardSummaryController')?>">
+                            PPIF
+                        </a>
+                    </h1>
 
                 </div>
             </div>
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
 
-
                     <li>
-                        <a href="<?php echo site_url('SearchController')?>" class=" hvr-bounce-to-right"><i class="fa fa-search nav_icon"></i> <span class="nav-label">Search</span> </a>
+                        <a href="<?php echo site_url('DashboardSummaryController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Home</span> </a>
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('DisplayController/showIndexFile')?>" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i> <span class="nav-label">Social Mobilizer</span> </a>
+                        <a href="<?php echo site_url('SearchController')?>" class=" hvr-bounce-to-right"><i class="fa fa-search nav_icon"></i> <span class="nav-label">Search Household</span> </a>
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('MonitoringAndEvaluationController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">M & E Data</span> </a>
+                        <a href="<?php echo site_url('HouseholdController')?>" class=" hvr-bounce-to-right"><i class="fa fa-sticky-note-o nav_icon"></i> <span class="nav-label">Household Form</span> </a>
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('SocialMobilizerController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Social Mobilizer Data</span> </a>
+                        <a href="<?php echo site_url('SocialMobilizerController')?>" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i> <span class="nav-label">Search Social Mobilizer</span> </a>
                     </li>
+
+                    <li>
+                        <a href="<?php echo site_url('DisplayController/showIndexFile')?>" class=" hvr-bounce-to-right"><i class="fa fa-sticky-note-o nav_icon"></i> <span class="nav-label">Social Mobilizer Form</span> </a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo site_url('MonitoringAndEvaluationController')?>" class=" hvr-bounce-to-right"><i class="fa fa-check-circle-o nav_icon"></i> <span class="nav-label">M & E Data</span> </a>
+                    </li>
+
+
                     
-                    <li>
-                        <a href="<?php echo site_url('HouseholdController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Household Form</span> </a>
-                    </li>
 
                     <li>
                         <a href="#"  class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i> <span class="nav-label">Map</span> <span class="fa arrow"></span></a>
