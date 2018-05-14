@@ -80,7 +80,7 @@
                         <a href="<?php echo site_url('LogoutController')?>"class=" hvr-bounce-to-right"><i class="fa fa-sign-out  nav_icon"></i> <span class="nav-label">Logout</span> </a>
                     </li>
                     <li>
-                        <div style="padding: 15px;color: #066a88; text-align: left;background-color: #EAEAEA">
+                        <div style="padding: 15px;color: #d95459; text-align: left;background-color: #EAEAEA">
                             <h6 style="padding-top: 20px; text-overflow: clip;">
                                 The information contained in this Dashboard is confidential, privileged and only for the
                                 information of the intended recipients.<br><br> No part of this information may be used, published and redistributed without prior written permission from AHKRC.

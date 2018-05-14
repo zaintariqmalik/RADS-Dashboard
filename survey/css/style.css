@@ -220,7 +220,7 @@ h1 a.navbar-brand {
 	font-size: 30px;
 	font-weight: 500;
     padding: 20px 0px;
-    background: #5bc0de;
+    background: #d95459;
     text-align: center;
 	width:248px;
 	height: 60px;
@@ -240,9 +240,13 @@ i.nav_icon {
   color: #fff;
   margin-right:6px;
 }
-.sidebar ul li a{
-  color: #999;
-  font-size:14px;
+
+.sidebar ul li a{     
+  color: #000; 
+  font-size:12px;
+  font-weight: bold;
+  padding: 3px;
+
 }
 
 ul.nav.navbar-nav.navbar-right {
@@ -321,7 +325,7 @@ ul.nav.navbar-nav.navbar-right {
     margin-right: 14px;    
 }
 i.nav_icon {
-    color: #5bc0de;
+    color: #d95459;
     padding: 15px;
     width: 44px;
     height: 44px;
@@ -542,7 +546,9 @@ i.fa.fa-globe {
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .banner  h2{
-	font-size:0.9em;
+    font-size:0.9em;
+    font-weight: bold;
+    opacity: .6;
 }
 .banner  h2 a { 
     color:#D95459;
@@ -551,7 +557,7 @@ i.fa.fa-globe {
 	padding:0.3em ;
 }
 .banner  h2 span{ 
-    color:#000;
+    color:#808080;
 	font-family: 'Muli-Regular';
 	padding:0.3em ;
 }
@@ -2858,28 +2864,28 @@ div.dataTables_wrapper div.dataTables_length label {
     margin: 0 10px;
     text-transform: capitalize;
     font-weight: bold !important;
-    color: gainsboro;
+    color: #0000009e;
 }
 div.dataTables_wrapper div.dataTables_filter label{
     margin: 0 10px;
     text-transform: capitalize;
     font-weight: bold !important;
-    color: gainsboro;
+    color: #0000009e;
 }
 div.dataTables_wrapper div.dataTables_info {
     margin-left: 11px;
     font-weight: bold;
-    color:#8080809e;
+    color:#0000009e;
 }
 .pagination>li {
     font-weight: bold !important;
 }
 div.dataTables_wrapper div.dataTables_length select {
     font-weight: bold;
-    color: gainsboro;
+    color: #0000009e;
 }
 .pagination>li>a{
-    color:#8080809e !important;
+    color:#0000009e !important;
     border-right: none !important;
     border-left: none !important;
 }

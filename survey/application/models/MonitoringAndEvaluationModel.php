@@ -12,7 +12,7 @@ class MonitoringAndEvaluationModel extends CI_Model{
     {
         parent::__construct();
     }
-
+ 
     public  function  getMEGeneralInfo(){
         $this->load->database(true);
         /*$query = $this->db->query("select a.surveyresultsId as ID, q.surveyquestionQuestion as Question,a.surveyanswerAnswer as Response
@@ -23,13 +23,19 @@ class MonitoringAndEvaluationModel extends CI_Model{
                                     a.surveylistId = '103'");
                                      q.surveyquestionQuestion in ('Serial number')  and
         */
-       $query = $this->db->query("select a.surveyresultsId as ID, q.surveyquestionQuestion as Question,a.surveyanswerAnswer as Response
+      /* $query = $this->db->query("select a.surveyresultsId as ID, q.surveyquestionQuestion as Question,a.surveyanswerAnswer as Response
                                     from surveyquestion as q
                                     left join surveyanswer as a
                                     on a.surveyquestionId = q.surveyquestionId
                                     where q.surveyquestionQuestion in ( 'Serial Number') and 
                                     a.surveylistId = '108'");
-        return $query->result() ;
+        return $query->result_array() ;*/
+        $query = $this->db->query("SELECT surveyanswerAnswer as Response,surveyresultsId as ID FROM surveyanswer WHERE surveyresultsId in 
+                        (SELECT surveyresultsId FROM surveyresults WHERE surveylistId = 108)");
+        
+        return $query->result_array();
+       // print_r($query->result_array()); exit();
+    
     }
 
     public  function getMESpecificInfo($SNO){
@@ -43,7 +49,7 @@ class MonitoringAndEvaluationModel extends CI_Model{
                                     and a.surveyresultsId = '$SNO'
                                     group by a.surveyanswerId
                                     ");
-        $result1 =$query->result();
+        $result1 =$query->result ();
         //print_r($query->result_array());
         //exit();
         return $result1;

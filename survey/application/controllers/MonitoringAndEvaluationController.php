@@ -24,6 +24,17 @@ class MonitoringAndEvaluationController extends CI_Controller{
         {
             $this->load->model('MonitoringAndEvaluationModel');
             $data["fetch_data"] = $this->MonitoringAndEvaluationModel->getMEGeneralInfo();
+        /*   
+            $count = $this->MonitoringAndEvaluationModel->countRows();
+            $data["sno"] = $this->MonitoringAndEvaluationModel->sno();
+            $data["smName"] = $this->MonitoringAndEvaluationModel->smName();
+            $data["aapiCode"] = $this->MonitoringAndEvaluationModel->aapiCode();
+            $data["respondent"] = $this->MonitoringAndEvaluationModel->respondent();
+            $data["usedServices"] = $this->MonitoringAndEvaluationModel->usedServices();
+            $data["satisfied"] = $this->MonitoringAndEvaluationModel->satisfied();
+            $data["date"] = $this->MonitoringAndEvaluationModel->date();
+            $data["givenFPservice"] = $this->MonitoringAndEvaluationModel->givenFPservice();
+        */
 
             $this->load->view('MonitoringAndEvaluationView',$data);
         }

@@ -44,17 +44,37 @@
                        <thead>
                             <tr>
                                 <td>Serial Number</td>
-                                <td>View More</td>
+                                <td>SM Name</td>
+                                <td>Aapi Code</td>
+                                <td>Respondent Name</td>
+                                <td>Satisfied</td>
+                                <td>Using Service</td>
+                                <td>Given FP Service</td>
+                                <td>Date</td>
+                                <td>Mohalla</td>
+                        
                             </tr>
                        </thead>
 
-                       <tbody>
-                               <?php foreach ($fetch_data as $row){?>
-                                   <tr>
-                                            <td><?php echo (int) $row->Response?></td>
-                                            <td><a href="<?php echo site_url('MonitoringAndEvaluationController/getDetailsOfMEBySNo/'.$row->ID)?>"><button type="button" class="btn btn-info">View</button> </a></td>
-                                   </tr>
-                               <?php }?>
+                       <tbody>   
+                        <?php for($i = 0; $i < count($fetch_data); $i+=9){ //echo $fetch_data[$i]['ID'];?>
+                            <tr>
+                                <td><?php echo $fetch_data[$i]['Response']; ?></td>
+                                <td><?php echo $fetch_data[$i+1]['Response']; ?></td>
+                                <td><?php echo $fetch_data[$i+2]['Response']; ?></td>
+                                <td><?php echo $fetch_data[$i+3]['Response']; ?></td>
+                                <td><?php if($fetch_data[$i]['ID'] < 121928) echo $fetch_data[$i+4]['Response']; else  echo $fetch_data[$i+5]['Response']; ?></td>
+                                <td><?php if($fetch_data[$i]['ID'] < 121928) echo $fetch_data[$i+5]['Response']; else  echo $fetch_data[$i+6]['Response'];  ?></td>
+                                <td><?php if($fetch_data[$i]['ID'] < 121928) echo $fetch_data[$i+6]['Response']; else  echo $fetch_data[$i+7]['Response'];  ?></td>
+                                <td><?php if($fetch_data[$i]['ID'] < 121928) echo $fetch_data[$i+7]['Response']; else  echo $fetch_data[$i+8]['Response'];  ?></td> 
+                                <td><?php 
+                                    if($fetch_data[$i]['ID'] < 121928) { 
+                                        $i = $i - 1; echo "N/A"; 
+                                        } else echo $fetch_data[$i+4]['Response'];?>
+                                </td> 
+              
+                            </tr>
+                        <?php } ?>
                        </tbody>
                    </table>
                </div>
