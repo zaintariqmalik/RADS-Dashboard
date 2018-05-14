@@ -25,7 +25,7 @@
 		    <div class="banner">
 		   
 				<h2>
-				<a href="<?php echo site_url('DisplayController/showIndexFile')?>">Home</a>
+				<a href="<?php echo site_url('DashboardSummaryController')?>">Home</a>
 				<i class="fa fa-angle-right"></i>
 				<span>SM Data</span>
 				</h2>
@@ -38,18 +38,32 @@
                    <table id="women_data" class="table table-striped dt-responsive nowrap">
                        <thead>
                        <tr>
-                                 <td>Serial Number</td>
-                                 <td>View More</td>
+                            <td>ID.</td>
+                            <td>S.No.</td>
+                            <td>SM Code</td>
+                            <td>SM Name</td>
+                            <td>Aapi Code</td>
+                            <td>Aapi Name</td>
+                            <td>Date</td>                            
+                            <td>Aapi Visited?</td>
+                            <td>View More</td>
                        </tr>
                        </thead>
 
                        <tbody>
-                               <?php foreach ($fetch_data as $row){?>
-                                   <tr>
-                                            <td><?php echo (int)$row->Response?></td>
-                                            <td><a href="<?php echo site_url('SocialMobilizerController/getDetailsOfSMBySNo/'.$row->ID)?>"><button type="button" class="btn btn-info">View</button> </a></td>
-                                   </tr>
-                               <?php }?>
+                            <?php for($i = 0; $i < count($fetch_data); $i+=28){ //echo $fetch_data[$i]['ID'];?>
+                            <tr>
+                                <td><?php echo $fetch_data[$i]['ID'];?></td>
+                                <td><?php echo $fetch_data[$i]['Response'];?></td>
+                                <td><?php echo $fetch_data[$i+1]['Response'];?></td>
+                                <td><?php echo $fetch_data[$i+2]['Response'];?></td>
+                                <td><?php echo $fetch_data[$i+3]['Response'];?></td>
+                                <td><?php echo $fetch_data[$i+4]['Response'];?></td>
+                                <td><?php echo $fetch_data[$i+7]['Response'];?></td>
+                                <td><?php echo $fetch_data[$i+10]['Response'];?></td>
+                                <td><a href="<?php echo site_url('SocialMobilizerController/getDetailsOfSMBySNo/'.$fetch_data[$i]['ID'])?>"><button type="button" class="btn btn-info">View</button> </a></td>
+                            </tr>
+                            <?php }?>
                        </tbody>
                    </table>
                </div>

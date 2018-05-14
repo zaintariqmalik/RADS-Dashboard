@@ -32,7 +32,7 @@
                     </button>
                     <h1 style = "margin-top: 0px !important;"> 
                         <a class="navbar-brand" href="<?php echo site_url('DashboardSummaryController')?>">
-                            PPIF
+                            AHKRC 
                         </a>
                     </h1>
 

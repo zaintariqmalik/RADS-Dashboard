@@ -49,7 +49,7 @@ class MonitoringAndEvaluationModel extends CI_Model{
                                     and a.surveyresultsId = '$SNO'
                                     group by a.surveyanswerId
                                     ");
-        $result1 =$query->result ();
+        $result1 =$query->result();
         //print_r($query->result_array());
         //exit();
         return $result1;

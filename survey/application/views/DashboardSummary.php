@@ -38,7 +38,7 @@
             		<!--banner-->	
           		    <div class="banner">
             				<h2>
-              				<a href="<?php echo site_url('DisplayController/showIndexFile')?>">Home</a>
+              				<a href="<?php echo site_url('DashboardSummaryController#')?>">Home</a>
               				<i class="fa fa-angle-right"></i>
               				<span>Overview</span>
             				</h2>
@@ -46,7 +46,7 @@
 
 
                     <!--Counter Section-->
-                    <section id="counter_two" class="counter_two" style="padding-top: 03%; >
+                    <section id="counter_two" class="counter_two" style="padding-top: 03%;" >
                         <div class="overlay">
                             <div class="container">
                                 <div class="row">
@@ -86,7 +86,7 @@
                                                         <h2 class="statistic-counter_two" style="color: #e46e25">
                                                           <?php print $fetchMonitoring->monitoringCount; ?>
                                                         </h2>
-                                                        <p>M&E Visits</p>
+                                                        <p>M &amp; E Visits</p>
                                                     </div>
                                                 </div>
                                             </div><!-- End off col-sm-3 -->

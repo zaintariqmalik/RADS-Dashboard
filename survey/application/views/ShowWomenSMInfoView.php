@@ -23,7 +23,7 @@
 		    <div class="banner">
 		   
 				<h2>
-				<a href="<?php echo site_url('DisplayController/showIndexFile')?>">Home</a>
+				<a href="<?php echo site_url('DashboardSummaryController')?>">Home</a>
 				<i class="fa fa-angle-right"></i>
 				<a href="<?php echo site_url('SocialMobilizerController/index')?>"><span style="color: maroon">Social Mobilizer Data</span> </a>
         <i class="fa fa-angle-right"></i>

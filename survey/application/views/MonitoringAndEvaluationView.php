@@ -30,9 +30,9 @@
 		    <div class="banner">
 		   
 				<h2>
-				<a href="<?php echo site_url('DisplayController/showIndexFile')?>">Home</a>
+				<a href="<?php echo site_url('DashboardSummaryController/')?>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>M & E Data</span>
+				<span>M &amp; E Data</span>
 				</h2>
 		    </div>
 		<!--//banner-->
@@ -42,31 +42,28 @@
                <div class="table-responsive" style="background-color: white;border-radius: 3">
                    <table id="women_data" class="table table-striped dt-responsive nowrap">
                        <thead>
-                            <tr>
+                            <tr style="font-weight: bold">
                                 <td>Serial Number</td>
+                                <td>Date</td>
                                 <td>SM Name</td>
                                 <td>Aapi Code</td>
                                 <td>Respondent Name</td>
-                                <td>Satisfied</td>
+                                <td>Type of Service</td>
                                 <td>Using Service</td>
-                                <td>Given FP Service</td>
-                                <td>Date</td>
                                 <td>Mohalla</td>
-                        
                             </tr>
                        </thead>
 
                        <tbody>   
                         <?php for($i = 0; $i < count($fetch_data); $i+=9){ //echo $fetch_data[$i]['ID'];?>
-                            <tr>
+                            <tr class = "text-capitalize">
                                 <td><?php echo $fetch_data[$i]['Response']; ?></td>
+                                <td><?php if($fetch_data[$i]['ID'] < 121928 ) echo $fetch_data[$i+7]['Response']; else  echo $fetch_data[$i+8]['Response'];  ?></td> 
                                 <td><?php echo $fetch_data[$i+1]['Response']; ?></td>
                                 <td><?php echo $fetch_data[$i+2]['Response']; ?></td>
                                 <td><?php echo $fetch_data[$i+3]['Response']; ?></td>
-                                <td><?php if($fetch_data[$i]['ID'] < 121928) echo $fetch_data[$i+4]['Response']; else  echo $fetch_data[$i+5]['Response']; ?></td>
                                 <td><?php if($fetch_data[$i]['ID'] < 121928) echo $fetch_data[$i+5]['Response']; else  echo $fetch_data[$i+6]['Response'];  ?></td>
                                 <td><?php if($fetch_data[$i]['ID'] < 121928) echo $fetch_data[$i+6]['Response']; else  echo $fetch_data[$i+7]['Response'];  ?></td>
-                                <td><?php if($fetch_data[$i]['ID'] < 121928) echo $fetch_data[$i+7]['Response']; else  echo $fetch_data[$i+8]['Response'];  ?></td> 
                                 <td><?php 
                                     if($fetch_data[$i]['ID'] < 121928) { 
                                         $i = $i - 1; echo "N/A"; 

@@ -28,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    <div class="banner">
 		   
 				<h2>
-				<a href="<?php echo site_url('DisplayController/showIndexFile')?>">Home</a>
+				<a href="<?php echo site_url('DashboardSummaryController')?>">Home</a>
 				<i class="fa fa-angle-right"></i>
 				<span>Household</span>
 				</h2>

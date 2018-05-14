@@ -90,7 +90,7 @@
         #grad2 {
             background: red; /* For browsers that do not support gradients */
             background: radial-gradient(circle, white, sandybrown , salmon); /* Standard syntax (must be last) */
-
+        }
     </style>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>

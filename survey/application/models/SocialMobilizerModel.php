@@ -15,6 +15,14 @@ class SocialMobilizerModel extends CI_Model{
 
     public  function  getSMGeneralInfo(){
         $this->load->database(true);
+        $query = $this->db->query("SELECT surveyanswerAnswer as Response,surveyresultsId as ID 
+                        FROM surveyanswer 
+                        WHERE surveyresultsId in 
+                        (SELECT surveyresultsId FROM surveyresults WHERE surveylistId = 103)");
+        //print_r($query->result_array()); exit();
+
+        return $query->result_array() ;
+
         /*$query = $this->db->query("select a.surveyresultsId as ID, q.surveyquestionQuestion as Question,a.surveyanswerAnswer as Response
                                     from surveyquestion as q
                                     left join surveyanswer as a
@@ -23,13 +31,15 @@ class SocialMobilizerModel extends CI_Model{
                                     a.surveylistId = '103'");
 
                                      q.surveyquestionQuestion in ('Serial number')  and
-        */
+        
        $query = $this->db->query("select a.surveyresultsId as ID, q.surveyquestionQuestion as Question, a.surveyanswerAnswer as Response
                                     from surveyquestion as q
                                     left join surveyanswer as a
                                     on a.surveyquestionId = q.surveyquestionId
                                     where q.surveyquestionQuestion in ('Serial number') and 
                                     a.surveylistId = '103'");
+        */
+       
 
         /*$this->db->select('surveyanswer.surveyresultsId, surveyquestion.surveyquestionQuestion, surveyanswer.surveyanswerAnswer');
         $this->db->from('surveyquestion');
@@ -39,7 +49,6 @@ class SocialMobilizerModel extends CI_Model{
         $query=$this->db->get();*/
         //print_r($query->result_array());
         //exit();
-        return $query->result() ;
     }
 
     public  function getSMSpecificInfo($SNO){
