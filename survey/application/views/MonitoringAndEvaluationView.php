@@ -40,17 +40,17 @@
 		<div class="container-fluid" >
 
                <div class="table-responsive" style="background-color: white;border-radius: 3">
-                   <table id="women_data" class="table table-striped dt-responsive nowrap">
+                   <table data-page-length='25' id="women_data" class="table table-striped dt-responsive nowrap">
                        <thead>
                             <tr style="font-weight: bold">
-                                <td>Serial Number</td>
-                                <td>Date</td>
-                                <td>SM Name</td>
-                                <td>Aapi Code</td>
-                                <td>Respondent Name</td>
-                                <td>Type of Service</td>
-                                <td>Using Service</td>
-                                <td>Mohalla</td>
+                                <th>Serial Number</th>
+                                <th>Date</th>
+                                <th>SM Name</th>
+                                <th>Aapi Code</th>
+                                <th>Respondent Name</th>
+                                <th>Type of Service</th>
+                                <th>Using Service</th>
+                                <th>Mohalla</th>
                             </tr>
                        </thead>
 

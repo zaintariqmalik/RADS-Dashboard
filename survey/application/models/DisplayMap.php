@@ -32,17 +32,23 @@ class DisplayMap extends CI_Model {
     public function getSM_MapData(){
 
         $otherdb = $this->load->database('otherdb',TRUE);
-
-        $query = $otherdb->query('select * from location_sm');
-/*
+        $query = $otherdb->query('SELECT sm.title, sm.lat, sm.lng, sm.interviews_conducted AS SM_Interviews, mne.interviews_conducted AS MnE_Interviews
+                                    FROM location_sm sm
+                                    INNER JOIN location_mne mne ON sm.id = mne.id');
+        
+        //print_r($query->result());exit();
+        //$query = $otherdb->query('select * from location_sm');
+        return $query->result();
+        /*
         $this->db->select('lat');
         $this->db->select('lng');
         $this->db->from('locations');
-        $query =$this->db->get();*/
-
-        $result1 =$query->result();
-        //die(print_r($result1));
-        return $result1;
+        $query =$this->db->get();*/ 
+    }
+    public function getMnE_MapData(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $this->query('SELECT * FROM location_mne');
+        return $query->result();
     }
 
 

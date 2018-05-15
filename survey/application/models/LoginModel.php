@@ -51,7 +51,7 @@ class  LoginModel extends CI_Model{
         $curr_time = $date->format('H:i:s ');
 
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query("select userId from logindetails 
+        $query = $otherdb->query("select userId from user 
                                     where userUsername = '$email'");
 
        /* $this->db->select('userId');

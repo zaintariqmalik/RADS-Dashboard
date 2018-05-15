@@ -34,34 +34,34 @@
 		<!--content-->
 		<div class="container-fluid" >
 
-               <div class="table-responsive custom_padding" style="background-color: white;border-radius: 3">
-                   <table id="women_data" class="table table-striped dt-responsive nowrap">
+               <div class="table-responsive" style="background-color: white;border-radius: 3">
+                   <table data-page-length='25' id="women_data" class="table table-striped dt-responsive nowrap">
                        <thead>
                        <tr>
-                            <td>ID.</td>
-                            <td>S.No.</td>
-                            <td>SM Code</td>
-                            <td>SM Name</td>
-                            <td>Aapi Code</td>
-                            <td>Aapi Name</td>
-                            <td>Date</td>                            
-                            <td>Aapi Visited?</td>
-                            <td>View More</td>
+                            <th>S.No.</th>
+                            <th>SM Code</th>
+                            <th>SM Name</th>
+                            <th>Aapi Code</th>
+                            <th>Aapi Name</th>
+                            <th>Date</th>    
+                            <th>Mohalla</th>               
+                            <th>Aapi Visited?</th>
+                            <th>View</th>
                        </tr>
                        </thead>
 
                        <tbody>
                             <?php for($i = 0; $i < count($fetch_data); $i+=28){ //echo $fetch_data[$i]['ID'];?>
-                            <tr>
-                                <td><?php echo $fetch_data[$i]['ID'];?></td>
+                            <tr class = "text-capitalize">
                                 <td><?php echo $fetch_data[$i]['Response'];?></td>
                                 <td><?php echo $fetch_data[$i+1]['Response'];?></td>
                                 <td><?php echo $fetch_data[$i+2]['Response'];?></td>
                                 <td><?php echo $fetch_data[$i+3]['Response'];?></td>
                                 <td><?php echo $fetch_data[$i+4]['Response'];?></td>
                                 <td><?php echo $fetch_data[$i+7]['Response'];?></td>
+                                <td><?php echo $fetch_data[$i+5]['Response'];?></td>
                                 <td><?php echo $fetch_data[$i+10]['Response'];?></td>
-                                <td><a href="<?php echo site_url('SocialMobilizerController/getDetailsOfSMBySNo/'.$fetch_data[$i]['ID'])?>"><button type="button" class="btn btn-info">View</button> </a></td>
+                                <td><a href="<?php echo site_url('SocialMobilizerController/getDetailsOfSMBySNo/'.$fetch_data[$i]['ID'])?>">View More.. <!--<button type="button" class="btn btn-info">View</button> --> </a></td>
                             </tr>
                             <?php }?>
                        </tbody>

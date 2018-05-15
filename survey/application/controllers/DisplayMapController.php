@@ -28,6 +28,7 @@ class DisplayMapController extends CI_Controller {
         if($this->session->userdata('User_Logged_In')){
             $this->load->model('DisplayMap');
             $data["fetch_data"] = $this->DisplayMap->getSM_MapData();
+            //$data["monitoring_data"] = $this->DisplayMap->getMnE_MapData();
             $this->load->view('Map2',$data);
         }
         else

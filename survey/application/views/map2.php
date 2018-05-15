@@ -83,7 +83,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                    [33.626853, 73.036021,'Place name', 'Number of interviews'],
                    [33.627539, 73.035937,'Place name', 'Number of interviews']
                ];
-       */
+             */
             /* The locations will be an array containing lat and lng.. The array will look like above variable
               The data is passed from controller as the variable named $fetch_data
               */
@@ -92,7 +92,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <?php echo $row->lat;?>,
                     <?php echo $row->lng;?>,
                     '<?php echo $row->title;?>',
-                    <?php echo $row->interviews_conducted;?>
+                    <?php echo $row->SM_Interviews;?>,
+                    <?php echo $row->MnE_Interviews;?>
                 ],
                 <?php
                 }
@@ -116,7 +117,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
 
 
-                var content = '<b>'+locations[i][2]+'</b> <br/> Interviews Conducted : '+locations[i][3]+'';
+                var content = '<b>'+locations[i][2]+'</b> <br/> SM Interviews : '+locations[i][3]+'<br/> MnE Interviews : '+locations[i][4]+'';
 
                 var infowindow = new google.maps.InfoWindow();
                 google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
@@ -127,7 +128,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 })(marker,content,infowindow));
 
             }
-            }
+        }
 
 
     </script>

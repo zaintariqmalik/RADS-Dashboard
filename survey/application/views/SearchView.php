@@ -35,12 +35,12 @@
                        <thead>
                        <tr>
                            <th>S.No.</th>
-                           <th>Name</th>
+                           <th>Client Name</th>                           
+                           <th id="datepicker">Date</th> 
                            <th>Mohallah</th>
                            <th>Aapi Code</th>
                            <th>Aapi Name</th>
-                           <th>SM Name</th>                           
-                           <th id="datepicker">Date</th>                         
+                           <th>SM Name</th>                        
                            <th>Age</th>
                            <th>View</th>
                        </tr>
@@ -48,26 +48,26 @@
                        <tfoot>
                             <tr>
                                 <th>S.No.</th>
-                                <th>Name</th>
+                                <th>Name</th>                         
+                                <th id="datepicker">Date</th>
                                 <th>Mohallah</th>
                                 <th>Aapi Code</th>
                                 <th>Aapi Name</th>
                                 <th>SM Name</th>                           
-                                <th id="datepicker">Date</th>                         
                                 <th>Age</th>
                                 <th>View</th>
                             </tr>
                         </tfoot>
                        <tbody>
                                <?php foreach ($fetch_data as $row){?>
-                                   <tr>
+                                   <tr class = "text-capitalize">
                                             <td><?php echo $row->SNO?></td>
-                                            <td><?php echo $row->Name?></td>
+                                            <td><?php echo $row->Name?></td>                        
+                                            <td><?php echo $row->Date?></td>  
                                             <td><?php echo $row->MUHALA?></td>
                                             <td><?php echo $row->API?></td>
                                             <td><?php echo $row->APIName?></td>
-                                            <td><?php echo $row->SM?></td>                          
-                                            <td><?php echo $row->Date?></td>                                           
+                                            <td><?php echo $row->SM?></td>                                           
                                             <td><?php echo $row->Age?></td>
                                             <td><a href="<?php echo site_url('SearchController/getDetailsOfWomenBySNo/'.$row->SNO)?>" class="under"> View More..<!--<button type="button" class="btn btn-info">View</button>--> </a></td>
                                    </tr>
