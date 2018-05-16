@@ -117,7 +117,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
 
 
-                var content = '<b>'+locations[i][2]+'</b> <br/> SM Interviews : '+locations[i][3]+'<br/> MnE Interviews : '+locations[i][4]+'';
+                var content = '<b>'+locations[i][2]+'</b> <br/> SM Interviews : '+locations[i][3]+'<br/> M&amp;E Interviews : '+locations[i][4]+'';
 
                 var infowindow = new google.maps.InfoWindow();
                 google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){

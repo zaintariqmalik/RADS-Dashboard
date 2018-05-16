@@ -11,20 +11,9 @@
       <!-- Stylesheets
       ============================================= -->
       <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
-      <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-      <link rel="stylesheet" href="style.css" type="text/css" />
-      <link rel="stylesheet" href="css/dark.css" type="text/css" />
-      <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-      <link rel="stylesheet" href="css/animate.css" type="text/css" />
-      <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-
-      <link rel="stylesheet" href="css/responsive.css" type="text/css" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-      <!------ Include the above in your HEAD tag ---------->
+       <!------ Include the above in your HEAD tag ---------->
 
       <!-- Add this css in head tag -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
