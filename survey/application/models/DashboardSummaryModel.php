@@ -53,5 +53,16 @@ class DashboardSummaryModel extends CI_Model{
         return $query->row();
     }
 
+    public  function  getNewUserCount(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query("select count(*) as newUserCount from followup
+                                    where conclusion like 'New User'
+                                    or conclusion like 'New User Case Closed'
+                                    ");
+        //print_r($query->row());
+        //exit();
+        return $query->row() ;
+    }
+
 }
 ?>

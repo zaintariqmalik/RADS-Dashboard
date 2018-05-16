@@ -42,40 +42,49 @@
                                     <div class="main_counter_two sections text-center">
                                         <div class="col-sm-10 col-sm-offset-1">
                                             <div class="row">
-                                                <div class="col-sm-3 col-xs-12">
+                                                <div class="col-sm-2 col-xs-12">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-star" style="color: #920000"></i>
+                                                        <i class="fa fa-sticky-note-o nav_icon" style="color: #920000"></i>
                                                         <h2 class="statistic-counter_two" style="color: #e46e25"> 
                                                           <?php print $fetchHousehold->householdCount; ?>
                                                         </h2>
                                                         <p>Household Interviews</p>
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
-                                                <div class="col-sm-3 col-xs-12">
+                                                <div class="col-sm-2 col-xs-12">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-star" style="color: #920000"></i>
+                                                        <i class="fa fa-undo nav_icon" style="color: #920000"></i>
                                                         <h2 class="statistic-counter_two" style="color: #e46e25">
                                                           <?php print $fetchFollowUp->followUpCount; ?>
                                                         </h2>
                                                         <p>Follow-ups</p>
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
-                                                <div class="col-sm-3 col-xs-12">
+                                                <div class="col-sm-2 col-xs-12">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-star" style="color: #920000"></i>
+                                                        <i class="fa fa-users nav_icon" style="color: #920000"></i>
                                                         <h2 class="statistic-counter_two" style="color: #e46e25">
                                                           <?php print $fetchSM->smVisitsCount; ?>
                                                         </h2>
                                                         <p>Social Mobilizers Visits</p>
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
-                                                <div class="col-sm-3 col-xs-12">
+                                                <div class="col-sm-2 col-xs-12">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-star" style="color: #920000"></i>
+                                                        <i class="fa fa-check-circle-o nav_icon" style="color: #920000"></i>
                                                         <h2 class="statistic-counter_two" style="color: #e46e25">
                                                           <?php print $fetchMonitoring->monitoringCount; ?>
                                                         </h2>
                                                         <p>M &amp; E Visits</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2 col-xs-12">
+                                                    <div class="single_counter_two_right">
+                                                        <i class="fa fa-street-view nav_icon" style="color: #920000"></i>
+                                                        <h2 class="statistic-counter_two" style="color: #e46e25">
+                                                          <?php print $fetchNewUser->newUserCount; ?>
+                                                        </h2>
+                                                        <p>New Users</p>
                                                     </div>
                                                 </div>
                                             </div><!-- End off col-sm-3 -->

@@ -54,11 +54,11 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('SocialMobilizerController')?>" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i> <span class="nav-label">Search Social Mobilizer</span> </a>
+                        <a href="<?php echo site_url('SocialMobilizerController')?>" class=" hvr-bounce-to-right"><i class="fa fa-search nav_icon"></i> <span class="nav-label">Search Social Mobilizer</span> </a>
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('DisplayController/showIndexFile')?>" class=" hvr-bounce-to-right"><i class="fa fa-sticky-note-o nav_icon"></i> <span class="nav-label">Social Mobilizer Form</span> </a>
+                        <a href="<?php echo site_url('DisplayController/showIndexFile')?>" class=" hvr-bounce-to-right"><i class="fa fa-users nav_icon"></i> <span class="nav-label">Social Mobilizer Form</span> </a>
                     </li>
 
                     <li>
