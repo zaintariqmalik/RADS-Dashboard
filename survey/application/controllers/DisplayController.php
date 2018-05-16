@@ -22,12 +22,14 @@ class DisplayController extends CI_Controller{
 
     public  function getQuestionData($question_id){
         $this->load->library('session');
+        $this->load->helper('url');
         $sess = $this->session->userdata('User_Logged_In');
         if(!empty($sess)) {
                     //$question_id = $this->input->get('var1');
                     $this->load->model('DisplayData');
                     $data["fetch_data"] = $this->DisplayData->getQuestionDetails($question_id);
                     $data["question_title"] = $this->DisplayData->getQuestionTitle($question_id);
+                    $data["question_id"] = $question_id;
                     $this->load->view('result_graph', $data);
     }
         else {

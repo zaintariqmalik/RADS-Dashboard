@@ -117,57 +117,57 @@
     <title>Result</title>
 </head>
 
-<?php
-if(sizeof($fetch_data)<1){
-    show_404();
-}
-
-$categories = array();
-$categories_count = array();
-// Getting data in 2 arrays
-foreach($fetch_data as $row){
-    array_push($categories,$row->surveyanswerAnswer);
-    array_push($categories_count,$row->total);
-}
-
-// Separating each element with  respect to its weight
-$cat_splitted = array();
-$cat_count_splitted = array();
-
-foreach ($categories as $key => $value) {
-    $myArray = explode(',', $value);
-    foreach ($myArray as $key2 => $value2) {
-        array_push($cat_splitted ,$value2);
-        array_push($cat_count_splitted, $categories_count[$key]);
+    <?php
+    if(sizeof($fetch_data)<1){
+        show_404();
     }
-}
 
-// Creating unique array of categories
-global  $unique_cat;
-$unique_cat = array_unique($cat_splitted);
-// index are renumbered ..  means 0,1,2,3 in sequence..
-$unique_cat = array_values($unique_cat);
+    $categories = array();
+    $categories_count = array();
+    // Getting data in 2 arrays
+    foreach($fetch_data as $row){
+        array_push($categories,$row->surveyanswerAnswer);
+        array_push($categories_count,$row->total);
+    }
 
-// Creating and filling an array with zero to store count of each individaul element
-global $counts;
-$counts = array_fill(0,sizeof($unique_cat),0);
+    // Separating each element with  respect to its weight
+    $cat_splitted = array();
+    $cat_count_splitted = array();
 
-
-// matching each unique element with splitted array and adding its count to unique_count array
-foreach ($unique_cat as $key1 => $value) {
-    foreach ($cat_splitted as $key2 => $value2) {
-        if($value == $value2){
-            $counts[$key1] = $counts[$key1] + $cat_count_splitted[$key2];
+    foreach ($categories as $key => $value) {
+        $myArray = explode(',', $value);
+        foreach ($myArray as $key2 => $value2) {
+            array_push($cat_splitted ,$value2);
+            array_push($cat_count_splitted, $categories_count[$key]);
         }
     }
 
-}
-/*
-echo "unique Categories <br/>";
-print_r($unique_cat);
-echo "<br/>unique Counts <br/>";
-print_r($counts);
-*/
+    // Creating unique array of categories
+    global  $unique_cat;
+    $unique_cat = array_unique($cat_splitted);
+    // index are renumbered ..  means 0,1,2,3 in sequence..
+    $unique_cat = array_values($unique_cat);
+
+    // Creating and filling an array with zero to store count of each individaul element
+    global $counts;
+    $counts = array_fill(0,sizeof($unique_cat),0);
+
+
+    // matching each unique element with splitted array and adding its count to unique_count array
+    foreach ($unique_cat as $key1 => $value) {
+        foreach ($cat_splitted as $key2 => $value2) {
+            if($value == $value2){
+                $counts[$key1] = $counts[$key1] + $cat_count_splitted[$key2];
+            }
+        }
+
+    }
+        /*
+    echo "unique Categories <br/>";
+    print_r($unique_cat);
+    echo "<br/>unique Counts <br/>";
+    print_r($counts);
+    */
 ?>
 <body id="grad2">
 <div class="container">
@@ -179,12 +179,18 @@ print_r($counts);
             </div>
         </div>
         <div class="main-login main-center">
-            <div><?php echo $question_title[0]->surveyquestionQuestion?></div>
+            <div><?php echo $question_title[0]->surveyquestionQuestion?> 
+            <a href="<?php if($question_id == 8578) echo site_url('DisplayController/getQuestionData/8590'); elseif($question_id == 8590) echo site_url('DisplayController/getQuestionData/8588'); else echo site_url('DisplayController/getQuestionData/'.($question_id-1)); ?>">Previous</a> 
+            |
+            <a href="<?php if($question_id == 8588) echo site_url('DisplayController/getQuestionData/8590'); elseif($question_id == 8590) echo site_url('DisplayController/getQuestionData/8578'); else echo site_url('DisplayController/getQuestionData/'.($question_id+1)); ?>">Next</a></div>
+           
+
             <div style="">
                 <canvas id="bar-chart"></canvas>
             </div>
+
             <div class="form-group ">
-                <button style="background-color: #920000" class="btn btn-primary btn-lg btn-block login-button" onclick="window.location='<?php echo site_url("DisplayController/showIndexFile");?>'">
+                <button style="background-color: #920000" class="btn btn-danger btn-lg btn-block login-button" onclick="window.location='<?php echo site_url("DisplayController/showIndexFile");?>'">
                  back
                  </button>
             </div>

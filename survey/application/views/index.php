@@ -33,14 +33,13 @@
 
                <table class="table table-striped">
                    <tr>
-                       <td><div class="top-content">Questions</div></td>
+                       <th><div class="top-content">Questions</div></th>
                    </tr>
                    <?php
                    foreach($fetch_data as $index => $row)
                    {
-                       if($index<9){
+                       if($index<9)
                           continue;
-                       }
                         else if ($row->surveyquestionQuestion == "Date of Counselling (ddmmyyyy)")
                           continue;
                         else if ($row->surveyquestionQuestion == "Which HCP you visited (write name)")
@@ -51,8 +50,7 @@
                        <tr>
                            <td>
                                <a href="<?php echo site_url('DisplayController/getQuestionData/'.$row->surveyquestionId) ?>">
-                                   <?php echo $row->surveyquestionQuestion;
-                                   ?>
+                                   <?php echo $row->surveyquestionQuestion;?>
                                </a>
                            </td>
                        </tr>

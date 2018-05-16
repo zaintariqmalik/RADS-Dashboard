@@ -2398,7 +2398,7 @@ ul.new {
     margin-top: 13px;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #fff;
+  background-color: #fff !important;
 }
 
 form.navbar-form.navbar-right {
@@ -2417,7 +2417,7 @@ form.navbar-form.navbar-right {
     right: 93%;
 }
 .navbar-header {
-    background-color: #5bc0de;
+    background-color: #d95459;
 }
 h1 a.navbar-brand {
     width: 152px;
