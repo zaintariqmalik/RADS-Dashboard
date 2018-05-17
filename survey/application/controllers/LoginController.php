@@ -31,6 +31,7 @@ class LoginController extends CI_Controller {
             $this->data["fetchFollowUp"] = $this->DashboardSummaryModel->getFollowUpCount();
             $this->data["fetchMonitoring"] = $this->DashboardSummaryModel->getMonitoringVisitsCount();
             $this->data["fetchSM"] = $this->DashboardSummaryModel->getSMVisitsCount();
+            $this->data["fetchNewUser"] = $this->DashboardSummaryModel->getNewUserCount();
             $this->load->view('DashboardSummary', $this->data);
         }
         else // Display login page session is not set
