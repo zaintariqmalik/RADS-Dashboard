@@ -38,13 +38,7 @@
                    <?php
                    foreach($fetch_data as $index => $row)
                    {
-                       if($index<9)
-                          continue;
-                        else if ($row->surveyquestionQuestion == "Date of Counselling (ddmmyyyy)")
-                          continue;
-                        else if ($row->surveyquestionQuestion == "Which HCP you visited (write name)")
-                          continue;
-                        else if ($row->surveyquestionQuestion == "Next Meeting")
+                       if($index < 9 OR $row->surveyquestionId == 8619 OR $row->surveyquestionId == 8614 OR $row->surveyquestionId == 8621)
                           continue;
                        ?>
                        <tr>

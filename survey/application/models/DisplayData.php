@@ -27,12 +27,13 @@ class  DisplayData extends CI_Model{
      * @return [array] [2-D array with question Text and ID]
      * @todo   [Hardcoded surveylistId = 102, should be generic for all surveys, linked with UI]
      */
+    
     public function getSurveyQuestions()
     {
         $this->db->select('surveyquestionQuestion,surveyquestionId');
         $this->db->from('surveyquestion');
         $this->db->join('surveylist', 'surveyquestion.surveylistId = surveylist.surveylistId','left');
-        $this->db->where('surveyquestion.surveylistId','102');
+        $this->db->where('surveyquestion.surveylistId','103');
 
         $query = $this->db->get();
 
@@ -54,7 +55,7 @@ class  DisplayData extends CI_Model{
         // $this->db->select('email');
         //$this->db->from('user');
 
-        $where = "surveyquestionId ='$question_id' And surveylistId =102 ";
+        $where = "surveyquestionId ='$question_id' And surveylistId =103 ";
         $this->db->select('surveyanswerAnswer, count(surveyanswerAnswer) as total');
         $this->db->from('surveyanswer');
         //$this->db->where('surveyquestionId',$question_id);

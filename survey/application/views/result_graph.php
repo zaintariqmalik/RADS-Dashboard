@@ -180,9 +180,10 @@
         </div>
         <div class="main-login main-center">
             <div><?php echo $question_title[0]->surveyquestionQuestion?> 
-            <a href="<?php if($question_id == 8578) echo site_url('DisplayController/getQuestionData/8590'); elseif($question_id == 8590) echo site_url('DisplayController/getQuestionData/8588'); else echo site_url('DisplayController/getQuestionData/'.($question_id-1)); ?>">Previous</a> 
-            |
-            <a href="<?php if($question_id == 8588) echo site_url('DisplayController/getQuestionData/8590'); elseif($question_id == 8590) echo site_url('DisplayController/getQuestionData/8578'); else echo site_url('DisplayController/getQuestionData/'.($question_id+1)); ?>">Next</a></div>
+                <a href="<?php if($question_id == 8603) echo site_url('DisplayController/getQuestionData/8620'); elseif($question_id == 8620) echo site_url('DisplayController/getQuestionData/8618'); elseif($question_id == 8615) echo site_url('DisplayController/getQuestionData/8613'); else echo site_url('DisplayController/getQuestionData/'.($question_id-1)); ?>">Previous</a> 
+                |
+                <a href="<?php if($question_id == 8620) echo site_url('DisplayController/getQuestionData/8603'); elseif($question_id == 8613) echo site_url('DisplayController/getQuestionData/8615'); elseif($question_id == 8618) echo site_url('DisplayController/getQuestionData/8620'); else echo site_url('DisplayController/getQuestionData/'.($question_id+1)); ?>">Next</a>
+            </div>
            
 
             <div style="">

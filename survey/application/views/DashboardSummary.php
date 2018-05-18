@@ -17,7 +17,60 @@
 
       <!-- Add this css in head tag -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(googleChart);
+     
+      function googleChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Months', 'Household', 'Followup'],
+            ['Jan-18', <?php print $jan_data->jan_count; ?>, 0],
+            ['Feb-18', <?php print $feb_data->feb_count; ?>,  87],
+            ['Mar-18', <?php print $mar_data->mar_count; ?>,  580],
+            ['Apr-18', <?php print $apr_data->apr_count; ?>, 0]
+        ]);
 
+        var options = {
+          chart: {
+            title: 'Household & Followup',
+            subtitle: 'Household and Followup: Jan-2018 to Apr-2018',
+          },
+          legend: {position: 'none'},
+          vAxis: {format: ''}
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('firstChart'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Months', 'Household',{ role: 'style' }],
+            ['Jan-18', 50,' #b87333'],
+            ['Feb-18', 40,' silver'],
+            ['Mar-18', 30,' gold'],
+            ['Apr-18', 20,' red']
+         
+        ]);
+
+        var options = {
+          chart: {
+            title: 'CBT',
+            subtitle: 'CBT Count: Jan-2018 to Apr-2018',
+          },
+          legend: {position: 'none'},
+          vAxis: {format: ''}
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('CBT_Chart'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+  </head>
 </head>
   <body>
         <div id="wrapper">
@@ -96,7 +149,14 @@
                     </section><!-- End off Counter section -->
   
                     <section>
-                      
+                    <div class="overlay">
+                            <div class="container">
+                                <div class="row">
+                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style="height: 400px; padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
+                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="height: 400px; padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
+                               
+                                </div>
+                            </div>
                     </section>
 
 
