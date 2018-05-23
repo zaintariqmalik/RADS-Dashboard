@@ -43,7 +43,7 @@ class DashboardSummaryModel extends CI_Model{
 
     public  function  getFollowUpCount(){
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query("select count(*) as followUpCount from followup");
+        $query = $otherdb->query("select count(*) as followUpCount from followup where followUpNumber <> '0'");
         //print_r($query->row());
         //exit();
         return $query->row() ;

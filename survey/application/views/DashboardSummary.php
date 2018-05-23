@@ -25,11 +25,17 @@
      
       function googleChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Months', 'Household', 'Followup'],
-            ['Jan-18', <?php print $jan_data->jan_count; ?>, 0],
-            ['Feb-18', <?php print $feb_data->feb_count; ?>,  87],
-            ['Mar-18', <?php print $mar_data->mar_count; ?>,  580],
-            ['Apr-18', <?php print $apr_data->apr_count; ?>, 0]
+            ['', 'Household', 'Followup'],
+            ['Jan', <?php print $jan_data->jan_count; ?>, 0],
+            ['Feb', <?php print $feb_data->feb_count; ?>, 87],
+            ['Mar', <?php print $mar_data->mar_count; ?>, 580],
+            ['Apr', <?php print $apr_data->apr_count; ?>, 0],
+            ['May', <?php //print $mar_data->mar_count; ?>, 0],
+            ['Jun', <?php //print $apr_data->apr_count; ?>, 0],
+            ['Jul', <?php //print $mar_data->mar_count; ?>, 0],
+            ['Aug', <?php //print $apr_data->apr_count; ?>, 0],
+            ['Sep', <?php //print $mar_data->mar_count; ?>, 0],
+            ['Oct', <?php //print $apr_data->apr_count; ?>, 0]
         ]);
 
         var options = {
@@ -48,11 +54,18 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Months', 'Household',{ role: 'style' }],
-            ['Jan-18', 50,' #b87333'],
-            ['Feb-18', 40,' silver'],
-            ['Mar-18', 30,' gold'],
-            ['Apr-18', 20,' red']
+            ['', 'Household',{ role: 'style' }],
+            ['Jan', 50,''],
+            ['Feb', 40,''],
+            ['Mar', 30,''],
+            ['Apr', 20,''],
+            ['May', 0,''],
+            ['Jun', 0,''],
+            ['Jul', 0,''],
+            ['Aug', 0,''],
+            ['Sept',0,''],
+            ['Oct', 0,'']
+            
          
         ]);
 
