@@ -2212,6 +2212,7 @@ canvas#polarArea, canvas#radar, canvas#doughnut {
 }
 }
 @media(max-width:768px){
+
 .content-top-1 {
     padding: 1.5em 2em;
 }
@@ -2369,6 +2370,12 @@ canvas#polarArea, canvas#radar, canvas#doughnut {
 }
 }
 @media (max-width:736px){
+    
+.navbar-default.sidebar{
+    position: fixed;
+    width:100%;
+    z-index: 1;
+}
 .navbar-right~.navbar-right {
   display: block;
 }

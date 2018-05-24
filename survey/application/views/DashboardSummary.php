@@ -17,70 +17,71 @@
 
       <!-- Add this css in head tag -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      
+      <script  type="text/javascript" src="<?php echo base_url('js/loader.js'); ?>"></script>
+    
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-      google.charts.setOnLoadCallback(googleChart);
      
-      function googleChart() {
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(cbt_chart);
+      google.charts.setOnLoadCallback(hh_chart);
+     
+      function hh_chart() {
         var data = google.visualization.arrayToDataTable([
             ['', 'Household', 'Followup'],
-            ['Jan', <?php print $jan_data->jan_count; ?>, 0],
-            ['Feb', <?php print $feb_data->feb_count; ?>, 87],
-            ['Mar', <?php print $mar_data->mar_count; ?>, 580],
-            ['Apr', <?php print $apr_data->apr_count; ?>, 0],
-            ['May', <?php //print $mar_data->mar_count; ?>, 0],
-            ['Jun', <?php //print $apr_data->apr_count; ?>, 0],
-            ['Jul', <?php //print $mar_data->mar_count; ?>, 0],
-            ['Aug', <?php //print $apr_data->apr_count; ?>, 0],
-            ['Sep', <?php //print $mar_data->mar_count; ?>, 0],
-            ['Oct', <?php //print $apr_data->apr_count; ?>, 0]
+            ['Jan', <?php echo $jan_data->jan_count; ?>, 0],
+            ['Feb', <?php echo $feb_data->feb_count; ?>, 87],
+            ['Mar', <?php echo $mar_data->mar_count; ?>, 580],
+            ['Apr', <?php echo $apr_data->apr_count; ?>, 0],
+            ['May', 0, 0],
+            ['Jun', 0, 0],
+            ['Jul', 0, 0],
+            ['Aug', 0, 0],
+            ['Sep', 0, 0]
         ]);
 
-        var options = {
+        var options_hh = {
           chart: {
-            title: 'Household & Followup',
-            subtitle: 'Household and Followup: Jan-2018 to Apr-2018',
+            title: 'Household & Followup: 2018',
+            subtitle: '',
           },
-          legend: {position: 'none'},
+          legend: {position: 'right'},
           vAxis: {format: ''}
         };
 
-        var chart = new google.charts.Bar(document.getElementById('firstChart'));
+        var chart_hh = new google.charts.Bar(document.getElementById('firstChart'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+        chart_hh.draw(data, google.charts.Bar.convertOptions(options_hh));
       }
 
-      function drawChart() {
+      function cbt_chart() {
         var data = google.visualization.arrayToDataTable([
-            ['', 'Household',{ role: 'style' }],
-            ['Jan', 50,''],
-            ['Feb', 40,''],
-            ['Mar', 30,''],
-            ['Apr', 20,''],
+            ['', 'CBT',{ role: 'style' }],
+            ['Jan', 0,''],
+            ['Feb', 259,''],
+            ['Mar', 858,''],
+            ['Apr', 808,''],
             ['May', 0,''],
             ['Jun', 0,''],
             ['Jul', 0,''],
             ['Aug', 0,''],
-            ['Sept',0,''],
-            ['Oct', 0,'']
+            ['Sept',0,'']
             
          
         ]);
 
-        var options = {
+        var options_cbt = {
           chart: {
             title: 'CBT',
             subtitle: 'CBT Count: Jan-2018 to Apr-2018',
           },
-          legend: {position: 'none'},
+          legend: {position: 'right'},
           vAxis: {format: ''}
         };
 
-        var chart = new google.charts.Bar(document.getElementById('CBT_Chart'));
+        var chart_cbt = new google.charts.Bar(document.getElementById('CBT_Chart'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+        chart_cbt.draw(data, google.charts.Bar.convertOptions(options_cbt));
       }
     </script>
   </head>
@@ -112,7 +113,7 @@
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-sticky-note-o nav_icon" style="color: #920000"></i>
                                                         <h2 class="statistic-counter_two" style="color: #e46e25"> 
-                                                          <?php print $fetchHousehold->householdCount; ?>
+                                                        <span><?php print $fetchHousehold->householdCount; ?></span>
                                                         </h2>
                                                         <p>Household Interviews</p>
                                                     </div>
@@ -121,7 +122,7 @@
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-undo nav_icon" style="color: #920000"></i>
                                                         <h2 class="statistic-counter_two" style="color: #e46e25">
-                                                          <?php print $fetchFollowUp->followUpCount; ?>
+                                                        <span><?php print $fetchFollowUp->followUpCount; ?></span>
                                                         </h2>
                                                         <p>Follow-ups</p>
                                                     </div>
@@ -130,7 +131,7 @@
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-users nav_icon" style="color: #920000"></i>
                                                         <h2 class="statistic-counter_two" style="color: #e46e25">
-                                                          <?php print $fetchSM->smVisitsCount; ?>
+                                                        <span><?php print $fetchSM->smVisitsCount; ?></span>
                                                         </h2>
                                                         <p>Social Mobilizers Visits</p>
                                                     </div>
@@ -139,7 +140,7 @@
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-check-circle-o nav_icon" style="color: #920000"></i>
                                                         <h2 class="statistic-counter_two" style="color: #e46e25">
-                                                          <?php print $fetchMonitoring->monitoringCount; ?>
+                                                        <span><?php print $fetchMonitoring->monitoringCount; ?></span>
                                                         </h2>
                                                         <p>M &amp; E Visits</p>
                                                     </div>
@@ -148,7 +149,7 @@
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-street-view nav_icon" style="color: #920000"></i>
                                                         <h2 class="statistic-counter_two" style="color: #e46e25">
-                                                          <?php print $fetchNewUser->newUserCount; ?>
+                                                        <span><?php print $fetchNewUser->newUserCount; ?></span>
                                                         </h2>
                                                         <p>New Users</p>
                                                     </div>
@@ -160,13 +161,13 @@
                             </div><!-- End off container -->
                         </div><!-- End off overlay -->
                     </section><!-- End off Counter section -->
-  
+ 
                     <section>
                     <div class="overlay">
                             <div class="container">
                                 <div class="row">
-                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style="height: 400px; padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
-                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="height: 400px; padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
+                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style="height: 300px; width: 500px; padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
+                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="height: 300px;  width: 500px; padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
                                
                                 </div>
                             </div>

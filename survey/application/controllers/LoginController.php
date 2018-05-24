@@ -33,10 +33,10 @@ class LoginController extends CI_Controller {
             $this->data["fetchSM"] = $this->DashboardSummaryModel->getSMVisitsCount();
             $this->data["fetchNewUser"] = $this->DashboardSummaryModel->getNewUserCount();
 
-            $this->data['jan_data'] = $this->DashboardSummaryModel->hhcountJan();
-            $this->data['feb_data'] = $this->DashboardSummaryModel->hhcountFeb();
-            $this->data['mar_data'] = $this->DashboardSummaryModel->hhcountMar();
-            $this->data['apr_data'] = $this->DashboardSummaryModel->hhcountApr();
+            $this->data["jan_data"] = $this->DashboardSummaryModel->hhcountJan();
+            $this->data["feb_data"] = $this->DashboardSummaryModel->hhcountFeb();
+            $this->data["mar_data"] = $this->DashboardSummaryModel->hhcountMar();
+            $this->data["apr_data"] = $this->DashboardSummaryModel->hhcountApr();
             
             $this->load->view('DashboardSummary', $this->data);
         }
