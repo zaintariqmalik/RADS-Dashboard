@@ -42,7 +42,7 @@
                 <ul class="nav" id="side-menu">
 
                     <li>
-                        <a href="<?php echo site_url('DashboardSummaryController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Home</span> </a>
+                        <a href="<?php echo site_url('DashboardSummaryController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Overview</span> </a>
                     </li>
 
                     <li>

@@ -26,7 +26,8 @@ class LoginController extends CI_Controller {
 
         // IF session is set then call the model::getSurveyQuestions() to get data and pass to success
         if($this->session->userdata('User_Logged_In')) {
-            $this->load->model('DashboardSummaryModel');
+            redirect('DashboardSummaryController');
+         /*   $this->load->model('DashboardSummaryModel');
             $this->data["fetchHousehold"] = $this->DashboardSummaryModel->getHouseholdCount();
             $this->data["fetchFollowUp"] = $this->DashboardSummaryModel->getFollowUpCount();
             $this->data["fetchMonitoring"] = $this->DashboardSummaryModel->getMonitoringVisitsCount();
@@ -38,7 +39,7 @@ class LoginController extends CI_Controller {
             $this->data["mar_data"] = $this->DashboardSummaryModel->hhcountMar();
             $this->data["apr_data"] = $this->DashboardSummaryModel->hhcountApr();
             
-            $this->load->view('DashboardSummary', $this->data);
+            $this->load->view('DashboardSummary', $this->data);*/
         }
         else // Display login page session is not set
             $this->load->view('Login');
@@ -60,6 +61,7 @@ class LoginController extends CI_Controller {
         $sess = $this->session->userdata('User_Logged_In');
 
         if(!empty($sess)) {
+            redirect('DashboardSummaryController');/*
             $this->load->model('DashboardSummaryModel');
             $this->data["fetchHousehold"] = $this->DashboardSummaryModel->getHouseholdCount();
             $this->data["fetchFollowUp"] = $this->DashboardSummaryModel->getFollowUpCount();
@@ -67,12 +69,12 @@ class LoginController extends CI_Controller {
             $this->data["fetchSM"] = $this->DashboardSummaryModel->getSMVisitsCount();
             $this->data["fetchNewUser"] = $this->DashboardSummaryModel->getNewUserCount();
             
-            $this->data['jan_data'] = $this->DashboardSummaryModel->hhcountJan();
-            $this->data['feb_data'] = $this->DashboardSummaryModel->hhcountFeb();
-            $this->data['mar_data'] = $this->DashboardSummaryModel->hhcountMar();
-            $this->data['apr_data'] = $this->DashboardSummaryModel->hhcountApr();
+            $this->data["jan_data"] = $this->DashboardSummaryModel->hhcountJan();
+            $this->data["feb_data"] = $this->DashboardSummaryModel->hhcountFeb();
+            $this->data["mar_data"] = $this->DashboardSummaryModel->hhcountMar();
+            $this->data["apr_data"] = $this->DashboardSummaryModel->hhcountApr();
 
-            $this->load->view('DashboardSummary', $this->data);
+            $this->load->view('DashboardSummary', $this->data);*/
         }
         else
         {
@@ -86,18 +88,19 @@ class LoginController extends CI_Controller {
                     $this->session->set_userdata('User_Logged_In', 'true');
                     $this->LoginModel->login_details($email, $password);
                     $this->load->model('DashboardSummaryModel');
+                    redirect('DashboardSummaryController');/*
                     $this->data["fetchHousehold"] = $this->DashboardSummaryModel->getHouseholdCount();
                     $this->data["fetchFollowUp"] = $this->DashboardSummaryModel->getFollowUpCount();
                     $this->data["fetchMonitoring"] = $this->DashboardSummaryModel->getMonitoringVisitsCount();
                     $this->data["fetchSM"] = $this->DashboardSummaryModel->getSMVisitsCount();
                     $this->data["fetchNewUser"] = $this->DashboardSummaryModel->getNewUserCount();
                     
-                    $this->data['jan_data'] = $this->DashboardSummaryModel->hhcountJan();
-					$this->data['feb_data'] = $this->DashboardSummaryModel->hhcountFeb();
-					$this->data['mar_data'] = $this->DashboardSummaryModel->hhcountMar();
-					$this->data['apr_data'] = $this->DashboardSummaryModel->hhcountApr();
+                    $this->data["jan_data"] = $this->DashboardSummaryModel->hhcountJan();
+					$this->data["feb_data"] = $this->DashboardSummaryModel->hhcountFeb();
+					$this->data["mar_data"] = $this->DashboardSummaryModel->hhcountMar();
+					$this->data["apr_data"] = $this->DashboardSummaryModel->hhcountApr();
                    
-                    $this->load->view('DashboardSummary', $this->data);
+                    $this->load->view('DashboardSummary', $this->data);*/
           }
             else 
             {
