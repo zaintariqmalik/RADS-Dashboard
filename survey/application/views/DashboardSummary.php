@@ -32,8 +32,8 @@
             ['Jan', <?php echo $jan_data->jan_count; ?>, 0],
             ['Feb', <?php echo $feb_data->feb_count; ?>, 87],
             ['Mar', <?php echo $mar_data->mar_count; ?>, 580],
-            ['Apr', <?php echo $apr_data->apr_count; ?>, 0],
-            ['May', 0, 0],
+            ['Apr', <?php echo $apr_data->apr_count; ?>, 490],
+            ['May', 0, 244],
             ['Jun', 0, 0],
             ['Jul', 0, 0],
             ['Aug', 0, 0],
@@ -56,7 +56,7 @@
 
       function cbt_chart() {
         var data = google.visualization.arrayToDataTable([
-            ['', 'CBT',{ role: 'style' }],
+            ['', 'CBT ',{ role: 'style' }],
             ['Jan', 0,''],
             ['Feb', 259,''],
             ['Mar', 858,''],
@@ -66,14 +66,13 @@
             ['Jul', 0,''],
             ['Aug', 0,''],
             ['Sept',0,'']
-            
-         
+        
         ]);
 
         var options_cbt = {
           chart: {
             title: 'CBT',
-            subtitle: 'CBT Count: Jan-2018 to Apr-2018',
+            subtitle: 'CBT Sessions: Jan-2018 to Apr-2018',
           },
           legend: {position: 'right'},
           vAxis: {format: ''}
@@ -99,7 +98,6 @@
               				<span>Overview</span>
             				</h2>
           		    </div>
-
 
                     <!--Counter Section-->
                     <section id="counter_two" class="counter_two" style="padding-top: 03%;" >
@@ -166,16 +164,12 @@
                     <div class="overlay">
                             <div class="container">
                                 <div class="row">
-                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style="height: 300px; width: 500px; padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
-                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="height: 300px;  width: 500px; padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
+                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style="height: 350px;padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
+                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="height: 350px;  padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
                                
                                 </div>
                             </div>
                     </section>
-
-
-
-
 
                 </div>
               </div>
@@ -202,4 +196,3 @@
           </script>
   </body>
 </html>
-
