@@ -28,16 +28,16 @@
      
       function hh_chart() {
         var data = google.visualization.arrayToDataTable([
-            ['', 'Household', 'Followup'],
-            ['Jan', <?php echo $jan_data->jan_count; ?>, 0],
-            ['Feb', <?php echo $feb_data->feb_count; ?>, 87],
-            ['Mar', <?php echo $mar_data->mar_count; ?>, 580],
-            ['Apr', <?php echo $apr_data->apr_count; ?>, 490],
-            ['May', 0, 244],
-            ['Jun', 0, 0],
-            ['Jul', 0, 0],
-            ['Aug', 0, 0],
-            ['Sep', 0, 0]
+            ['', 'Household', 'Followup',{ role: 'style'},],
+            ['Jan', <?php echo $jan_data->jan_count; ?>, 0, '#b87333'],
+            ['Feb', <?php echo $feb_data->feb_count; ?>, 87,'#b87333'],
+            ['Mar', <?php echo $mar_data->mar_count; ?>, 580,'#b87333'],
+            ['Apr', <?php echo $apr_data->apr_count; ?>, 490,'#b87333'],
+            ['May', 0, 244,'#b87333'],
+            ['Jun', 0, 0,'#b87333'],
+            ['Jul', 0, 0,'#b87333'],
+            ['Aug', 0, 0,'#b87333'],
+            ['Sep', 0, 0,'#b87333']
         ]);
 
         var options_hh = {
@@ -96,7 +96,12 @@
               				<a href="<?php echo site_url('DashboardSummaryController#')?>">Home</a>
               				<i class="fa fa-angle-right"></i>
               				<span>Overview</span>
-            				</h2>
+                            </h2>
+                            <p class="header_logo">
+                                <img src="<?php echo base_url(); ?>images\logo\ppif_logo.png">
+                                    &nbsp;&nbsp;
+                                <img src="<?php echo base_url(); ?>images\logo\ahkrc_logo.png">
+                            </p>
           		    </div>
 
                     <!--Counter Section-->
@@ -105,48 +110,48 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="main_counter_two sections text-center">
-                                        <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="col-sm-11" style = "background: #c6ffad;padding: 50px 10px 50px 10px;margin: 0 0 0 20px;">
                                             <div class="row">
-                                                <div class="col-sm-2 col-xs-12">
+                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-sticky-note-o nav_icon" style="color: #920000"></i>
-                                                        <h2 class="statistic-counter_two" style="color: #e46e25"> 
+                                                        <i class="fa fa-sticky-note-o nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                        <h2 class="statistic-counter_two" style="color: #f75e00"> 
                                                         <span><?php print $fetchHousehold->householdCount; ?></span>
                                                         </h2>
                                                         <p>Household Interviews</p>
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
-                                                <div class="col-sm-2 col-xs-12">
+                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-undo nav_icon" style="color: #920000"></i>
-                                                        <h2 class="statistic-counter_two" style="color: #e46e25">
+                                                        <i class="fa fa-undo nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                        <h2 class="statistic-counter_two" style="color: #f75e00">
                                                         <span><?php print $fetchFollowUp->followUpCount; ?></span>
                                                         </h2>
                                                         <p>Follow-ups</p>
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
-                                                <div class="col-sm-2 col-xs-12">
+                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-users nav_icon" style="color: #920000"></i>
-                                                        <h2 class="statistic-counter_two" style="color: #e46e25">
+                                                        <i class="fa fa-users nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                        <h2 class="statistic-counter_two" style="color: #f75e00">
                                                         <span><?php print $fetchSM->smVisitsCount; ?></span>
                                                         </h2>
                                                         <p>Social Mobilizers Visits</p>
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
-                                                <div class="col-sm-2 col-xs-12">
+                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-check-circle-o nav_icon" style="color: #920000"></i>
-                                                        <h2 class="statistic-counter_two" style="color: #e46e25">
+                                                        <i class="fa fa-check-circle-o nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                        <h2 class="statistic-counter_two" style="color: #f75e00">
                                                         <span><?php print $fetchMonitoring->monitoringCount; ?></span>
                                                         </h2>
                                                         <p>M &amp; E Visits</p>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-2 col-xs-12">
+                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-street-view nav_icon" style="color: #920000"></i>
-                                                        <h2 class="statistic-counter_two" style="color: #e46e25">
+                                                        <i class="fa fa-street-view nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                        <h2 class="statistic-counter_two" style="color: #f75e00">
                                                         <span><?php print $fetchNewUser->newUserCount; ?></span>
                                                         </h2>
                                                         <p>New Users</p>
@@ -164,8 +169,8 @@
                     <div class="overlay">
                             <div class="container">
                                 <div class="row">
-                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style="height: 350px;padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
-                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="height: 350px;  padding: 20px; background: #fff;margin: 100px 0 100px 20px"></div>
+                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;padding: 20px; background: #fff;margin: 50px 0 50px 20px"></div>
+                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 50px 0 50px 20px"></div>
                                
                                 </div>
                             </div>
@@ -173,7 +178,7 @@
 
                 </div>
               </div>
-            <?php include "footer.php"?>
+            <?php // include "footer.php"?>
         </div>
         <div class="clearfix"> 
         </div>
@@ -184,7 +189,8 @@
         <!--//scrolling js-->
         <script src="<?php echo base_url(); ?>js/bootstrap.min.js"> </script>
 
-         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 
         <!-- Delay in counter numbers -->

@@ -2212,7 +2212,12 @@ canvas#polarArea, canvas#radar, canvas#doughnut {
 }
 }
 @media(max-width:768px){
-
+    .banner{
+        margin-top: 40px;
+    }
+.header_logo{
+    visibility: hidden;
+}
 .content-top-1 {
     padding: 1.5em 2em;
 }
@@ -2861,6 +2866,11 @@ ul.dropdown-menu.dropdown-menu-right {
 }
 
 /*Following css added by Zeeshan*/
+
+.header_logo{
+    position: absolute; top: 25px; right: 30px;
+}
+
 table.dataTable thead .sorting_asc:after{
     color: green;
 }

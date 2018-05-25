@@ -42,7 +42,7 @@
                 <ul class="nav" id="side-menu">
 
                     <li>
-                        <a href="<?php echo site_url('DashboardSummaryController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Overview</span> </a>
+                        <a href="<?php echo site_url('DashboardSummaryController')?>" class=" hvr-bounce-to-right"><i class="fa fa-sticky-note-o nav_icon"></i> <span class="nav-label">Overview</span> </a>
                     </li>
 
                     <li>
@@ -50,7 +50,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('HouseholdController')?>" class=" hvr-bounce-to-right"><i class="fa fa-sticky-note-o nav_icon"></i> <span class="nav-label">Household Form</span> </a>
+                        <a href="<?php echo site_url('HouseholdController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Household Form</span> </a>
                     </li>
 
                     <li>

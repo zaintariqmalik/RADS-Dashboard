@@ -157,7 +157,6 @@ class HouseholdModel extends CI_Model
 		return $data;
 	}
 	
-
 	
     public function getFPProviderVisitReasonFPConsulatation()
     {
