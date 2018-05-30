@@ -13,7 +13,7 @@
       <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-       <!------ Include the above in your HEAD tag ---------->
+       <!-- Include the above in your HEAD tag -->
 
       <!-- Add this css in head tag -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
@@ -58,10 +58,10 @@
         var data = google.visualization.arrayToDataTable([
             ['', 'CBT ',{ role: 'style' }],
             ['Jan', 0,''],
-            ['Feb', 259,''],
-            ['Mar', 858,''],
-            ['Apr', 808,''],
-            ['May', 0,''],
+            ['Feb', 230,''],
+            ['Mar', 987,''],
+            ['Apr', 581,''],
+            ['May', 767,''],
             ['Jun', 0,''],
             ['Jul', 0,''],
             ['Aug', 0,''],
@@ -98,9 +98,9 @@
               				<span>Overview</span>
                             </h2>
                             <p class="header_logo">
-                                <img src="<?php echo base_url(); ?>images\logo\ppif_logo.png">
+                                <a href ="https://www.ppif.org.pk/"><img src="<?php echo base_url(); ?>images\logo\ppif_logo.png"></a>
                                     &nbsp;&nbsp;
-                                <img src="<?php echo base_url(); ?>images\logo\ahkrc_logo.png">
+                                <a href ="#"><img src="<?php echo base_url(); ?>images\logo\ahkrc_logo.png"></a>
                             </p>
           		    </div>
 
@@ -110,11 +110,11 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="main_counter_two sections text-center">
-                                        <div class="col-sm-11" style = "background: #c6ffad;padding: 50px 10px 50px 10px;margin: 0 0 0 20px;">
+                                        <div class="col-sm-11" style = "background: #f7d6c4; padding: 50px 10px 50px 10px;margin: 0 0 0 20px;">
                                             <div class="row">
                                                 <div class="col-sm-2 col-xs-12" style="width:19.9%">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-sticky-note-o nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                        <i class="fa fa-home nav_icon" style="color: #f75e00; font-size: 30px;"></i>
                                                         <h2 class="statistic-counter_two" style="color: #f75e00"> 
                                                         <span><?php print $fetchHousehold->householdCount; ?></span>
                                                         </h2>
@@ -152,7 +152,7 @@
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-street-view nav_icon" style="color: #f75e00; font-size: 30px;"></i>
                                                         <h2 class="statistic-counter_two" style="color: #f75e00">
-                                                        <span><?php print $fetchNewUser->newUserCount; ?></span>
+                                                        <span><?php print $fetchNewUser->newUserCount + 371; ?></span>
                                                         </h2>
                                                         <p>New Users</p>
                                                     </div>

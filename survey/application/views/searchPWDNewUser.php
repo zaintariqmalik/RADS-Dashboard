@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Search</title>
+<title>New Users</title>
     <?php
     $this->load->view('head');
     ?>
@@ -23,7 +23,7 @@
 				<h2>
 				<a href="<?php echo site_url('DashboardSummaryController')?>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Search</span>
+				<span>Search New Users (PWD Health Camp)</span>
 				</h2>
                             <p class="header_logo">
                                 <a href ="https://www.ppif.org.pk/"><img src="<?php echo base_url(); ?>images\logo\ppif_logo.png"></a>
@@ -42,12 +42,11 @@
                            <th>S.No.</th>
                            <th>Client Name</th>                           
                            <th id="datepicker">Date</th> 
-                           <th>Mohallah</th>
+                           <th>Address</th>
                            <th>Aapi Code</th>
-                           <th>Aapi Name</th>
-                           <th>SM Name</th>                        
+                           <th>Aapi Name</th>                
                            <th>Age</th>
-                           <th>View</th>
+                           <th>Contact</th>     
                        </tr>
                        </thead>
                        <tfoot>
@@ -55,26 +54,25 @@
                                 <th>S.No.</th>
                                 <th>Name</th>                         
                                 <th id="datepicker">Date</th>
-                                <th>Mohallah</th>
+                                <th>Address</th>
                                 <th>Aapi Code</th>
-                                <th>Aapi Name</th>
-                                <th>SM Name</th>                           
+                                <th>Aapi Name</th>                       
                                 <th>Age</th>
-                                <th>View</th>
+                                <th>Contact</th>    
                             </tr>
                         </tfoot>
                        <tbody>
-                               <?php foreach ($fetch_data as $row){?>
+                               <?php foreach ($fetchPWDNewUsers as $row){?>
                                    <tr class = "text-capitalize">
-                                            <td><?php echo $row->SNO?></td>
-                                            <td><?php echo $row->Name?></td>                        
-                                            <td><?php echo $row->Date?></td>  
-                                            <td><?php echo $row->MUHALA?></td>
-                                            <td><?php echo $row->API?></td>
-                                            <td><?php echo $row->APIName?></td>
-                                            <td><?php echo $row->SM?></td>                                           
-                                            <td><?php echo $row->Age?></td>
-                                            <td><a href="<?php echo site_url('SearchController/getDetailsOfWomenBySNo/'.$row->SNO)?>" class="under"> View More..<!--<button type="button" class="btn btn-info">View</button>--> </a></td>
+                                            <td><?php echo $row->sno?></td>
+                                            <td><?php echo $row->clientName?></td>                        
+                                            <td><?php echo $row->regDate?></td>  
+                                            <td><?php echo $row->address?></td>
+                                            <td><?php echo ''?></td>
+                                            <td><?php echo $row->aapiName?></td>                                    
+                                            <td><?php echo $row->age?></td>                                   
+                                            <td><?php echo $row->contactNo?></td>
+                                         <!--   <td><a href="<?php // echo site_url('SearchController/getDetailsOfWomenBySNo/'.$row->SNO)?>" class="under"> View More..<!--<button type="button" class="btn btn-info">View</button> </a></td> --> 
                                    </tr>
                                <?php }?>
                        </tbody>

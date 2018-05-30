@@ -40,6 +40,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<i class="fa fa-angle-right"></i>
 				<span>Map</span>
 				</h2>
+                            <p class="header_logo">
+                                <a href ="https://www.ppif.org.pk/"><img src="<?php echo base_url(); ?>images\logo\ppif_logo.png"></a>
+                                    &nbsp;&nbsp;
+                                <a href ="#"><img src="<?php echo base_url(); ?>images\logo\ahkrc_logo.png"></a>
+                            </p>
 		    </div>
 		<!--//banner-->
 		<!--content-->
@@ -57,7 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 	 
 		<!---->
-           <?php include "footer.php"?>
+           <?php // include "footer.php"?>
 		</div>
 		<div class="clearfix"> </div>
        </div>
@@ -100,9 +105,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 ?>];
 
 
-            // Displays map . with the zoom scale 16 and having a centeral point definec above
+            // Displays map . with the zoom scale 15 and having a centeral point definec above
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 16,
+                zoom: 15,
                 center: myLatLng
             });
 

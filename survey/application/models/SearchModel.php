@@ -33,5 +33,23 @@ class SearchModel extends CI_Model{
         $result2 =$query->result();
         return $result2;
     }
+
+    public function getNewUsersInfo(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT * FROM `household` WHERE SNO IN 
+                                    ( SELECT SNO FROM followup WHERE conclusion like 'New User' or conclusion like 'New User Case Closed')");
+
+        return $query->result();
+       
+    }
+
+    public function getPWDNewUsersInfo(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT * FROM `pwdHealthCamp` WHERE 1");
+         //SNO IN ( SELECT SNO FROM followup WHERE conclusion like 'New User' or conclusion like 'New User Case Closed')");
+
+        return $query->result();
+       
+    }
 }
 ?>

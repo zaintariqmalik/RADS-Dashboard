@@ -27,6 +27,28 @@ class SearchController extends CI_Controller{
         else // Display login page session is not set
             $this->load->view('login');
     } 
+    public function pwdHealthCamp()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetchPWDNewUsers"] = $this->SearchModel->getPWDNewUsersInfo();
+            $this->load->view('searchPWDNewUser',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
+    public function getNewUsers()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetchNewUsers"] = $this->SearchModel->getNewUsersInfo();
+            $this->load->view('searchNewUser',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
 
     public function getDetailsOfWomenBySNo($SNO)
     {

@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Search</title>
+<title>New Users</title>
     <?php
     $this->load->view('head');
     ?>
@@ -23,7 +23,7 @@
 				<h2>
 				<a href="<?php echo site_url('DashboardSummaryController')?>">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Search</span>
+				<span>Search New Users</span>
 				</h2>
                             <p class="header_logo">
                                 <a href ="https://www.ppif.org.pk/"><img src="<?php echo base_url(); ?>images\logo\ppif_logo.png"></a>
@@ -64,7 +64,7 @@
                             </tr>
                         </tfoot>
                        <tbody>
-                               <?php foreach ($fetch_data as $row){?>
+                               <?php foreach ($fetchNewUsers as $row){?>
                                    <tr class = "text-capitalize">
                                             <td><?php echo $row->SNO?></td>
                                             <td><?php echo $row->Name?></td>                        

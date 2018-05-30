@@ -3,17 +3,22 @@
 <!--banner-->	
     <div class="banner">
     
-    <h2>
-    <a href="<?php echo site_url('DashboardSummaryController')?>">Home</a>
-    <i class="fa fa-angle-right"></i>
-    <a href="<?php echo site_url('SearchController'); ?>">
-        <span>Search</span> 
-    </a>
+        <h2>
+        <a href="<?php echo site_url('DashboardSummaryController')?>">Home</a>
         <i class="fa fa-angle-right"></i>
+        <a href="<?php echo site_url('SearchController'); ?>">
+            <span>Search</span>
+        </a>
+            <i class="fa fa-angle-right"></i>
 
-        <span>Woman Details (<bold style="color: blue">Follow-Ups Data </bold>)</span>
-    </h2>
-</div>
+            <span>Woman Details (<bold style="color: blue">Follow-Ups Data </bold>)</span>
+        </h2>
+                            <p class="header_logo">
+                                <a href ="https://www.ppif.org.pk/"><img src="<?php echo base_url(); ?>images\logo\ppif_logo.png"></a>
+                                    &nbsp;&nbsp;
+                                <a href ="#"><img src="<?php echo base_url(); ?>images\logo\ahkrc_logo.png"></a>
+                            </p>
+    </div>
 <!--//banner-->
 <br/>
 <!--content-->
@@ -25,9 +30,9 @@
             <tbody>
                     <?php $count = 1;
                     foreach ($fetch_data1 as $row){ ?>
-                        <tr style = "background: #d4d3d3; color: black !important; font-weight: bold">
-                            <td>Follow Up </td>
-                            <td><?php echo $count;?></td>
+                        <tr style = "background: #d95459fa;  font-weight: bold">
+                            <td style = "color: beige">Follow Up </td>
+                            <td style = "color: beige"><?php echo $count;?></td>
                         </tr>
                         <tr>
                             <td>Serial Number</td>
@@ -56,7 +61,7 @@
                         </tr>
                         <tr>
                             <td>Need for counseling session with SM</td>
-                            <td><?php echo $row->needSMCounseling?></td>
+                            <td><?php echo $row->SMCounselingprovided?></td>
                         </tr>
                         <tr>
                             <td>SM provided Counseling</td>

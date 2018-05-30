@@ -34,6 +34,11 @@
 				<i class="fa fa-angle-right"></i>
 				<span>M &amp; E Data</span>
 				</h2>
+                            <p class="header_logo">
+                                <a href ="https://www.ppif.org.pk/"><img src="<?php echo base_url(); ?>images\logo\ppif_logo.png"></a>
+                                    &nbsp;&nbsp;
+                                <a href ="#"><img src="<?php echo base_url(); ?>images\logo\ahkrc_logo.png"></a>
+                            </p>
 		    </div>
 		<!--//banner-->
 		<!--content-->
@@ -85,7 +90,7 @@
 
 	 
 		<!---->
-           <?php include "footer.php"?>
+           <?php // include "footer.php"?>
 		</div>
 		<div class="clearfix"> </div>
        </div>
