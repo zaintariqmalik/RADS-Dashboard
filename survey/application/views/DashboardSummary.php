@@ -25,7 +25,8 @@
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(cbt_chart);
       google.charts.setOnLoadCallback(hh_chart);
-     
+      google.charts.setOnLoadCallback(cs_chart);
+      
       function hh_chart() {
         var data = google.visualization.arrayToDataTable([
             ['', 'Household', 'Followup',{ role: 'style'},],
@@ -33,7 +34,7 @@
             ['Feb', <?php echo $feb_data->feb_count; ?>, 87,'#b87333'],
             ['Mar', <?php echo $mar_data->mar_count; ?>, 580,'#b87333'],
             ['Apr', <?php echo $apr_data->apr_count; ?>, 490,'#b87333'],
-            ['May', 0, 244,'#b87333'],
+            ['May', <?php echo $may_data->may_count; ?>, 244,'#b87333'],
             ['Jun', 0, 0,'#b87333'],
             ['Jul', 0, 0,'#b87333'],
             ['Aug', 0, 0,'#b87333'],
@@ -82,6 +83,61 @@
 
         chart_cbt.draw(data, google.charts.Bar.convertOptions(options_cbt));
       }
+
+      function cs_chart() {
+        var data = google.visualization.arrayToDataTable([
+            ['', 'Community',{ role: 'style' }],
+            ['Jan', 0,''],
+            ['Feb', 200,'#e0440e'],
+            ['Mar', 387,'#e6693e'],
+            ['Apr', 362,''],
+            ['May', 263,''],
+            ['Jun', 0,''],
+            ['Jul', 0,''],
+            ['Aug', 0,''],
+            ['Sept',0,'']
+        
+        ]);
+
+        var options_cs = {
+          chart: {
+            title: 'Community Sessions',
+            subtitle: 'Community Sessions: Jan-2018 to Apr-2018',
+            colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
+          },
+          legend: {position: 'right'},
+          vAxis: {format: ''}
+        };
+
+        var chart_cs = new google.charts.Bar(document.getElementById('CS_Chart'));
+
+        chart_cs.draw(data, google.charts.Bar.convertOptions(options_cs));
+      }
+
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day',{ role: 'style' }],
+          ['Short Term Methods', 11,'#e0440e'],
+          ['LARCs',  12,'#e6693e'],
+          ['Permanent Methods', 12,'#ec8f6e']
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          is3D: true,
+          slices: {
+            0: { color: '#fd000a' },
+            1: { color: '#ff4a38' },
+            2: { color: 'orange' }
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+
     </script>
   </head>
 </head>
@@ -169,9 +225,12 @@
                     <div class="overlay">
                             <div class="container">
                                 <div class="row">
-                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;padding: 20px; background: #fff;margin: 50px 0 50px 20px"></div>
-                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 50px 0 50px 20px"></div>
-                               
+                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;padding: 20px; background: #fff;margin: 50px 0 25px 20px"></div>
+                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 50px 0 25px 20px"></div>
+                                    <div id="CS_Chart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
+                                    <div id="piechart_3d" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
+                                    
+                                    
                                 </div>
                             </div>
                     </section>

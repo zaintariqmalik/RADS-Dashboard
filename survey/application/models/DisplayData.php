@@ -50,7 +50,6 @@ class  DisplayData extends CI_Model{
      */
     public function getQuestionDetails($question_id){
 
-
         //$this->load->database(true);
         // $this->db->select('email');
         //$this->db->from('user');

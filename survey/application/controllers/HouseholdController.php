@@ -60,7 +60,7 @@ class HouseholdController extends CI_Controller{
 	{
 		$this->load->model('HouseholdModel');
 		$data["fetch_data"] = $this->HouseholdModel->getFPMethodUsageCount();
-        $data["question_title"] = "Ever use FP Method";
+        $data["question_title"] = "Ever use FP method";
 
         //pass the fetched data to view
         $this->load->view('HouseholdView', $data);
@@ -70,7 +70,7 @@ class HouseholdController extends CI_Controller{
 	{
 		$this->load->model('HouseholdModel');
 		$data["fetch_data"] = $this->HouseholdModel->getFPMethodCount();
-        $data["question_title"] = "Which FP Method used";
+        $data["question_title"] = "Which FP method used";
 		
         //pass the fetched data to view
         $this->load->view('HouseholdView', $data);
@@ -80,7 +80,7 @@ class HouseholdController extends CI_Controller{
 	{
 		$this->load->model('HouseholdModel');
 		$data["fetch_data"] = $this->HouseholdModel->getCurrentFPMethodUsageCount();
-        $data["question_title"] = "Currently using FP Method";
+        $data["question_title"] = "Currently using FP method";
 		
         //pass the fetched data to view
         $this->load->view('HouseholdView', $data);
@@ -90,7 +90,7 @@ class HouseholdController extends CI_Controller{
 	{
 		$this->load->model('HouseholdModel');
 		$data["fetch_data"] = $this->HouseholdModel->getCurrentFPMethodCount();
-        $data["question_title"] = "Which FP Method currently using";
+        $data["question_title"] = "Which FP method currently using";
 		
         //pass the fetched data to view
         $this->load->view('HouseholdView', $data);
@@ -110,7 +110,7 @@ class HouseholdController extends CI_Controller{
 	{
 		$this->load->model('HouseholdModel');
 		$data["fetch_data"] = $this->HouseholdModel->getFPProviderVisitCount();
-        $data["question_title"] = "Visit any FP Provider";
+        $data["question_title"] = "Visit any FP provider";
 		
         //pass the fetched data to view
         $this->load->view('HouseholdView', $data);
@@ -147,18 +147,18 @@ class HouseholdController extends CI_Controller{
         $ArrayWithResult = array();
 
         // Storing array in $res variable
-        // Getting Data form FPConsulatation column
+        // Getting Data form FPConsultation column
         $res=$this->HouseholdModel->getFPProviderVisitReasonFPConsulatation();
         $FPConsulatationObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
-        $FPConsulatationObj->value = 'FP Consulatation';
+        $FPConsulatationObj->value = 'FP Consultation';
         $FPConsulatationObj->total = $res[0]->result;
         $ArrayWithResult[0] = $FPConsulatationObj; // saving object in array
 
         // Storing array in $res variable
-        // Getting Data form ForIUD column
+        // Getting Data form ForIUCD column
         $res=$this->HouseholdModel->getFPProviderVisitReasonForIUD();
         $ForIUDObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
-        $ForIUDObj->value = 'For IUCD';
+        $ForIUDObj->value = 'IUCD';
         $ForIUDObj->total = $res[0]->result;
         $ArrayWithResult[1] = $ForIUDObj; // saving object in array
 
@@ -175,7 +175,7 @@ class HouseholdController extends CI_Controller{
         // Getting Data form TubalLigation column
         $res=$this->HouseholdModel->getFPProviderVisitReasonTubalLigation();
         $TubalLigationObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
-        $TubalLigationObj->value = 'Tubal Ligation';
+        $TubalLigationObj->value = 'TL';
         $TubalLigationObj->total = $res[0]->result;
         $ArrayWithResult[3] = $TubalLigationObj; // saving object in array
 
@@ -191,7 +191,7 @@ class HouseholdController extends CI_Controller{
         // Getting Data form SideEffects column
         $res=$this->HouseholdModel->getFPProviderVisitReasonSideEffects();
         $SideEffectsObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
-        $SideEffectsObj->value = 'Side Effects';
+        $SideEffectsObj->value = 'SE';
         $SideEffectsObj->total = $res[0]->result;
         $ArrayWithResult[5] = $SideEffectsObj; // saving object in array
 

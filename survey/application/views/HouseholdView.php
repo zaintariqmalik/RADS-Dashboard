@@ -209,7 +209,8 @@ print_r($counts);
     var cat1 =cat ;
     var i ;
     for(i = 0 ;i<cat.length;i++){
-        cat1[i] = cat[i]+"("+count[i]+")";
+        cat1[i] = cat[i];
+      //  cat1[i] = cat[i]+"("+count[i]+")";
     }
 
     //total count of each question
@@ -229,7 +230,7 @@ print_r($counts);
             datasets: [
                 {
                     label: "People Answered",
-                    backgroundColor: ["#000040", "#c81309","#e46e25","#CD5C5C","#F1C40F","#900C3F", "#581845", "#1a5276","#117864","#633974"],
+                    backgroundColor: ["#000040","#e46e25", "#c81309","#CD5C5C","#F1C40F","#900C3F", "#581845", "#1a5276","#117864","#633974"],
                     data: count
                 }
             ]
@@ -238,7 +239,7 @@ print_r($counts);
             legend: { display: false },
             title: {
                 display: true,
-                text: 'Time Period: January (2018) - February (2018) \n N = ' + total_count,
+                text: 'Time Period: Jan (2018) - Jun (2018) \n N = ' + total_count,
                 fontColor: '#000',
                 fontSize: 13,
             },

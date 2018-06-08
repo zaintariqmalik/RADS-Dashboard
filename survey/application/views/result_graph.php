@@ -96,11 +96,7 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <!--API for chart-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootstrap.css">
 
@@ -218,7 +214,8 @@
     var cat1 =cat ;
     var i ;
     for(i = 0;i<cat.length;i++){
-        cat1[i] = cat[i]+"("+count[i]+")";
+        cat1[i] = cat[i];
+        //cat1[i] = cat[i]+"("+count[i]+")";
     }
 
     //total count of each question

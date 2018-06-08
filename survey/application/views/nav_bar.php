@@ -50,11 +50,11 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('SearchController/getNewUsers')?>" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">Search New Users</span> </a>
+                        <a href="<?php echo site_url('SearchController/getNewUsers')?>" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">New Users - HH Visit</span> </a>
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('SearchController/pwdHealthCamp')?>" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">PWD Health Camp NewUser</span> </a>
+                        <a href="<?php echo site_url('SearchController/pwdHealthCamp')?>" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">New Users - PWD Health Camp</span> </a>
                     </li>
 
                     <li>

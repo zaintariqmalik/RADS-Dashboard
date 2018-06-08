@@ -31,10 +31,9 @@ class HouseholdModel extends CI_Model
 
 		//another method
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select areYouPregnant as value , count(areYouPregnant) as total
-									from household 
-									group by areYouPregnant
-									order by total desc');
+		$query = $otherdb->query('SELECT areYouPregnant as value , count(areYouPregnant) as total
+									from household where areYouPregnant <> ""
+									group by areYouPregnant desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -43,11 +42,9 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select pregnancyCheckUp as value , count(pregnancyCheckUp) as total
-									from household 
-									where pregnancyCheckUp <> ""
-									group by pregnancyCheckUp
-									order by total desc;');
+		$query = $otherdb->query('SELECT pregnancyCheckUp as value , count(pregnancyCheckUp) as total
+									from household  where pregnancyCheckUp <> ""
+									group by pregnancyCheckUp desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -56,11 +53,9 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select EveryUseFPMethod as value, count(EveryUseFPMethod) as total
-									from household 
-									where EveryUseFPMethod <> ""
-									group by EveryUseFPMethod
-									order by total desc;');
+		$query = $otherdb->query('SELECT EveryUseFPMethod as value, count(EveryUseFPMethod) as total
+									from household where EveryUseFPMethod <> ""
+									group by EveryUseFPMethod desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -69,11 +64,10 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select DISTINCT (everFPMethod) as value, count(everFPMethod) as total
+		$query = $otherdb->query('SELECT DISTINCT (everFPMethod) as value, count(everFPMethod) as total
 									from household 
-									where EveryUseFPMethod Like "Yes"
-									group by everFPMethod
-									order by total desc');
+									where everFPMethod <> ""
+									group by everFPMethod desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -84,11 +78,10 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select CurrentlyUsingFPMethod as value, count(CurrentlyUsingFPMethod) as total
+		$query = $otherdb->query('SELECT CurrentlyUsingFPMethod as value, count(CurrentlyUsingFPMethod) as total
 									from household 
 									where CurrentlyUsingFPMethod <> ""
-									group by CurrentlyUsingFPMethod
-									order by total desc;');
+									group by CurrentlyUsingFPMethod desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -97,11 +90,10 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select DISTINCT (currentFPMethodName) as value, count(currentFPMethodName) as total
+		$query = $otherdb->query('SELECT DISTINCT (currentFPMethodName) as value, count(currentFPMethodName) as total
 									from household 
-									where CurrentlyUsingFPMethod Like "Yes"
-									group by currentFPMethodName
-									order by total desc;');
+									where CurrentlyUsingFPMethod Like "Yes" and currentFPMethodName <> ""
+									group by currentFPMethodName desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -110,11 +102,10 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select FaceSideEffects as value, count(FaceSideEffects) as total
+		$query = $otherdb->query('SELECT FaceSideEffects as value, count(FaceSideEffects) as total
 									from household 
 									where FaceSideEffects <> ""
-						     		group by FaceSideEffects
-						     		order by total desc;');
+						     		group by FaceSideEffects desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -123,11 +114,10 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select VisitAnyFPProvider as value, count(VisitAnyFPProvider) as total
+		$query = $otherdb->query('SELECT VisitAnyFPProvider as value, count(VisitAnyFPProvider) as total
 										from household 
 									where CurrentlyUsingFPMethod = "Yes" and VisitAnyFPProvider <> ""
-									group by VisitAnyFPProvider
-									order by total desc;');
+									group by VisitAnyFPProvider desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -151,8 +141,7 @@ class HouseholdModel extends CI_Model
 									END as value
 									from household 
 									where useFPMethod = 1 and fpProviderVisit = 1
-									group by visitReason
-									order by total desc;');
+									group by visitReason');
 		$data = $query->result();
 		return $data;
 	}
@@ -162,8 +151,8 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('select count(`FPConsulatation`) as result from household
-                                  where `FPConsulatation` LIKE \'Yes\' 
+        $query = $otherdb->query('SELECT count(`FPConsultation`) as result from household
+                                  where `FPConsultation` LIKE \'Yes\' 
                                   and `EveryUseFPMethod` LIKE \'Yes\'
                                   and `VisitAnyFPProvider` LIKE \'Yes\'');
 
@@ -175,7 +164,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('select count(`ForIUD`) as result from household
+        $query = $otherdb->query('SELECT count(`ForIUD`) as result from household
                                   where `ForIUD` LIKE \'Yes\' 
                                   and `EveryUseFPMethod` LIKE \'Yes\'
                                   and `VisitAnyFPProvider` LIKE \'Yes\'');
@@ -186,7 +175,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('select count(`Implant`) as result from household
+        $query = $otherdb->query('SELECT count(`Implant`) as result from household
                                   where `Implant` LIKE \'Yes\' 
                                   and `EveryUseFPMethod` LIKE \'Yes\'
                                   and `VisitAnyFPProvider` LIKE \'Yes\'');
@@ -198,7 +187,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('select count(`TubalLigation`) as result from household
+        $query = $otherdb->query('SELECT count(`TubalLigation`) as result from household
                                   where `TubalLigation` LIKE \'Yes\' 
                                   and `EveryUseFPMethod` LIKE \'Yes\'
                                   and `VisitAnyFPProvider` LIKE \'Yes\'');
@@ -209,7 +198,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('select count(`Operation`) as result from household
+        $query = $otherdb->query('SELECT count(`Operation`) as result from household
                                   where `Operation` LIKE \'Yes\' 
                                   and `EveryUseFPMethod` LIKE \'Yes\'
                                   and `VisitAnyFPProvider` LIKE \'Yes\'');
@@ -221,7 +210,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('select count(`SideEffects`) as result from household
+        $query = $otherdb->query('SELECT count(`SideEffects`) as result from household
                                   where `SideEffects` LIKE \'Yes\' 
                                   and `EveryUseFPMethod` LIKE \'Yes\'
                                   and `VisitAnyFPProvider` LIKE \'Yes\'');
@@ -233,7 +222,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('select count(`OtherReasonForVisit`) as result from household
+        $query = $otherdb->query('SELECT count(`OtherReasonForVisit`) as result from household
                                   where `OtherReasonForVisit` <> \'\' 
                                   and `EveryUseFPMethod` LIKE \'Yes\'
                                   and `VisitAnyFPProvider` LIKE \'Yes\'');
@@ -247,11 +236,10 @@ class HouseholdModel extends CI_Model
 	{
 		//TRUE parameter tells CI to return otherdb database object
 		$otherdb = $this->load->database('otherdb', TRUE);
-		$query = $otherdb->query('select WantToUseAnyFPMethod as value, count(WantToUseAnyFPMethod) as total
+		$query = $otherdb->query('SELECT WantToUseAnyFPMethod as value, count(WantToUseAnyFPMethod) as total
 									  from household 
 									  where WantToUseAnyFPMethod <> ""
-									group by WantToUseAnyFPMethod
-									order by total desc;');
+									group by WantToUseAnyFPMethod desc');
 		$data = $query->result();
 		return $data;
 	}
@@ -264,7 +252,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT COUNT(`Fear`)  as result FROM `household` WHERE `Fear` LIKE \'Yes\'');
+        $query = $otherdb->query('SELECT COUNT(Fear)  as result FROM household WHERE Fear LIKE "Yes" and Fear <> ""');
         $data = $query->result();
         return $data;
     }
@@ -277,7 +265,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT COUNT(`NoPermissionFromHusband`) as result FROM `household` WHERE `NoPermissionFromHusband` LIKE \'Yes\'');
+        $query = $otherdb->query('SELECT COUNT(NoPermissionFromHusband) as result FROM household WHERE NoPermissionFromHusband LIKE "Yes" and NoPermissionFromHusband <> ""');
         $data = $query->result();
         return $data;
     }
@@ -290,7 +278,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT COUNT(`FamilyNotComplete`) as result FROM `household` WHERE `FamilyNotComplete` LIKE \'Yes\'');
+				$query = $otherdb->query('SELECT COUNT(FamilyNotComplete) as result FROM household WHERE FamilyNotComplete LIKE "Yes" and FamilyNotComplete <> ""');
         $data = $query->result();
         return $data;
     }
@@ -303,7 +291,7 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT COUNT(`NoPermissionFromMotherInLaw`) as result FROM `household` WHERE `NoPermissionFromMotherInLaw` LIKE \'Yes\'');
+        $query = $otherdb->query('SELECT COUNT(NoPermissionFromMotherInLaw) as result FROM household WHERE NoPermissionFromMotherInLaw LIKE "Yes" and NoPermissionFromMotherInLaw <> ""');
         $data = $query->result();
         return $data;
     }
@@ -316,13 +304,10 @@ class HouseholdModel extends CI_Model
     {
         //TRUE parameter tells CI to return otherdb database object
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT COUNT(`OtherReasonForNotUsing`) as result FROM `household` WHERE `OtherReasonForNotUsing` <> \'\'');
+        $query = $otherdb->query("SELECT COUNT(OtherReasonForNotUsing) as result FROM household WHERE OtherReasonForNotUsing <> ''");
         $data = $query->result();
         return $data;
     }
 
 }
-
-
-
 ?>

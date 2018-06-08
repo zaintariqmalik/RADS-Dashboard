@@ -176,7 +176,7 @@
                                                    <td>other</td>
                                                </tr>
                                                <tr>
-                                                   <td><?php echo $row->FPConsulatation?></td>
+                                                   <td><?php echo $row->FPConsultation?></td>
                                                    <td><?php echo $row->ForIUD?></td>
                                                    <td><?php echo $row->Implant?></td>
                                                    <td><?php echo $row->TubalLigation?></td>

@@ -15,7 +15,7 @@ class DashboardSummaryModel extends CI_Model{
 
     public function hhcountJan(){
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT count(*) as jan_count FROM household where Date BETWEEN '2018/01/01' AND '2018/01/31'");
+        $query = $otherdb->query("SELECT count(*) as jan_count FROM household where Date BETWEEN '0000/00/00' AND '2018/01/31'");
         return $query->row();
     }
     public function hhcountFeb(){
@@ -33,9 +33,14 @@ class DashboardSummaryModel extends CI_Model{
         $query = $otherdb->query("SELECT count(*) as apr_count FROM household where Date BETWEEN '2018/04/01' AND '2018/04/30'");
         return $query->row();
     }
-   /* public function hhcountMay(){
+    public function hhcountMay(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query("SELECT count(*) as may_count FROM household where Date BETWEEN '2018/05/01' AND '2018/05/31'");
+         return $query->row();
+    }/*
+    public function hhcountJun(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT count(*) as jun_count FROM household where Date BETWEEN '2018/06/01' AND '2018/06/30'");
          return $query->row();
         //print_r($query->row()->may_count);exit();
     }*/

@@ -25,7 +25,8 @@ class DashboardSummaryController extends CI_Controller{
 					$this->data['feb_data'] = $this->DashboardSummaryModel->hhcountFeb();
 					$this->data['mar_data'] = $this->DashboardSummaryModel->hhcountMar();
 					$this->data['apr_data'] = $this->DashboardSummaryModel->hhcountApr();
-				//	$this->data['may_data'] = $this->DashboardSummaryModel->hhcountMay();
+					$this->data['may_data'] = $this->DashboardSummaryModel->hhcountMay();
+					//$this->data['jun_data'] = $this->DashboardSummaryModel->hhcountJun();
 
 					$this->load->view('DashboardSummary', $this->data);
 		        }

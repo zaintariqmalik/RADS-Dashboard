@@ -105,7 +105,9 @@
 	<script src="<?php echo base_url(); ?>js/bootstrap.min.js"> </script>
 <script>
     $(document).ready(function(){
-            $('#women_data').DataTable();
+            $('#women_data').DataTable(
+                
+            );
     });
 </script>
 </body>
