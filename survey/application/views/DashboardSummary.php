@@ -34,7 +34,7 @@
             ['Feb', <?php echo $feb_data->feb_count; ?>, 87,'#b87333'],
             ['Mar', <?php echo $mar_data->mar_count; ?>, 580,'#b87333'],
             ['Apr', <?php echo $apr_data->apr_count; ?>, 490,'#b87333'],
-            ['May', <?php echo $may_data->may_count; ?>, 244,'#b87333'],
+            ['May', <?php echo $may_data->may_count; ?>, 244+287,'#b87333'],
             ['Jun', 0, 0,'#b87333'],
             ['Jul', 0, 0,'#b87333'],
             ['Aug', 0, 0,'#b87333'],
@@ -119,18 +119,18 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day',{ role: 'style' }],
-          ['Short Term Methods', 11,'#e0440e'],
-          ['LARCs',  12,'#e6693e'],
-          ['Permanent Methods', 12,'#ec8f6e']
+          ['Short Term Methods', 1,'#e0440e'],
+          ['LARCs',  1,'#e6693e'],
+          ['Permanent Methods', 1,'#ec8f6e']
         ]);
 
         var options = {
-          title: 'My Daily Activities',
+          title: 'Catagories of FP users',
           is3D: true,
           slices: {
-            0: { color: '#fd000a' },
-            1: { color: '#ff4a38' },
-            2: { color: 'orange' }
+            0: { color: 'red' },
+            1: { color: 'green' },
+            2: { color: 'blue' }
           }
         };
 
@@ -154,7 +154,7 @@
               				<span>Overview</span>
                             </h2>
                             <p class="header_logo">
-                                <a href ="https://www.ppif.org.pk/"><img src="<?php echo base_url(); ?>images\logo\ppif_logo.png"></a>
+                                <a href ="https://www.ppif.org.pk/" target="_blank"><img src="<?php echo base_url(); ?>images\logo\ppif_logo.png"></a>
                                     &nbsp;&nbsp;
                                 <a href ="#"><img src="<?php echo base_url(); ?>images\logo\ahkrc_logo.png"></a>
                             </p>
@@ -228,8 +228,9 @@
                                     <div id="firstChart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;padding: 20px; background: #fff;margin: 50px 0 25px 20px"></div>
                                     <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 50px 0 25px 20px"></div>
                                     <div id="CS_Chart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
-                                    <div id="piechart_3d" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
-                                    
+                                    <!--
+                                        <div id="piechart_3d" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
+                                    -->
                                     
                                 </div>
                             </div>

@@ -244,7 +244,7 @@
             legend: { display: false },
             title: {
                 display: true,
-                text: 'Time Period: January (2018) - February (2018) \n N = ' + total_count,
+                text: 'Time Period: January - June (2018) \n              N = ' + total_count,
                 fontColor: '#000',
                 fontSize: 13,
                 showInlineValues : true,

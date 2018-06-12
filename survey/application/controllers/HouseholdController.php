@@ -171,21 +171,23 @@ class HouseholdController extends CI_Controller{
         $ImplantObj->total = $res[0]->result;
         $ArrayWithResult[2] = $ImplantObj; // saving object in array
 
+         // Storing array in $res variable
+        // Getting Data form Operation column
+        $res=$this->HouseholdModel->getFPProviderVisitReasonOperation();
+        $OperationObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
+        //$OperationObj->value = 'Operation';
+        $OperationObj->total = $res[0]->result;
+       // $ArrayWithResult[4] = $OperationObj; // saving object in array
+
+
         // Storing array in $res variable
         // Getting Data form TubalLigation column
         $res=$this->HouseholdModel->getFPProviderVisitReasonTubalLigation();
         $TubalLigationObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
         $TubalLigationObj->value = 'TL';
-        $TubalLigationObj->total = $res[0]->result;
+        $TubalLigationObj->total = $res[0]->result + $OperationObj->total;
         $ArrayWithResult[3] = $TubalLigationObj; // saving object in array
 
-        // Storing array in $res variable
-        // Getting Data form Operation column
-        $res=$this->HouseholdModel->getFPProviderVisitReasonOperation();
-        $OperationObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
-        $OperationObj->value = 'Operation';
-        $OperationObj->total = $res[0]->result;
-        $ArrayWithResult[4] = $OperationObj; // saving object in array
 
         // Storing array in $res variable
         // Getting Data form SideEffects column
@@ -246,11 +248,13 @@ class HouseholdController extends CI_Controller{
         $ArrayWithResult[0] = $FearObj; // saving object in array
 
         // Storing array in $res variable
+        
         $res = $this->HouseholdModel->getReasonNotInterestedNoPermissionFromHusband();
         $NoPermissionFromHusbandObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
-        $NoPermissionFromHusbandObj->value = 'No Permission From Husband';
+        //$NoPermissionFromHusbandObj->value = 'No Permission From Husband';
         $NoPermissionFromHusbandObj->total = $res[0]->result;
-        $ArrayWithResult[1] = $NoPermissionFromHusbandObj;
+        //$ArrayWithResult[1] = $NoPermissionFromHusbandObj;
+        
 
         // Storing array in $res variable
         $res = $this->HouseholdModel->getReasonNotInterestedFamilyNotComplete();
@@ -259,11 +263,13 @@ class HouseholdController extends CI_Controller{
         $FamilyIncompleteObj->total = $res[0]->result;
         $ArrayWithResult[2] = $FamilyIncompleteObj;
 
-        // Storing array in $res variable
+        // Storing array in $res variable 
+        // Storing data for NoPermissiongFromHusband & NoPermissionFromMotherInLaw
+
         $res = $this->HouseholdModel->getReasonNotInterestedNoPermissionFromMotherInLaw();
         $NoPermissionFromMotherInLawObj = new stdClass(); // Creating std object since our HousholdView is working on std object for other questions
-        $NoPermissionFromMotherInLawObj->value = 'No Permission From MotherInLaw';
-        $NoPermissionFromMotherInLawObj->total = $res[0]->result;
+        $NoPermissionFromMotherInLawObj->value = 'No Permission';
+        $NoPermissionFromMotherInLawObj->total = $res[0]->result + $NoPermissionFromHusbandObj->total;
         $ArrayWithResult[3] = $NoPermissionFromMotherInLawObj;
 
         // Storing array in $res variable
