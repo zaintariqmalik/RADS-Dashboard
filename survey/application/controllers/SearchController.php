@@ -27,6 +27,86 @@ class SearchController extends CI_Controller{
         else // Display login page session is not set
             $this->load->view('login');
     } 
+    public function HH_jan_data()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->jan_data();
+            $this->load->view('SearchView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
+    public function HH_feb_data()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->feb_data();
+            $this->load->view('SearchView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
+    public function HH_mar_data()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->mar_data();
+            $this->load->view('SearchView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
+    public function HH_apr_data()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->apr_data();
+            $this->load->view('SearchView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
+    public function HH_may_data()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->may_data();
+            $this->load->view('SearchView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
+    public function HH_jun_data()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->jun_data();
+            $this->load->view('SearchView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } /*
+    public function HH_jul_data()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->jul_data();
+            $this->load->view('SearchView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } */
+
+
+
     public function pwdHealthCamp()
     {
         if($this->session->userdata('User_Logged_In'))

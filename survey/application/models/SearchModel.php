@@ -17,21 +17,52 @@ class SearchModel extends CI_Model{
         $result1 =$query->result();
         return $result1;
     }
+    public  function  jan_data(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-01-01" and "2018-01-31"');
+        return $query->result();
+    }
+    public  function  feb_data(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-02-01" and "2018-02-29"');
+        return $query->result();
+    }
+    public  function  mar_data(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-03-01" and "2018-03-31"');
+        return $query->result();
+    }
+    public  function  apr_data(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-04-01" and "2018-04-30"');
+        return $query->result();
+    }
+    public  function  may_data(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-05-01" and "2018-05-31"');
+        return $query->result();
+    }
+    public  function  jun_data(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-06-01" and "2018-06-30"');
+        return $query->result();
+    }/*
+    public  function  jul_data(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-07-01" and "2018-07-31"');
+        return $query->result();
+    }*/
 
     public  function getWomenSpecificInfo($SNO){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query("SELECT * FROM `household` where `SNO` ='$SNO'");
-
-        $result1 =$query->result();
-        return $result1;
+        return $query->result();
     }
 
     public  function getWomenSpecificInfo_FollowUp($SNO){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query("SELECT * FROM `followup` where `SNO` ='$SNO'");
-
-        $result2 =$query->result();
-        return $result2;
+        return $query->result();
     }
 
     public function getNewUsersInfo(){

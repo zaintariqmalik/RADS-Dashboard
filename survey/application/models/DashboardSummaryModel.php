@@ -92,7 +92,37 @@ class DashboardSummaryModel extends CI_Model{
                                     ");
         //print_r($query->row());
         //exit();
-        return $query->row() ;
+        return $query->row();
+    }
+
+    public function count_larcs(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT count(*) as larcs 
+                                    FROM followup 
+                                    WHERE methodName LIKE "injection" 
+                                        OR methodName LIKE "implant" 
+                                        OR methodName LIKE "IUCD"
+                                 ');
+        return $query->row();
+    }
+
+    public function count_shortTerm(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT count(*) as shortTerm 
+                                    FROM followup 
+                                    WHERE methodName LIKE "condom" 
+                                        OR methodName LIKE "pills" 
+                                 ');
+        return $query->row();
+    }
+
+    public function count_permanent(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT count(*) as permanent 
+                                    FROM followup 
+                                    WHERE methodName LIKE "operation"
+                                 ');
+        return $query->row();
     }
 
 }

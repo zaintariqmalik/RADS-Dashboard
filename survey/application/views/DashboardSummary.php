@@ -119,9 +119,9 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day',{ role: 'style' }],
-          ['Short Term Methods', 1,'#e0440e'],
-          ['LARCs',  1,'#e6693e'],
-          ['Permanent Methods', 1,'#ec8f6e']
+          ['LARCs', <?php echo $count_larcs->larcs; ?>,'#e0440e'],
+          ['Short Term Methods',   <?php echo $count_shortTerm->shortTerm; ?>,'#e6693e'],
+          ['Permanent Methods',  <?php echo $count_permanent->permanent; ?>,'#ec8f6e']
         ]);
 
         var options = {
@@ -228,9 +228,7 @@
                                     <div id="firstChart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;padding: 20px; background: #fff;margin: 50px 0 25px 20px"></div>
                                     <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 50px 0 25px 20px"></div>
                                     <div id="CS_Chart" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
-                                    <!--
-                                        <div id="piechart_3d" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
-                                    -->
+                                    <div id="piechart_3d" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
                                     
                                 </div>
                             </div>

@@ -28,6 +28,10 @@ class DashboardSummaryController extends CI_Controller{
 					$this->data['may_data'] = $this->DashboardSummaryModel->hhcountMay();
 					//$this->data['jun_data'] = $this->DashboardSummaryModel->hhcountJun();
 
+					$this->data['count_larcs'] = $this->DashboardSummaryModel->count_larcs();
+					$this->data['count_permanent'] = $this->DashboardSummaryModel->count_permanent();
+					$this->data['count_shortTerm'] = $this->DashboardSummaryModel->count_shortTerm();
+
 					$this->load->view('DashboardSummary', $this->data);
 		        }
 		        else // Display login page session is not set

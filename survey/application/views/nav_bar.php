@@ -44,9 +44,23 @@
                     <li>
                         <a href="<?php echo site_url('DashboardSummaryController')?>" class=" hvr-bounce-to-right"><i class="fa fa-sticky-note-o nav_icon"></i> <span class="nav-label">Overview</span> </a>
                     </li>
-
+<!--
                     <li>
                         <a href="<?php echo site_url('SearchController')?>" class=" hvr-bounce-to-right"><i class="fa fa-search nav_icon"></i> <span class="nav-label">Search Household</span> </a>
+                    </li>
+-->
+                    <li>
+                        <a href="#"  class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Household</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="<?php echo site_url('SearchController/HH_jan_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>January</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_feb_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>February</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_mar_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>March</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_apr_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>April</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_may_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>May</a></li>
+                            <!--
+                                <li><a href="<?php echo site_url('SearchController/HH_jun_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>June</a></li>
+                            -->
+                        </ul>
                     </li>
 
                     <li>
@@ -82,7 +96,7 @@
                             <li><a href="<?php echo site_url('DisplayMapDivisionController')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>Dhok Hassu Division</a></li>
                             <li><a href="<?php echo site_url('DisplayMapController')?>" class=" hvr-bounce-to-right"> <i class="fa fa-map-pin nav_icon"></i>Household visits</a></li>
                             <li><a href="<?php echo site_url('DisplayMapController/sm_data')?>" class=" hvr-bounce-to-right"> <i class="fa fa-map-pin nav_icon"></i>SM and M &amp; E visits</a></li>
-                             </ul>
+                        </ul>
                     </li>
                     <li>
                         <a href="<?php echo site_url('LogoutController')?>"class=" hvr-bounce-to-right"><i class="fa fa-sign-out  nav_icon"></i> <span class="nav-label">Logout</span> </a>

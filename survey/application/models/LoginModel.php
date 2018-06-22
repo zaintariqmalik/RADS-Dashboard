@@ -45,6 +45,10 @@ class  LoginModel extends CI_Model{
     public function login_details($email,$password){
 
         $this->load->helper('date');
+        
+        // set default timezone
+        date_default_timezone_set('Asia/Karachi');
+        
         $date = new DateTime("now");
  
         $curr_date = $date->format('Y-m-d ');
