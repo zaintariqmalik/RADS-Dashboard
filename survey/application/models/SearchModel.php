@@ -74,6 +74,14 @@ class SearchModel extends CI_Model{
        
     }
 
+    public function getCommunityMeetings(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT DISTINCT(cmId) as cmId, area,date,meetingPurpose, sm_api,totalParticipants FROM `communitymeetings` WHERE 1");
+         //SNO IN ( SELECT SNO FROM followup WHERE conclusion like 'New User' or conclusion like 'New User Case Closed')");
+
+        return $query->result();
+       
+    }
     public function getPWDNewUsersInfo(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query("SELECT * FROM `pwdHealthCamp` WHERE 1");

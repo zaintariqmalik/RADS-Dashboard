@@ -104,7 +104,18 @@ class SearchController extends CI_Controller{
         else // Display login page session is not set
             $this->load->view('login');
     } */
-
+   
+    public function communityMeetings()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetchCommunityMeeting"] = $this->SearchModel->getCommunityMeetings();
+            $this->load->view('searchCommunityMeeting',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
 
 
     public function pwdHealthCamp()

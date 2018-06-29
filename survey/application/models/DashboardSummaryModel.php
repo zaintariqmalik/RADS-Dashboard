@@ -37,10 +37,16 @@ class DashboardSummaryModel extends CI_Model{
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query("SELECT count(*) as may_count FROM household where Date BETWEEN '2018/05/01' AND '2018/05/31'");
          return $query->row();
-    }/*
+    }
     public function hhcountJun(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query("SELECT count(*) as jun_count FROM household where Date BETWEEN '2018/06/01' AND '2018/06/30'");
+         return $query->row();
+        //print_r($query->row()->may_count);exit();
+    }/*
+    public function hhcountJun(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT count(*) as jun_count FROM household where Date BETWEEN '2018/07/01' AND '2018/07/31'");
          return $query->row();
         //print_r($query->row()->may_count);exit();
     }*/
@@ -97,30 +103,36 @@ class DashboardSummaryModel extends CI_Model{
 
     public function count_larcs(){
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT count(*) as larcs 
-                                    FROM followup 
-                                    WHERE methodName LIKE "injection" 
-                                        OR methodName LIKE "implant" 
-                                        OR methodName LIKE "IUCD"
+        $query = $otherdb->query('SELECT(SELECT count(*) 
+                                            FROM followup 
+                                            WHERE methodName LIKE "injection" 
+                                                OR methodName LIKE "implant" 
+                                                OR methodName LIKE "IUCD")+(SELECT count(*)  
+                                                                            FROM pwdhealthcamp 
+                                                                            WHERE methodName LIKE "injection" 
+                                                                                OR methodName LIKE "implant" 
+                                                                                OR methodName LIKE "IUCD"
+                                                                                ) as larcs
                                  ');
         return $query->row();
     }
 
     public function count_shortTerm(){
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT count(*) as shortTerm 
-                                    FROM followup 
-                                    WHERE methodName LIKE "condom" 
-                                        OR methodName LIKE "pills" 
+        $query = $otherdb->query('SELECT(SELECT count(*) FROM pwdhealthcamp WHERE methodName LIKE "condom" OR methodName LIKE "pills" ) + 
+                                (SELECT count(*) FROM followup WHERE methodName LIKE "condom" OR methodName LIKE "pills" ) as shortTerm
                                  ');
         return $query->row();
     }
 
     public function count_permanent(){
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT count(*) as permanent 
+        $query = $otherdb->query('SELECT(SELECT count(*) 
                                     FROM followup 
-                                    WHERE methodName LIKE "operation"
+                                    WHERE methodName LIKE "Operation")+
+                                    (SELECT count(*)
+                                    FROM pwdhealthcamp 
+                                    WHERE methodName LIKE "Tubal Ligation") as permanent
                                  ');
         return $query->row();
     }

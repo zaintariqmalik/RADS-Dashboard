@@ -47,6 +47,7 @@
                            <th>Aapi Name</th>                
                            <th>Age</th>
                            <th>Contact</th>     
+                           <th>FP Method</th>     
                        </tr>
                        </thead>
                        <tfoot>
@@ -59,6 +60,7 @@
                                 <th>Aapi Name</th>                       
                                 <th>Age</th>
                                 <th>Contact</th>    
+                                <th>FP Method</th>    
                             </tr>
                         </tfoot>
                        <tbody>
@@ -72,6 +74,7 @@
                                             <td><?php echo $row->aapiName?></td>                                    
                                             <td><?php echo $row->age?></td>                                   
                                             <td><?php echo $row->contactNo?></td>
+                                            <td><?php echo $row->methodName?></td>
                                          <!--   <td><a href="<?php // echo site_url('SearchController/getDetailsOfWomenBySNo/'.$row->SNO)?>" class="under"> View More..<!--<button type="button" class="btn btn-info">View</button> </a></td> --> 
                                    </tr>
                                <?php }?>
@@ -79,17 +82,9 @@
                    </table>
                </div>
 
-
-
 			<div class="clearfix"> </div>
 		</div>
-		<!----->
-
-		<!--//content-->
-
-
-	 
-		<!---->
+        
            <?php // include "footer.php"?>
 		</div>
 		<div class="clearfix"> </div>

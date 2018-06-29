@@ -16,10 +16,7 @@
 
         <!-- Brand and toggle get grouped for better mobile display -->
 
-
-        <div class="clearfix">
-
-        </div>
+        <div class="clearfix"></div>
 
         <div class="navbar-default sidebar" role="navigation">
             <div class="navbar-default" role="navigation">
@@ -52,13 +49,14 @@
                     <li>
                         <a href="#"  class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Household</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="<?php echo site_url('SearchController/HH_jan_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>January</a></li>
-                            <li><a href="<?php echo site_url('SearchController/HH_feb_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>February</a></li>
-                            <li><a href="<?php echo site_url('SearchController/HH_mar_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>March</a></li>
-                            <li><a href="<?php echo site_url('SearchController/HH_apr_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>April</a></li>
-                            <li><a href="<?php echo site_url('SearchController/HH_may_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>May</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_jan_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>January</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_feb_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>February</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_mar_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>March</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_apr_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>April</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_may_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>May</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_jun_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>June</a></li>
                             <!--
-                                <li><a href="<?php echo site_url('SearchController/HH_jun_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>June</a></li>
+                                <li><a href="<?php echo site_url('SearchController/HH_jul_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>July</a></li>
                             -->
                         </ul>
                     </li>
@@ -85,11 +83,10 @@
 
                     <li>
                         <a href="<?php echo site_url('MonitoringAndEvaluationController')?>" class=" hvr-bounce-to-right"><i class="fa fa-check-circle-o nav_icon"></i> <span class="nav-label">M & E Data</span> </a>
-                    </li>
-
-
-                    
-
+                    </li> 
+                    <li>
+                        <a href="<?php echo site_url('SearchController/communityMeetings')?>" class=" hvr-bounce-to-right"><i class="fa fa-check-circle-o nav_icon"></i> <span class="nav-label">Community Meetings</span> </a>
+                    </li> 
                     <li>
                         <a href="#"  class=" hvr-bounce-to-right"><i class="fa fa-map-marker nav_icon"></i> <span class="nav-label">Map</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -103,13 +100,12 @@
                     </li>
                     <li>
                         <div style="padding: 15px;color: #d95459; text-align: left;background-color: #EAEAEA">
-                            <h6 style="padding-top: 20px; text-overflow: clip;">
+                            <h6 style=" text-overflow: clip;">
                                 The information contained in this Dashboard is confidential, privileged and only for the
                                 information of the intended recipients.<br><br> No part of this information may be used, published and redistributed without prior written permission from AHKRC.
                             </h6>
                         </div>
                     </li>
-
 
                 </ul>
             </div>
