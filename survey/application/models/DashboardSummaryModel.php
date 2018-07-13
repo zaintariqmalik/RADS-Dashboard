@@ -57,6 +57,21 @@ class DashboardSummaryModel extends CI_Model{
         //exit();
         return $query->row() ;
     }
+    public  function  mohallaWiseHHVisits(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query("select h.MUHALA as mohalla,          
+                            COUNT(CASE 
+                                    WHEN h.CurrentlyUsingFPMethod LIKE 'yes' then ''
+                                END) as CurrentUser, 				
+                            COUNT(h.MUHALA) as mohalla_visits, 
+                            COUNT(CASE
+                                    WHEN (f.ProvidedFPproducts = 'yes' OR f.SMCounselingprovided = 'yes') then ''
+                                END) as NewUser
+                            FROM household h JOIN followup f ON h.SNO = f.SNO GROUP BY h.MUHALA");
+        //print_r($query->result());
+        //exit();
+        return $query->result() ;
+    }
 
     public  function  getFollowUpCount(){
         $otherdb = $this->load->database('otherdb', TRUE);
@@ -137,5 +152,56 @@ class DashboardSummaryModel extends CI_Model{
         return $query->row();
     }
 
+
+    public function count_cu_larcs(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT COUNT(*) as cu_larcs from household WHERE CurrentlyUsingFPMethod LIKE "yes"
+        AND (currentFPMethodName LIKE "injection" or currentFPMethodName LIKE "iucd" or currentFPMethodName LIKE "implant")');
+        return $query->row();
+    }
+
+    public function count_cu_shortTerm(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT COUNT(*) as cu_shortTerm from household WHERE CurrentlyUsingFPMethod LIKE "yes"
+                    AND (currentFPMethodName LIKE "pills" or currentFPMethodName LIKE "condom" )');
+        return $query->row();
+    }
+
+    public function count_cu_permanent(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT COUNT(*) as cu_permanent from household WHERE CurrentlyUsingFPMethod LIKE "yes"
+        AND (currentFPMethodName LIKE "tl" or currentFPMethodName LIKE "operation" )');
+        return $query->row();
+    } 
+    
+    public function mohallaNames(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query('SELECT DISTINCT MUHALA as mohallaName FROM household Where muhala <> "" ORDER BY muhala');
+        return $query->result();
+    }
+// Mohalla Wise Data Fetching Queries.... 
+    
+        // ...... ALAM ABAD DETAILS    ...... // 
+
+        public function mohalla_HHvisits($mohallaName){
+            $otherdb = $this->load->database('otherdb', TRUE);
+            $query = $otherdb->query('SELECT COUNT(*) FROM household WHERE muhala LIKE "alam abad" ORDER BY muhala');
+            return $query->row();
+        }
+        public function mohalla_CurrentUsers($mohallaName){
+            $otherdb = $this->load->database('otherdb', TRUE);
+            $query = $otherdb->query('');
+            return $query->row();
+        }
+        public function mohalla_NewUsers($mohallaName){
+            $otherdb = $this->load->database('otherdb', TRUE);
+            $query = $otherdb->query('');
+            return $query->row();
+        }
+        public function mohalla_CBT($mohallaName){
+            $otherdb = $this->load->database('otherdb', TRUE);
+            $query = $otherdb->query('');
+            return $query->row();
+        }
 }
 ?>

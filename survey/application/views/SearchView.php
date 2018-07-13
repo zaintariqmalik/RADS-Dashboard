@@ -34,8 +34,15 @@
 		<!--//banner-->
 		<!--content-->
 		<div class="container-fluid" >
-
+                    
                <div class="table table-striped table-responsive table-display" style="background-color: white;border-radius: 3">
+                <form method='post' action='<?php echo site_url("export/csv");?>'> 
+                        <input class = "btn btn-default" type ="date" name ="fromDate" id="fromDate">
+                        <input class = "btn btn-default" type ="date" name ="toDate" id="toDate">
+                        <input type ="hidden" name ="tableToExport" value="household">
+
+                        <input class = "btn btn-success" type = "submit" name="submit" value = "Download CSV"/> 
+                    </form>
                    <table data-page-length='25' id="women_data" class="search table table-striped text-capitalize dt-responsive nowrap ">
                        <thead>
                        <tr>

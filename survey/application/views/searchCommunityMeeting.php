@@ -33,10 +33,10 @@
             <!--//banner-->
             <!--content-->
             <div class="container-fluid" >
-
+                                
                 <div class="table table-striped table-responsive table-display" style="background-color: white;border-radius: 3">
                     <table data-page-length='25' id="women_data" class="search table table-striped text-capitalize dt-responsive nowrap ">
-                        <thead>
+                   <thead>
                         <tr>
                             <th>S.No.</th>                         
                             <th id="datepicker">Date</th>  

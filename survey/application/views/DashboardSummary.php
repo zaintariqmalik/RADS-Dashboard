@@ -18,11 +18,15 @@
       <!-- Add this css in head tag -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
       
-      <script  type="text/javascript" src="<?php echo base_url('js/loader.js'); ?>"></script>
+     <!-- <script  type="text/javascript" src="<?php echo base_url('js/loader.js'); ?>"></script>-->
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
     <style>
        @media (min-width: 1200px){
             .col-lg-5 {
                 width:45.49% !important;
+            }.col-lg-4 {
+                width: 39.6666667%;
             }
         }
         @media (min-width: 768px){
@@ -31,153 +35,10 @@
             }
         }
     </style>
-    <script type="text/javascript">
-    
-      google.charts.load('current', {'packages':['bar']});
-    // Load CBT Bar_chart
-      google.charts.setOnLoadCallback(cbt_chart);
-    // Load Household and FollowUp Column chart using google charts
-      google.charts.setOnLoadCallback(hh_chart);
-    // Load Community Session Column chart using google charts
-      google.charts.setOnLoadCallback(cs_chart);
-    // Household Column chart Function using google charts 
-      function hh_chart() {
-        var data = google.visualization.arrayToDataTable([
-            ['', 'Household', 'Followup'],
-            ['Jan', <?php echo $jan_data->jan_count; ?>, 0],
-            ['Feb', <?php echo $feb_data->feb_count; ?>, 87],
-            ['Mar', <?php echo $mar_data->mar_count; ?>, 580],
-            ['Apr', <?php echo $apr_data->apr_count; ?>, 490],
-            ['May', <?php echo $may_data->may_count; ?>, 244+287],
-            ['Jun', <?php echo $jun_data->jun_count; ?>, 0],
-            ['Jul', 0, 0],
-            ['Aug', 0, 0],
-            ['Sep', 0, 0]
-        ]);
+    <?php include("googleCharts.php"); ?>
+     
 
-        var options_hh = {
-            //hAxis: {title: 'Months', titleTextStyle: {color: 'red'}},
-          is3D:true,
-          colors: ['#3c82f5','red'],
-          /*animation:{
-                startup: true,
-                duration: 1000,
-                easing: 'out',
-            },*/
-          chart: {            
-            title: 'Household & Followup: 2018',
-            subtitle: '',
-          },
-          legend: {position: 'right'},
-          //vAxis: {format: ''}
-          axes: {
-            x: { 0: { side: 'bottom', label: '' }  /* x-axis on bottom */  }
-            },
-            bar: { groupWidth: '80%' },
-            vAxis: {  
-                gridlines: { count: 5 },
-                viewWindow: { max: 4000 },
-                format: '000'
-            }    
-        };
-
-        var chart_hh = new google.charts.Bar(document.getElementById('firstChart'));
-
-        chart_hh.draw(data, google.charts.Bar.convertOptions(options_hh));
-      }
-    // CBT Column chart Function
-      function cbt_chart() {
-        var data = google.visualization.arrayToDataTable([
-            ['', 'CBT ',{ role: 'style' }],
-            ['Jan', 0,''],
-            ['Feb', 230,''],
-            ['Mar', 987,''],
-            ['Apr', 581,''],
-            ['May', 767,''],
-            ['Jun', 0,''],
-            ['Jul', 0,''],
-            ['Aug', 0,''],
-            ['Sept',0,'']
-        
-        ]);
-
-        var options_cbt = {
-          chart: {
-            title: 'CBT',
-            subtitle: 'CBT Sessions: Jan-2018 to June-2018',
-          },
-          legend: {position: 'right'},
-          vAxis: {format: ''}
-        };
-
-        var chart_cbt = new google.charts.Bar(document.getElementById('CBT_Chart'));
-
-        chart_cbt.draw(data, google.charts.Bar.convertOptions(options_cbt));
-      }
-    // Community Session Column chart Function
-      function cs_chart() {
-        var data = google.visualization.arrayToDataTable([
-            ['', 'Community',{ role: 'style' }],
-            ['Jan', 0,''],
-            ['Feb', 200,'#e0440e'],
-            ['Mar', 387,'#e6693e'],
-            ['Apr', 362,''],
-            ['May', 263,''],
-            ['Jun', 0,''],
-            ['Jul', 0,''],
-            ['Aug', 0,''],
-            ['Sept',0,'']
-        
-        ]);
-
-        var options_cs = {
-          chart: {
-            title: 'Community Meetings',
-            subtitle: 'Community Meetings: Jan-2018 to June-2018',
-            colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6']
-          },
-          legend: {position: 'right'},
-          vAxis: {format: ''}
-        };
-
-        var chart_cs = new google.charts.Bar(document.getElementById('CS_Chart'));
-
-        chart_cs.draw(data, google.charts.Bar.convertOptions(options_cs));
-      }
-
-      google.charts.load("current", {packages:["corechart"]});
-     // Load PieChart for New Users
-      google.charts.setOnLoadCallback(drawChart);
-    // New Users Piechart Function
-      function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Language', 'Speakers (in millions)'],
-                ['LARCs', <?php echo $count_larcs->larcs; ?>],
-                ['Short Term Method',   <?php echo $count_shortTerm->shortTerm; ?>],
-                ['Permanent Methods',   <?php echo $count_permanent->permanent; ?>]
-            ]);
-
-        var options = {
-            is3D : false,
-            legend: '',
-            pieSliceText: '',
-            slices: {
-                0: { color: 'red' },
-                1: { color: 'green' },
-                2: { color: 'blue' }
-            },
-            title: 'Catagories of FP users Total:'+ <?php print $fetchNewUser->newUserCount + 371; ?> ,
-            
-            //pieStartAngle: 90,
-        };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            chart.draw(data, options);
-      }
-
-    </script>
   </head>
-</head>
   <body>
         <div id="wrapper">
             <?php $this->load->view('nav_bar'); ?>
@@ -262,13 +123,86 @@
                         <div class="overlay">
                             <div class="container">
                                 <div class="row">
-                                    <div id="firstChart" class = "col-lg-5 col-sm-12 " style=" height: 350px;padding: 20px; background: #fff;margin: 15px 0 15px 15px"></div>
-                                    <div id="CBT_Chart" class = "col-lg-5 col-sm-12 " style=" height: 350px;  padding: 20px; background: #fff;margin: 15px 0 15px 20px"></div>
-                                    <div id="CS_Chart" class = "col-lg-5 col-sm-12 " style=" height: 350px;  padding: 20px; background: #fff;margin:0 0 50px 15px"></div>
-                                    <div id="piechart" class = "col-lg-5 col-sm-12 " style=" height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
-                                <!--    
-                                    <div id="piechart_3d" class = "col-lg-5 col-sm-12 " style="width: 45%; height: 350px;  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
-                                -->  
+                                    <div id="firstChart" class = "col-lg-5 col-md-5 col-sm-12 " style=" padding: 20px; background: #fff;margin: 15px 0 15px 15px"></div>
+                                    <div id="piechart" class = "col-lg-5 col-md-5 col-sm-12" style="  padding: 20px; background: #fff;margin:15px 0 15px 15px"></div>
+                                    
+                                    <!--<div id="ascrail2000" class = "nicescroll-rails col-lg-5 col-md-5 col-sm-12" style="height:240px; overflow-y: scroll; padding: 20px; background: #fff;margin:15px 0 15px 15px">
+                                        <table data-page-length='25' id="women_data" class="search table table-striped text-capitalize dt-responsive nowrap ">
+                                            <thead>
+                                            <tr>
+                                             
+                                                <th>Mohalla Name</th>
+                                                <th>Total Household</th>
+                                                <th>Visited Household</th>
+                                                <th>Current Users</th>
+                                                <th>New Users</th>
+                                            </tr>
+                                            </thead>
+                                            <tfoot>
+                                            <tr>
+                                            
+                                                <th>Mohalla Name</th>
+                                                <th>Total Household</th>
+                                                <th>Visited Household</th>
+                                                <th>Current Users</th>
+                                                <th>New Users</th>
+                                            </tr>
+                                                </tfoot>
+                                            <tbody>
+                                                      <?php
+                                                        $i = 1; $total_HH = 0;
+                                                        foreach ($mohallaWiseHH as $row){?>
+                                                        <tr class = "text-capitalize">
+                                                                    <td><?php echo $i?></td> 
+                                                                    <td><?php echo $row->mohalla?></td>
+                                                                    <td><?php echo $total_HH?></td>
+                                                                    <td><?php echo $row->mohalla_visits?></td> 
+                                                                    <td><?php echo $row->CurrentUser?></td>
+                                                                    <td><?php echo $row->NewUser?></td>
+                                                        </tr>
+                                                    <?php $i++; } ?>
+                                                   
+                                            </tbody>
+                                        </table>
+                                    </div>-->
+                                    <div id="CBT_Chart" class = "col-lg-3 col-md-3 col-sm-12 " style="   padding: 20px; background: #fff;margin: 0 0 15px 15px"></div>
+                                    <div id="CS_Chart" class = "col-lg-3 col-md-3 col-sm-12 " style="  padding: 20px; background: #fff;margin:0 0 15px 15px"></div>
+                                   
+                                    <div id="stackchartId" class = "col-lg-4 col-md-4  col-sm-12 " style="  padding: 20px; background: #fff;margin: 0 0 15px 15px"></div>
+                                  
+                                    <!--                         
+                                    <div id="" class="col-sm-11 section_mohalla">
+                                        <h4> Mohalla Wise Report </h4>
+                                        <div class="form-group">
+                                            <label for="sel1">Select Mohalla:</label>
+                                            <select class="form-control col-sm-4 input-select" name="choose" id="choose">
+                                                <?php  $i = 1;
+                                                foreach($mohallaNames as $row)
+                                                { ?>
+                                                    <option value = "opt<?php echo $i;?>"><?php echo trim($row->mohallaName); ?></option>
+                                                <?php $i++; 
+                                                } ?>
+                                            </select>
+                                        </div>
+
+                                        <?php $i = 1;
+                                        foreach($mohallaNames as $row)
+                                        { ?>
+                                            <section class="jqueryOptions opt<?php echo $i; ?>">
+                                                <div class="content">
+                                                    <div id="<?php echo trim($row->mohallaName); ?>" class = "col-lg-4 col-md-4 col-sm-12 " style=" padding: 20px; background: #fff;margin: 15px 0 15px 15px"></div>
+                                                </div>
+                                            </section>
+                                        <?php $i++; 
+                                        }  ?>
+                                    -->
+
+                                    </div>
+
+                                  
+                                   <!--
+                                    <div id="piechart" class = "col-lg-5 col-sm-12 " style="  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
+                                    -->
                                 </div>
                             </div>
                         </div>                    
@@ -280,7 +214,7 @@
         </div>
         <div class="clearfix"> 
         </div>
-<!---->
+<!-- -->
 <!--scrolling js-->
         <script src="<?php echo base_url(); ?>js/jquery.nicescroll.js"></script>
         <script src="<?php echo base_url(); ?>js/scripts.js"></script>
@@ -295,6 +229,18 @@
                 delay: 10,
                 time: 2000
             });
-          </script>
+         
+            $(function() {
+                $('.jqueryOptions').hide();
+
+                $('#choose').change(function () { 
+                    $('.jqueryOptions').hide();
+                    $('.jqueryOptions').removeClass('current-opt');
+                    $("." + $(this).val()).show();
+                    $("." + $(this).val()).addClass('current-opt');
+                });
+
+            });
+        </script>
   </body>
 </html>
