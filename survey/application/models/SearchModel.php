@@ -46,10 +46,16 @@ class SearchModel extends CI_Model{
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-06-01" and "2018-06-30"');
         return $query->result();
-    }/*
+    }
     public  function  jul_data(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-07-01" and "2018-07-31"');
+        return $query->result();
+    }
+    /*
+    public  function  aug_data(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-08-01" and "2018-08-31"');
         return $query->result();
     }*/
 
@@ -61,34 +67,27 @@ class SearchModel extends CI_Model{
 
     public  function getWomenSpecificInfo_FollowUp($SNO){
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT * FROM `followup` where `SNO` ='$SNO'");
+        $query = $otherdb->query("SELECT * FROM `followup` where `SNO` ='$SNO' and followUpNumber <> 0 ");
         return $query->result();
     }
 
     public function getNewUsersInfo(){
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT * FROM `household` WHERE SNO IN 
-                                    ( SELECT SNO FROM followup WHERE conclusion like 'New User' or conclusion like 'New User Case Closed')");
-
+        $query = $otherdb->query("SELECT * FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM') AND f.conclusion LIKE 'new user case closed'");
         return $query->result();
-       
     }
 
     public function getCommunityMeetings(){
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT DISTINCT(cmId) as cmId, area,date,meetingPurpose, sm_api,totalParticipants FROM `communitymeetings` WHERE 1");
-         //SNO IN ( SELECT SNO FROM followup WHERE conclusion like 'New User' or conclusion like 'New User Case Closed')");
-
+        $query = $otherdb->query("SELECT * FROM `communitymeetings`");
         return $query->result();
-       
     }
+
     public function getPWDNewUsersInfo(){
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT * FROM `pwdHealthCamp` WHERE 1");
+        $query = $otherdb->query("SELECT * FROM `pwdhealthcamp` WHERE 1");
          //SNO IN ( SELECT SNO FROM followup WHERE conclusion like 'New User' or conclusion like 'New User Case Closed')");
-
         return $query->result();
-       
     }
 }
 ?>

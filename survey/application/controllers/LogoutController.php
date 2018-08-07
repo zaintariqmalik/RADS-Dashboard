@@ -14,6 +14,7 @@
          $this->load->library('session');
          unset($_SESSION['User_Logged_In']);
          $this->load->view("Login");
+         
      }
  }
 ?>

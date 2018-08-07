@@ -9,38 +9,49 @@
 
 class DashboardSummaryController extends CI_Controller{
 
-	public function mohalla_wise_report($mohalla_name)
-	{
-		// IF session is set then call the model::getSurveyQuestions() to get data and pass to success
-		if($this->session->userdata('User_Logged_In')) {
-			
-			$this->load->model('DashboardSummaryModel');
-			$this->data['mohalla_hh_visit'] = $this->DashboardSummaryModel->mohallaHHvisit($mohalla_name);
-			$this->data['mohalla_currentUser'] = $this->DashboardSummaryModel->mohallaCurrentUser($mohalla_name);
-			$this->data['mohalla_newUsers'] = $this->DashboardSummaryModel->mohallaNewUser($mohalla_name);
-			$this->data['mohalla_CBT'] = $this->DashboardSummaryModel->mohallaCBT($mohalla_name);
-		}
-		else    $this->load->view('Login');
-	}
 	public function index()
 	{
+		
 		// IF session is set then call the model::getSurveyQuestions() to get data and pass to success
 		if($this->session->userdata('User_Logged_In')) {
-			
+
 			$this->load->model('DashboardSummaryModel');
 			$this->data["fetchHousehold"] = $this->DashboardSummaryModel->getHouseholdCount();
+			$this->data["fetchFollowUp_HH"] = $this->DashboardSummaryModel->getFollowUpHHCount();
 			$this->data["fetchFollowUp"] = $this->DashboardSummaryModel->getFollowUpCount();
 			$this->data["fetchMonitoring"] = $this->DashboardSummaryModel->getMonitoringVisitsCount();
 			$this->data["fetchSM"] = $this->DashboardSummaryModel->getSMVisitsCount();
 			$this->data["fetchNewUser"] = $this->DashboardSummaryModel->getNewUserCount();
-			
-			$this->data['jan_data'] = $this->DashboardSummaryModel->hhcountJan();
-			$this->data['feb_data'] = $this->DashboardSummaryModel->hhcountFeb();
-			$this->data['mar_data'] = $this->DashboardSummaryModel->hhcountMar();
-			$this->data['apr_data'] = $this->DashboardSummaryModel->hhcountApr();
-			$this->data['may_data'] = $this->DashboardSummaryModel->hhcountMay();
-			$this->data['jun_data'] = $this->DashboardSummaryModel->hhcountJun();
-			//$this->data['jul_data'] = $this->DashboardSummaryModel->hhcountJul();
+		// Get Household Count Month Wise
+			$household = $this->DashboardSummaryModel->monthWiseHouseholdCount();
+				
+				$this->data['hh_jan_data'] = $household['jan_data'];
+				$this->data['hh_feb_data'] = $household['feb_data'];
+				$this->data['hh_mar_data'] = $household['mar_data'];
+				$this->data['hh_apr_data'] = $household['apr_data'];
+				$this->data['hh_may_data'] = $household['may_data'];
+				$this->data['hh_jun_data'] = $household['jun_data'];
+				$this->data['hh_jul_data'] = $household['jul_data'];
+				
+			$followup = $this->DashboardSummaryModel->monthWiseFollowupCount();
+
+				$this->data['fu_jan_data'] = $followup['jan_data'];
+				$this->data['fu_feb_data'] = $followup['feb_data'];
+				$this->data['fu_mar_data'] = $followup['mar_data'];
+				$this->data['fu_apr_data'] = $followup['apr_data'];
+				$this->data['fu_may_data'] = $followup['may_data'];
+				$this->data['fu_jun_data'] = $followup['jun_data'];
+				$this->data['fu_jul_data'] = $followup['jul_data'];
+
+			$cbt = $this->DashboardSummaryModel->monthWiseCBT();
+
+				$this->data['cbt_jan_data'] = $cbt['jan_data'];
+				$this->data['cbt_feb_data'] = $cbt['feb_data'];
+				$this->data['cbt_mar_data'] = $cbt['mar_data'];
+				$this->data['cbt_apr_data'] = $cbt['apr_data'];
+				$this->data['cbt_may_data'] = $cbt['may_data'];
+				$this->data['cbt_jun_data'] = $cbt['jun_data'];
+				$this->data['cbt_jul_data'] = $cbt['jul_data'];
 
 			$this->data['count_larcs'] = $this->DashboardSummaryModel->count_larcs();
 			$this->data['count_permanent'] = $this->DashboardSummaryModel->count_permanent();
@@ -74,4 +85,3 @@ class DashboardSummaryController extends CI_Controller{
 		$this->load->view('DashboardSummary',$this->data);
 	}
 }
-?>

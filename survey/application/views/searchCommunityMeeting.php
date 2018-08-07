@@ -15,7 +15,7 @@
         ?>
             <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="content-main">
-    
+
             <!--banner-->	
                 <div class="banner">
             
@@ -33,52 +33,45 @@
             <!--//banner-->
             <!--content-->
             <div class="container-fluid" >
-                                
+
                 <div class="table table-striped table-responsive table-display" style="background-color: white;border-radius: 3">
                     <table data-page-length='25' id="women_data" class="search table table-striped text-capitalize dt-responsive nowrap ">
                    <thead>
-                        <tr>
-                            <th>S.No.</th>                         
+                        <tr>         
                             <th id="datepicker">Date</th>  
                             <th>Area</th>
                             <th>SM/Aapi Name</th> 
                             <th>Participants</th>
-                            <th>Meeting Purpose</th>                
-                            <!--
+                            <th>Meeting Purpose</th>   
                             <th>Participant Name</th>
                             <th>Husband Name</th>
                             <th>Contact</th>  
-                            -->   
                         </tr>
                         </thead>
                         <tfoot>
-                        <tr>
-                            <th>S.No.</th>                         
+                        <tr>       
                             <th id="datepicker">Date</th>  
                             <th>Area</th>
                             <th>SM/Aapi Name</th> 
                             <th>Participants</th>
-                            <th>Meeting Purpose</th>       
-                            <!--         
+                            <th>Meeting Purpose</th> 
                             <th>Participant Name</th>
                             <th>Husband Name</th>
                             <th>Contact</th>     
-                            --> 
                         </tr>
                         </tfoot>
                         <tbody>
                         <?php foreach ($fetchCommunityMeeting as $row){?>
                             <tr class = "text-capitalize">
-                                <td><?php echo $row->cmId?></td>
-                                <td><?php echo $row->date?></td>                        
+                                <td><?php echo $row->date?></td>
                                 <td><?php echo $row->area?></td>  
                                 <td><?php echo $row->sm_api?></td>
-                                <td class = "text-center"><?php echo $row->totalParticipants?></td>                                    
-                                <td><?php echo $row->meetingPurpose?></td>                                   
-                                <!--
-                                <td><?php echo $row->participantName?></td>                                   
-                                <td><?php echo $row->husbandName?></td>                                   
+                                <td class = "text-center"><?php echo $row->totalParticipants?></td>
+                                <td><?php echo $row->meetingPurpose?></td>
+                                <td><?php echo $row->participantName?></td>
+                                <td><?php echo $row->husbandName?></td>
                                 <td><?php echo $row->phoneNumber?></td>
+                                <!--
                                     <td><a href="<?php // echo site_url('SearchController/getDetailsOfWomenBySNo/'.$row->SNO)?>" class="under"> View More..<!--<button type="button" class="btn btn-info">View</button> </a></td>
                                 --> 
                             </tr>
@@ -108,4 +101,3 @@
     </script>
 </body>
 </html>
-

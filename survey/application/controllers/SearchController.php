@@ -92,13 +92,24 @@ class SearchController extends CI_Controller{
         }
         else // Display login page session is not set
             $this->load->view('login');
-    } /*
+    } 
     public function HH_jul_data()
     {
         if($this->session->userdata('User_Logged_In'))
         {
             $this->load->model('SearchModel');
             $data["fetch_data"] = $this->SearchModel->jul_data();
+            $this->load->view('SearchView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    }/*
+    public function HH_aug_data()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->aug_data();
             $this->load->view('SearchView',$data);
         }
         else // Display login page session is not set

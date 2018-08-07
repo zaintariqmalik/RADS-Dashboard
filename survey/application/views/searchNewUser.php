@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -38,7 +37,7 @@
                <div class="table table-striped table-responsive table-display" style="background-color: white;border-radius: 3">
                    
                    
-                    <form method='post' action='<?php echo site_url("export/csv");?>'> 
+                    <form method='post' action='<?php echo site_url("ExportController/csv");?>'> 
                         <input class = "btn btn-default" type ="date" name ="fromDate" id="fromDate">
                         <input class = "btn btn-default" type ="date" name ="toDate" id="toDate">
                         <input type ="hidden" name ="tableToExport" value="followup">
@@ -57,6 +56,8 @@
                            <th>Aapi Name</th>
                            <th>SM Name</th>                        
                            <th>Age</th>
+                           <th>Conclusion</th>
+                           <th>MethodName</th>
                            <th>View</th>
                        </tr>
                        </thead>
@@ -70,6 +71,8 @@
                                 <th>Aapi Name</th>
                                 <th>SM Name</th>                           
                                 <th>Age</th>
+                                <th>Conclusion</th>
+                                <th>MethodName</th>
                                 <th>View</th>
                             </tr>
                         </tfoot>
@@ -84,6 +87,8 @@
                                     <td><?php echo $row->APIName?></td>
                                     <td><?php echo $row->SM?></td>                                           
                                     <td><?php echo $row->Age?></td>
+                                    <td><?php echo $row->conclusion?></td>
+                                    <td><?php echo $row->methodName?></td>
                                     <td><a href="<?php echo site_url('SearchController/getDetailsOfWomenBySNo/'.$row->SNO)?>" class="under"> View More..<!--<button type="button" class="btn btn-info">View</button>--> </a></td>
                                 </tr>
                             <?php } ?>

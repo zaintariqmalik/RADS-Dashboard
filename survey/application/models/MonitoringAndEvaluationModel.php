@@ -15,6 +15,11 @@ class MonitoringAndEvaluationModel extends CI_Model{
  
     public  function  getMEGeneralInfo(){
         $this->load->database(true);
+        $query = $this->db->query("SELECT surveyanswerAnswer as Response,surveyresultsId as ID FROM surveyanswer WHERE surveyresultsId in 
+                        (SELECT surveyresultsId FROM surveyresults WHERE surveylistId = 108)");
+        
+        return $query->result_array();
+       // print_r($query->result_array()); exit();
         /*$query = $this->db->query("select a.surveyresultsId as ID, q.surveyquestionQuestion as Question,a.surveyanswerAnswer as Response
                                     from surveyquestion as q
                                     left join surveyanswer as a
@@ -30,17 +35,11 @@ class MonitoringAndEvaluationModel extends CI_Model{
                                     where q.surveyquestionQuestion in ( 'Serial Number') and 
                                     a.surveylistId = '108'");
         return $query->result_array() ;*/
-        $query = $this->db->query("SELECT surveyanswerAnswer as Response,surveyresultsId as ID FROM surveyanswer WHERE surveyresultsId in 
-                        (SELECT surveyresultsId FROM surveyresults WHERE surveylistId = 108)");
-        
-        return $query->result_array();
-       // print_r($query->result_array()); exit();
     
     }
 
     public  function getMESpecificInfo($SNO){
         $this->load->database(true);
-        //$query = $otherdb->query("SELECT * FROM `household` where `SNO` ='$SNO'");
         $query = $this->db->query("select q.surveyquestionId,a.surveyresultsId, q.surveyquestionQuestion, a.surveyanswerAnswer
                                     from surveyquestion as q
                                     left join surveyanswer as a

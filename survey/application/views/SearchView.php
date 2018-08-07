@@ -36,7 +36,7 @@
 		<div class="container-fluid" >
                     
                <div class="table table-striped table-responsive table-display" style="background-color: white;border-radius: 3">
-                <form method='post' action='<?php echo site_url("export/csv");?>'> 
+                <form method='post' action='<?php echo site_url("ExportController/csv");?>'> 
                         <input class = "btn btn-default" type ="date" name ="fromDate" id="fromDate">
                         <input class = "btn btn-default" type ="date" name ="toDate" id="toDate">
                         <input type ="hidden" name ="tableToExport" value="household">

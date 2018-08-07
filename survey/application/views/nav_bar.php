@@ -55,12 +55,14 @@
                             <li><a href="<?php echo site_url('SearchController/HH_apr_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>April</a></li>
                             <li><a href="<?php echo site_url('SearchController/HH_may_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>May</a></li>
                             <li><a href="<?php echo site_url('SearchController/HH_jun_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>June</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_jul_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>July</a></li>
                             <!--
                                 <li><a href="<?php echo site_url('SearchController/HH_jul_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>July</a></li>
                             -->
                         </ul>
                     </li>
-
+                    <?php // if($this->session->userdata('userUserName') <> 'ahkrc') {?>
+            
                     <li>
                         <a href="<?php echo site_url('SearchController/getNewUsers')?>" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">New Users - HH Visit</span> </a>
                     </li>
@@ -68,6 +70,7 @@
                     <li>
                         <a href="<?php echo site_url('SearchController/pwdHealthCamp')?>" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">New Users - PWD Health Camp</span> </a>
                     </li>
+                    <?php // } ?>
 
                     <li>
                         <a href="<?php echo site_url('HouseholdController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Household Form</span> </a>

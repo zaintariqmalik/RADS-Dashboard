@@ -1,4 +1,5 @@
-<?php
+<?php //define('Basepath') or die("No direct access Allowed");
+
 /**
 * Filename: DashboardSummaryModel.php
 * Created By: Zain Tariq
@@ -13,43 +14,148 @@ class DashboardSummaryModel extends CI_Model{
         parent::__construct();
     }
 
-    public function hhcountJan(){
+// Mohalla Wise Data Fetching Queries.... 
+    
+        // ...... Mohalla    ...... // 
+
+    public function mohalla($mohalla){
+        
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT count(*) as jan_count FROM household where Date BETWEEN '0000/00/00' AND '2018/01/31'");
-        return $query->row();
+        
+        $hh_query = $otherdb->query("SELECT count(*) as mohalla from household where muhala like '$mohalla'");
+        $household_visits = $hh_query->row();
+
+        $cu_query = $otherdb->query("SELECT count(*) as cu from household where muhala like '$mohalla' and CurrentlyUsingFPMethod LIKE 'yes'");
+        $mohalla_cu = $cu_query->row();
+
+        $nu_query = $otherdb->query("SELECT count(*) as nu 
+                                     from household 
+                                     where muhala like '$mohalla' and 
+                                          SNO IN( select SNO from followup
+                                            where conclusion like 'New User'
+                                            or conclusion like 'New User Case Closed')
+                                    ");
+        $mohalla_nu = $nu_query->row();
+        
+        return array(
+            'hhVisits' =>  $household_visits->mohalla,
+            'currentUser' => $mohalla_cu->cu,
+            'newUser' => $mohalla_nu->nu,
+        );
+
     }
-    public function hhcountFeb(){
+ // ...... Mohalla Wise Details Ends   ...... // 
+        public function monthWiseCBT(){
+            $otherdb = $this->load->database('otherdb',TRUE);
+            
+            $jan_data = $otherdb->query("SELECT count(*) as jan_count FROM household where Date BETWEEN '0000/00/00' AND '2018/01/31' AND visitResult Like 'CBT or PDI'");
+            $cbt_jan_res = $jan_data->row();
+
+            $feb_data = $otherdb->query("SELECT count(*) as feb_count FROM household where Date BETWEEN '2018/02/01' AND '2018/02/29' AND visitResult Like 'CBT or PDI'");
+            $cbt_feb_res = $feb_data->row();
+
+            $mar_data = $otherdb->query("SELECT count(*) as mar_count FROM household where Date BETWEEN '2018/03/01' AND '2018/03/31' AND visitResult Like 'CBT or PDI'");
+            $cbt_mar_res = $mar_data->row();
+
+            $apr_data = $otherdb->query("SELECT count(*) as apr_count FROM household where Date BETWEEN '2018/04/01' AND '2018/04/30' AND visitResult Like 'CBT or PDI'");
+            $cbt_apr_res = $apr_data->row();
+
+            $may_data = $otherdb->query("SELECT count(*) as may_count FROM household where Date BETWEEN '2018/05/01' AND '2018/05/31' AND visitResult Like 'CBT or PDI'");
+            $cbt_may_res = $may_data->row();
+
+            $jun_data = $otherdb->query("SELECT count(*) as jun_count FROM household where Date BETWEEN '2018/06/01' AND '2018/06/30' AND visitResult Like 'CBT or PDI'");
+            $cbt_jun_res = $jun_data->row();
+
+            $jul_data = $otherdb->query("SELECT count(*) as jul_count FROM household where Date BETWEEN '2018/07/01' AND '2018/07/31' AND visitResult Like 'CBT or PDI'");
+            $cbt_jul_res = $jul_data->row();
+
+            return array(
+                'jan_data' => $cbt_jan_res,
+                'feb_data' => $cbt_feb_res,
+                'mar_data' => $cbt_mar_res,
+                'apr_data' => $cbt_apr_res,
+                'may_data' => $cbt_may_res,
+                'jun_data' => $cbt_jun_res,
+                'jul_data' => $cbt_jul_res,
+            );
+        }
+ // ...... Month Wise Household Details   ...... // 
+
+    public function monthWiseHouseholdCount(){
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT count(*) as feb_count FROM household where Date BETWEEN '2018/02/01' AND '2018/02/29'");
-        return $query->row();
+        
+        $jan_data = $otherdb->query("SELECT count(*) as jan_count FROM household where Date BETWEEN '0000/00/00' AND '2018/01/31'");
+        $hh_jan_res = $jan_data->row();
+
+        $feb_data = $otherdb->query("SELECT count(*) as feb_count FROM household where Date BETWEEN '2018/02/01' AND '2018/02/29'");
+        $hh_feb_res = $feb_data->row();
+
+        $mar_data = $otherdb->query("SELECT count(*) as mar_count FROM household where Date BETWEEN '2018/03/01' AND '2018/03/31'");
+        $hh_mar_res = $mar_data->row();
+
+        $apr_data = $otherdb->query("SELECT count(*) as apr_count FROM household where Date BETWEEN '2018/04/01' AND '2018/04/30'");
+        $hh_apr_res = $apr_data->row();
+
+        $may_data = $otherdb->query("SELECT count(*) as may_count FROM household where Date BETWEEN '2018/05/01' AND '2018/05/31'");
+        $hh_may_res = $may_data->row();
+
+        $jun_data = $otherdb->query("SELECT count(*) as jun_count FROM household where Date BETWEEN '2018/06/01' AND '2018/06/30'");
+        $hh_jun_res = $jun_data->row();
+
+        $jul_data = $otherdb->query("SELECT count(*) as jul_count FROM household where Date BETWEEN '2018/07/01' AND '2018/07/31'");
+        $hh_jul_res = $jul_data->row();
+
+        return array(
+            'jan_data' => $hh_jan_res,
+            'feb_data' => $hh_feb_res,
+            'mar_data' => $hh_mar_res,
+            'apr_data' => $hh_apr_res,
+            'may_data' => $hh_may_res,
+            'jun_data' => $hh_jun_res,
+            'jul_data' => $hh_jul_res,
+        );
     }
-    public function hhcountMar(){
+ // ...... Month Wise Household Details Ends   ...... // 
+
+ // ...... Month Wise Followup Details   ...... // 
+ public function monthWiseFollowupCount(){
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT count(*) as mar_count FROM household where Date BETWEEN '2018/03/01' AND '2018/03/31'");
-        return $query->row();
+        
+        $jan_data = $otherdb->query("SELECT count(*) as jan_count FROM followup where Date BETWEEN '2018/01/01' AND '2018/01/31'");
+        $fu_jan_res = $jan_data->row();
+
+        $feb_data = $otherdb->query("SELECT count(*) as feb_count FROM followup where Date BETWEEN '2018/02/01' AND '2018/02/29'");
+        $fu_feb_res = $feb_data->row();
+
+        $mar_data = $otherdb->query("SELECT count(*) as mar_count FROM followup where Date BETWEEN '2018/03/01' AND '2018/03/31'");
+        $fu_mar_res = $mar_data->row();
+
+        $apr_data = $otherdb->query("SELECT count(*) as apr_count FROM followup where Date BETWEEN '2018/04/01' AND '2018/04/30'");
+        $fu_apr_res = $apr_data->row();
+
+        $may_data = $otherdb->query("SELECT count(*) as may_count FROM followup where Date BETWEEN '2018/05/01' AND '2018/05/31'");
+        $fu_may_res = $may_data->row();
+
+        $jun_data = $otherdb->query("SELECT count(*) as jun_count FROM followup where Date BETWEEN '2018/06/01' AND '2018/06/30'");
+        $fu_jun_res = $jun_data->row();
+
+        $jul_data = $otherdb->query("SELECT count(*) as jul_count FROM followup where Date BETWEEN '2018/07/01' AND '2018/07/31'");
+        $fu_jul_res = $jul_data->row();
+
+        //Return Array of query->row() as name-value pairs
+        return array(
+            'jan_data' => $fu_jan_res,
+            'feb_data' => $fu_feb_res,
+            'mar_data' => $fu_mar_res,
+            'apr_data' => $fu_apr_res,
+            'may_data' => $fu_may_res,
+            'jun_data' => $fu_jun_res,
+            'jul_data' => $fu_jul_res,
+        );
     }
-    public function hhcountApr(){
-        $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT count(*) as apr_count FROM household where Date BETWEEN '2018/04/01' AND '2018/04/30'");
-        return $query->row();
-    }
-    public function hhcountMay(){
-        $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT count(*) as may_count FROM household where Date BETWEEN '2018/05/01' AND '2018/05/31'");
-         return $query->row();
-    }
-    public function hhcountJun(){
-        $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT count(*) as jun_count FROM household where Date BETWEEN '2018/06/01' AND '2018/06/30'");
-         return $query->row();
-        //print_r($query->row()->may_count);exit();
-    }/*
-    public function hhcountJun(){
-        $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT count(*) as jun_count FROM household where Date BETWEEN '2018/07/01' AND '2018/07/31'");
-         return $query->row();
-        //print_r($query->row()->may_count);exit();
-    }*/
+ // ...... Month Wise Followup Details Ends ...... // 
+
+        
     public  function  getHouseholdCount(){
         $otherdb = $this->load->database('otherdb', TRUE);
         $query = $otherdb->query("select count(*) as householdCount from household");
@@ -76,6 +182,13 @@ class DashboardSummaryModel extends CI_Model{
     public  function  getFollowUpCount(){
         $otherdb = $this->load->database('otherdb', TRUE);
         $query = $otherdb->query("select count(*) as followUpCount from followup where followUpNumber <> '0'");
+        //print_r($query->row());
+        //exit();
+        return $query->row() ;
+    }
+    public  function  getFollowUpHHCount(){
+        $otherdb = $this->load->database('otherdb', TRUE);
+        $query = $otherdb->query("select count(*) as fetchFollowUpHHCount from followup where followUpNumber = 1");
         //print_r($query->row());
         //exit();
         return $query->row() ;
@@ -107,10 +220,14 @@ class DashboardSummaryModel extends CI_Model{
 
     public  function  getNewUserCount(){
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query("select count(*) as newUserCount from followup
+        $query = $otherdb->query("SELECT count(*) as newUserCount FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM') AND f.conclusion LIKE 'new user case closed'");
+        
+        /*
+        $query = $otherdb->query("  select count(*) as newUserCount from followup
                                     where conclusion like 'New User'
                                     or conclusion like 'New User Case Closed'
                                     ");
+        */
         //print_r($query->row());
         //exit();
         return $query->row();
@@ -119,35 +236,51 @@ class DashboardSummaryModel extends CI_Model{
     public function count_larcs(){
         $otherdb = $this->load->database('otherdb', TRUE);
         $query = $otherdb->query('SELECT(SELECT count(*) 
-                                            FROM followup 
+                                            FROM household h join followup f on h.SNO = f.SNO  
+                                            WHERE (f.methodName LIKE "injection" OR f.methodName LIKE "implant" OR f.methodName LIKE "IUCD") 
+                                                AND h.areYouPregnant LIKE "no" AND h.everFPMethod <> "TL" AND h.everFPMethod <> "operation" 
+                                                AND (h.currentFPMethodName = "" OR h.currentFPMethodName LIKE "TM"))
+                                                +
+                                        (SELECT count(*)  
+                                            FROM pwdhealthcamp 
                                             WHERE methodName LIKE "injection" 
                                                 OR methodName LIKE "implant" 
-                                                OR methodName LIKE "IUCD")+(SELECT count(*)  
-                                                                            FROM pwdhealthcamp 
-                                                                            WHERE methodName LIKE "injection" 
-                                                                                OR methodName LIKE "implant" 
-                                                                                OR methodName LIKE "IUCD"
-                                                                                ) as larcs
+                                                OR methodName LIKE "IUCD"
+                                                ) as larcs
                                  ');
         return $query->row();
     }
 
     public function count_shortTerm(){
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT(SELECT count(*) FROM pwdhealthcamp WHERE methodName LIKE "condom" OR methodName LIKE "pills" ) + 
-                                (SELECT count(*) FROM followup WHERE methodName LIKE "condom" OR methodName LIKE "pills" ) as shortTerm
-                                 ');
+        $query = $otherdb->query('SELECT
+                                    (SELECT count(*) 
+                                    FROM pwdhealthcamp 
+                                    WHERE methodName LIKE "condom" OR methodName LIKE "pills" ) 
+                                    + 
+                                    (SELECT count(*) 
+                                        FROM household h join followup f on h.SNO = f.SNO  
+                                        WHERE (f.methodName LIKE "condom" OR f.methodName LIKE "pills") 
+                                        AND h.areYouPregnant LIKE "no" AND h.everFPMethod <> "TL" AND h.everFPMethod <> "operation" 
+                                        AND (h.currentFPMethodName = "" OR h.currentFPMethodName LIKE "TM")
+                                    ) as shortTerm
+                                ');
         return $query->row();
     }
 
     public function count_permanent(){
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query('SELECT(SELECT count(*) 
-                                    FROM followup 
-                                    WHERE methodName LIKE "Operation")+
+        $query = $otherdb->query('SELECT
+                                    (SELECT count(*) 
+                                        FROM household h join followup f on h.SNO = f.SNO 
+                                        WHERE (methodName LIKE "Operation" or methodName LIKE "TL")
+                                            AND h.areYouPregnant LIKE "no" AND h.everFPMethod <> "TL" AND h.everFPMethod <> "operation" 
+                                            AND (h.currentFPMethodName = "" OR h.currentFPMethodName LIKE "TM")
+                                    )+
                                     (SELECT count(*)
-                                    FROM pwdhealthcamp 
-                                    WHERE methodName LIKE "Tubal Ligation") as permanent
+                                        FROM pwdhealthcamp 
+                                        WHERE methodName LIKE "Tubal Ligation") 
+                                    as permanent
                                  ');
         return $query->row();
     }
@@ -179,29 +312,5 @@ class DashboardSummaryModel extends CI_Model{
         $query = $otherdb->query('SELECT DISTINCT MUHALA as mohallaName FROM household Where muhala <> "" ORDER BY muhala');
         return $query->result();
     }
-// Mohalla Wise Data Fetching Queries.... 
-    
-        // ...... ALAM ABAD DETAILS    ...... // 
-
-        public function mohalla_HHvisits($mohallaName){
-            $otherdb = $this->load->database('otherdb', TRUE);
-            $query = $otherdb->query('SELECT COUNT(*) FROM household WHERE muhala LIKE "alam abad" ORDER BY muhala');
-            return $query->row();
-        }
-        public function mohalla_CurrentUsers($mohallaName){
-            $otherdb = $this->load->database('otherdb', TRUE);
-            $query = $otherdb->query('');
-            return $query->row();
-        }
-        public function mohalla_NewUsers($mohallaName){
-            $otherdb = $this->load->database('otherdb', TRUE);
-            $query = $otherdb->query('');
-            return $query->row();
-        }
-        public function mohalla_CBT($mohallaName){
-            $otherdb = $this->load->database('otherdb', TRUE);
-            $query = $otherdb->query('');
-            return $query->row();
-        }
 }
 ?>

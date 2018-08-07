@@ -32,7 +32,10 @@
         @media (min-width: 768px){
             .col-sm-11 {
                 width: 92.7%;
-            }
+            }/*
+            .col-sm-2 {
+                width: 19.97%;
+            }*/
         }
     </style>
     <?php include("googleCharts.php"); ?>
@@ -66,7 +69,7 @@
                                     <div class="main_counter_two sections text-center">
                                         <div class="col-sm-11" style = "background: #f7d6c4; padding: 40px 10px 40px 2px;margin: 0 0 0 15px;">
                                             <div class="row">
-                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
+                                                <div class="col-sm-2 col-xs-6">
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-home nav_icon" style="color: #f75e00; font-size: 30px;"></i>
                                                         <h3 class="statistic-counter_two" style="color: #f75e00"> 
@@ -74,17 +77,28 @@
                                                         </h3>
                                                         <p>Household Interviews</p>
                                                     </div>
-                                                </div><!-- End off col-sm-3 -->
-                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
+                                                </div>
+                                                
+                                                <div class="col-sm-2 col-xs-6">
+                                                    <div class="single_counter_two_right">
+                                                        <i class="fa fa-undo nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                        <h3 class="statistic-counter_two" style="color: #f75e00">
+                                                            <span><?php print $fetchFollowUp_HH->fetchFollowUpHHCount; ?></span>
+                                                        </h3>
+                                                        <p>Followed-Up Households</p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-2 col-xs-6">
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-undo nav_icon" style="color: #f75e00; font-size: 30px;"></i>
                                                         <h3 class="statistic-counter_two" style="color: #f75e00">
                                                         <span><?php print $fetchFollowUp->followUpCount; ?></span>
                                                         </h3>
-                                                        <p>Follow-ups</p>
+                                                        <p>Total Follow-Ups</p>
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
-                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
+                                                <div class="col-sm-2 col-xs-6">
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-users nav_icon" style="color: #f75e00; font-size: 30px;"></i>
                                                         <h3 class="statistic-counter_two" style="color: #f75e00">
@@ -93,7 +107,7 @@
                                                         <p>Social Mobilizers Visits</p>
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
-                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
+                                                <div class="col-sm-2 col-xs-6">
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-check-circle-o nav_icon" style="color: #f75e00; font-size: 30px;"></i>
                                                         <h3 class="statistic-counter_two" style="color: #f75e00">
@@ -102,7 +116,7 @@
                                                         <p>M &amp; E Visits</p>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-2 col-xs-12" style="width:19.9%">
+                                                <div class="col-sm-2 col-xs-6">
                                                     <div class="single_counter_two_right">
                                                         <i class="fa fa-street-view nav_icon" style="color: #f75e00; font-size: 30px;"></i>
                                                         <h3 class="statistic-counter_two" style="color: #f75e00">
@@ -169,36 +183,8 @@
                                     <div id="CS_Chart" class = "col-lg-3 col-md-3 col-sm-12 " style="  padding: 20px; background: #fff;margin:0 0 15px 15px"></div>
                                    
                                     <div id="stackchartId" class = "col-lg-4 col-md-4  col-sm-12 " style="  padding: 20px; background: #fff;margin: 0 0 15px 15px"></div>
-                                  
-                                    <!--                         
-                                    <div id="" class="col-sm-11 section_mohalla">
-                                        <h4> Mohalla Wise Report </h4>
-                                        <div class="form-group">
-                                            <label for="sel1">Select Mohalla:</label>
-                                            <select class="form-control col-sm-4 input-select" name="choose" id="choose">
-                                                <?php  $i = 1;
-                                                foreach($mohallaNames as $row)
-                                                { ?>
-                                                    <option value = "opt<?php echo $i;?>"><?php echo trim($row->mohallaName); ?></option>
-                                                <?php $i++; 
-                                                } ?>
-                                            </select>
-                                        </div>
-
-                                        <?php $i = 1;
-                                        foreach($mohallaNames as $row)
-                                        { ?>
-                                            <section class="jqueryOptions opt<?php echo $i; ?>">
-                                                <div class="content">
-                                                    <div id="<?php echo trim($row->mohallaName); ?>" class = "col-lg-4 col-md-4 col-sm-12 " style=" padding: 20px; background: #fff;margin: 15px 0 15px 15px"></div>
-                                                </div>
-                                            </section>
-                                        <?php $i++; 
-                                        }  ?>
-                                    -->
-
-                                    </div>
-
+                                    <?php //include('test_google_chart.php'); ?>
+                                    <?php include('AjaxView.php'); ?>
                                   
                                    <!--
                                     <div id="piechart" class = "col-lg-5 col-sm-12 " style="  padding: 20px; background: #fff;margin: 0 0 50px 20px"></div>
@@ -229,7 +215,7 @@
                 delay: 10,
                 time: 2000
             });
-         
+
             $(function() {
                 $('.jqueryOptions').hide();
 
@@ -241,6 +227,7 @@
                 });
 
             });
+         
         </script>
   </body>
 </html>
