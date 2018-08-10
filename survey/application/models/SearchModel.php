@@ -77,6 +77,19 @@ class SearchModel extends CI_Model{
         return $query->result();
     }
 
+    public function getConversions(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query =  $otherdb->query("SELECT h.*, f.conclusion, f.methodName FROM household h JOIN followup f ON h.SNO = f.SNO 
+                                    WHERE h.currentFPMethodName LIKE 'condom' AND f.methodName IN ('injection','pills','iucd','implant','tl') 
+                                    OR h.currentFPMethodName LIKE 'pills' AND f.methodName IN ('injection', 'iucd', 'implant', 'tl') 
+                                    OR h.currentFPMethodName LIKE 'injection' AND f.methodName IN ('iucd', 'implant', 'tl') 
+                                    OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl') 
+                                    OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl')
+                                "); 
+        return $query->result();
+    }
+
+    
     public function getCommunityMeetings(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query("SELECT * FROM `communitymeetings`");

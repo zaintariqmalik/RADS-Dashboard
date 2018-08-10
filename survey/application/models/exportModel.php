@@ -10,17 +10,18 @@ class ExportModel extends CI_Model{
     public function index($fromDate, $toDate, $tableToExport){
         $otherdb = $this->load->database('otherdb', TRUE);
 
-        if($tableToExport == 'followup'){            
-        // FollowUp 19 : Query for fetching fake New Users
-            // $query =  $otherdb->query("SELECT h.*, f.methodName FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.currentFPMethodName = f.methodName AND f.methodName <> '' AND h.currentFPMethodName <> ''");
-        // FollowUp 18 : Query for Conversions
-           // $query =  $otherdb->query("SELECT h.*, f.methodName FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.currentFPMethodName <> 'tm' AND h.currentFPMethodName <> f.methodName AND f.methodName <> '' AND h.currentFPMethodName <> ''");
-        
+        if($tableToExport == 'followup'){   
             // FollowUp 17 : Query for New User
-             $query =  $otherdb->query("SELECT h.*, f.conclusion, f.methodName FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.date between '".$fromDate."' and '".$toDate."' AND h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM') AND f.conclusion LIKE 'new user case closed'");
-        // Actual Query
-            //$query =  $otherdb->query("SELECT h.*,f.conclusion, f.methodName FROM household h LEFT JOIN followup f ON h.SNO = f.SNO where  h.date between '".$fromDate."' and '".$toDate."' and f.methodName <> ''");
-            
+              $query =  $otherdb->query("SELECT h.*, f.conclusion, f.methodName FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.date between '".$fromDate."' and '".$toDate."' AND h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM') AND f.conclusion LIKE 'new user case closed'");
+        }
+        else if($tableToExport == 'conversions'){   
+              $query =  $otherdb->query("SELECT h.*, f.conclusion, f.methodName FROM household h JOIN followup f ON h.SNO = f.SNO 
+                                            WHERE h.date between '".$fromDate."' and '".$toDate."'
+                                            AND h.currentFPMethodName LIKE 'condom' AND f.methodName IN ('injection','pills','iucd','implant','tl') 
+                                            OR h.currentFPMethodName LIKE 'pills' AND f.methodName IN ('injection', 'iucd', 'implant', 'tl') 
+                                            OR h.currentFPMethodName LIKE 'injection' AND f.methodName IN ('iucd', 'implant', 'tl') 
+                                            OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl') 
+                                            OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl')");
         }
         else{
             $query = $otherdb->query("select * from " .$tableToExport." where date between '".$fromDate."' and '".$toDate."'");

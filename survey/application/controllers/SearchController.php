@@ -152,6 +152,17 @@ class SearchController extends CI_Controller{
             $this->load->view('login');
     } 
 
+    public function conversions(){
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["conversions"] = $this->SearchModel->getConversions();
+            $this->load->view('conversions',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    }
+
     public function getDetailsOfWomenBySNo($SNO)
     {
         if($this->session->userdata('User_Logged_In'))

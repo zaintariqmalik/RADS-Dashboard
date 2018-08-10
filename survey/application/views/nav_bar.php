@@ -1,4 +1,5 @@
 
+      
 
     <!--
     <div class=" border-bottom">
@@ -64,13 +65,17 @@
                     <?php // if($this->session->userdata('userUserName') <> 'ahkrc') {?>
             
                     <li>
-                        <a href="<?php echo site_url('SearchController/getNewUsers')?>" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">New Users - HH Visit</span> </a>
+                        <a href="<?php echo site_url('SearchController/getNewUsers')?>" class=" hvr-bounce-to-right"><i class="far fa-address-card nav_icon"></i> <span class="nav-label">New Users - HH Visit</span> </a>
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url('SearchController/pwdHealthCamp')?>" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">New Users - PWD Health Camp</span> </a>
+                        <a href="<?php echo site_url('SearchController/pwdHealthCamp')?>" class=" hvr-bounce-to-right"><i class="far fa-plus-square nav_icon"></i> <span class="nav-label">New Users - PWD Health Camp</span> </a>
                     </li>
                     <?php // } ?>
+
+                    <li>
+                        <a href="<?php echo site_url('SearchController/conversions')?>" class=" hvr-bounce-to-right"><i class="fas fa-sync-alt nav_icon"></i> <span class="nav-label">Conversions</span> </a>
+                    </li>
 
                     <li>
                         <a href="<?php echo site_url('HouseholdController')?>" class=" hvr-bounce-to-right"><i class="fa fa-home nav_icon"></i> <span class="nav-label">Household Form</span> </a>

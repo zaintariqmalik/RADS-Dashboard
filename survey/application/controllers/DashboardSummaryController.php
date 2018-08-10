@@ -64,6 +64,10 @@ class DashboardSummaryController extends CI_Controller{
 			$this->data['mohallaNames'] = $this->DashboardSummaryModel->mohallaNames();
 			$this->data['mohallaWiseHH'] = $this->DashboardSummaryModel->mohallaWiseHHVisits();
 
+			
+            $this->data["larcs_conversions"] = $this->DashboardSummaryModel->getConversionsToLarcsCount();
+            $this->data["conversions"] = $this->DashboardSummaryModel->getConversionsCount();
+
 			$this->load->view('DashboardSummary', $this->data);
 		}
 		else // Display login page session is not set

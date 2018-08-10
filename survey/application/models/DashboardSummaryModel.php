@@ -312,5 +312,47 @@ class DashboardSummaryModel extends CI_Model{
         $query = $otherdb->query('SELECT DISTINCT MUHALA as mohallaName FROM household Where muhala <> "" ORDER BY muhala');
         return $query->result();
     }
+    public function getConversionsCount(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query =  $otherdb->query("SELECT count(*) as conversions_count FROM household h JOIN followup f ON h.SNO = f.SNO 
+                                    WHERE h.currentFPMethodName LIKE 'condom' AND f.methodName IN ('injection','pills','iucd','implant','tl') 
+                                    OR h.currentFPMethodName LIKE 'pills' AND f.methodName IN ('injection', 'iucd', 'implant', 'tl') 
+                                    OR h.currentFPMethodName LIKE 'injection' AND f.methodName IN ('iucd', 'implant', 'tl') 
+                                    OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl') 
+                                    OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl')
+                                "); 
+                                //print_r($query->row());exit();
+        return $query->row();
+    }
+    public function getConversionsToLarcsCount(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query =  $otherdb->query("SELECT(
+                                    SELECT count(*) 
+                                    FROM household h join followup f on h.SNO = f.SNO  
+                                    WHERE f.methodName IN ('injection','implant','IUCD') 
+                                    AND h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' 
+                                    AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM')
+                                    )
+                                    +
+                                    ( SELECT count(*)  
+                                      FROM pwdhealthcamp 
+                                      WHERE methodName IN ('injection','implant','IUCD')
+                                    )
+                                    +
+                                    ( SELECT count(*) 
+                                      FROM household h JOIN followup f ON h.SNO = f.SNO 
+                                      WHERE (
+                                        h.currentFPMethodName LIKE 'condom' AND f.methodName IN ('injection','pills','iucd','implant','tl') 
+                                        OR h.currentFPMethodName LIKE 'pills' AND f.methodName IN ('injection', 'iucd', 'implant', 'tl') 
+                                        OR h.currentFPMethodName LIKE 'injection' AND f.methodName IN ('iucd', 'implant', 'tl') 
+                                        OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl') 
+                                        OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl')
+                                      ) 
+                                      AND f.methodName IN ('injection','implant','iucd')
+                                ) as larcs_conversions_count");
+                                
+            //print_r($query->result());exit();
+        return $query->row();
+    }
 }
 ?>
