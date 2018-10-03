@@ -45,6 +45,7 @@ class DashboardSummaryModel extends CI_Model{
 
     }
  // ...... Mohalla Wise Details Ends   ...... // 
+ 
         public function monthWiseCBT(){
             $otherdb = $this->load->database('otherdb',TRUE);
             
@@ -69,6 +70,15 @@ class DashboardSummaryModel extends CI_Model{
             $jul_data = $otherdb->query("SELECT count(*) as jul_count FROM household where Date BETWEEN '2018/07/01' AND '2018/07/31' AND visitResult Like 'CBT or PDI'");
             $cbt_jul_res = $jul_data->row();
 
+            $aug_data = $otherdb->query("SELECT count(*) as aug_count FROM household where Date BETWEEN '2018/08/01' AND '2018/08/31' AND visitResult Like 'CBT or PDI'");
+            $cbt_aug_res = $aug_data->row();
+
+            $sept_data = $otherdb->query("SELECT count(*) as sept_count FROM household where Date BETWEEN '2018/09/01' AND '2018/09/30' AND visitResult Like 'CBT or PDI'");
+            $cbt_sept_res = $sept_data->row();
+
+            $oct_data = $otherdb->query("SELECT count(*) as oct_count FROM household where Date BETWEEN '2018/10/01' AND '2018/10/31' AND visitResult Like 'CBT or PDI'");
+            $cbt_oct_res = $oct_data->row();
+
             return array(
                 'jan_data' => $cbt_jan_res,
                 'feb_data' => $cbt_feb_res,
@@ -77,6 +87,9 @@ class DashboardSummaryModel extends CI_Model{
                 'may_data' => $cbt_may_res,
                 'jun_data' => $cbt_jun_res,
                 'jul_data' => $cbt_jul_res,
+                'aug_data' => $cbt_aug_res,
+                'sept_data' => $cbt_sept_res,
+                'oct_data' => $cbt_oct_res,
             );
         }
  // ...... Month Wise Household Details   ...... // 
@@ -104,6 +117,15 @@ class DashboardSummaryModel extends CI_Model{
 
         $jul_data = $otherdb->query("SELECT count(*) as jul_count FROM household where Date BETWEEN '2018/07/01' AND '2018/07/31'");
         $hh_jul_res = $jul_data->row();
+        
+        $aug_data = $otherdb->query("SELECT count(*) as aug_count FROM household where Date BETWEEN '2018/08/01' AND '2018/08/31'");
+        $hh_aug_res = $aug_data->row();
+        
+        $sept_data = $otherdb->query("SELECT count(*) as sept_count FROM household where Date BETWEEN '2018/09/01' AND '2018/09/30'");
+        $hh_sept_res = $sept_data->row();
+        
+        $oct_data = $otherdb->query("SELECT count(*) as oct_count FROM household where Date BETWEEN '2018/10/01' AND '2018/10/31'");
+        $hh_oct_res = $oct_data->row();
 
         return array(
             'jan_data' => $hh_jan_res,
@@ -113,6 +135,9 @@ class DashboardSummaryModel extends CI_Model{
             'may_data' => $hh_may_res,
             'jun_data' => $hh_jun_res,
             'jul_data' => $hh_jul_res,
+            'aug_data' => $hh_aug_res,
+            'sept_data' => $hh_sept_res,
+            'oct_data' => $hh_oct_res,
         );
     }
  // ...... Month Wise Household Details Ends   ...... // 
@@ -142,6 +167,15 @@ class DashboardSummaryModel extends CI_Model{
         $jul_data = $otherdb->query("SELECT count(*) as jul_count FROM followup where Date BETWEEN '2018/07/01' AND '2018/07/31'");
         $fu_jul_res = $jul_data->row();
 
+        $aug_data = $otherdb->query("SELECT count(*) as aug_count FROM followup where Date BETWEEN '2018/08/01' AND '2018/08/31'");
+        $fu_aug_res = $aug_data->row();
+
+        $sept_data = $otherdb->query("SELECT count(*) as sept_count FROM followup where Date BETWEEN '2018/09/01' AND '2018/09/30'");
+        $fu_sept_res = $sept_data->row();
+
+        $oct_data = $otherdb->query("SELECT count(*) as oct_count FROM followup where Date BETWEEN '2018/10/01' AND '2018/10/31'");
+        $fu_oct_res = $oct_data->row();
+
         //Return Array of query->row() as name-value pairs
         return array(
             'jan_data' => $fu_jan_res,
@@ -151,6 +185,9 @@ class DashboardSummaryModel extends CI_Model{
             'may_data' => $fu_may_res,
             'jun_data' => $fu_jun_res,
             'jul_data' => $fu_jul_res,
+            'aug_data' => $fu_aug_res,
+            'sept_data' => $fu_sept_res,
+             'oct_data' => $fu_oct_res,
         );
     }
  // ...... Month Wise Followup Details Ends ...... // 
@@ -220,7 +257,7 @@ class DashboardSummaryModel extends CI_Model{
 
     public  function  getNewUserCount(){
         $otherdb = $this->load->database('otherdb', TRUE);
-        $query = $otherdb->query("SELECT count(*) as newUserCount FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM') AND f.conclusion LIKE 'new user case closed'");
+        $query = $otherdb->query("SELECT count(*) as newUserCount FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM' OR h.currentFPMethodName LIKE 'traditional Method') AND f.conclusion LIKE 'new user case closed'");
         
         /*
         $query = $otherdb->query("  select count(*) as newUserCount from followup

@@ -16,9 +16,10 @@
          */
 
         body, html{
-            height: 100%;
+            width: 100%;
             background-repeat: no-repeat;
             background-image: url("<?php echo base_url(); ?>images/background-login.jpg");
+            background-position: top;
             background-color: #d3d3d3;
             font-family: 'Oxygen', sans-serif;
         }

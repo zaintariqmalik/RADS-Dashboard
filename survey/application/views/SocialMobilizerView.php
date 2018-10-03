@@ -48,15 +48,29 @@
                             <th>SM Name</th>
                             <th>Aapi Code</th>
                             <th>Aapi Name</th>
-                            <th>Date</th>    
-                            <th>Mohalla</th>               
+                            <th>Mohalla</th>    
+                            <th>Date</th>               
                             <th>Aapi Visited?</th>
                             <th>View</th>
                        </tr>
                        </thead>
 
                        <tbody>
-                            <?php for($i = 0; $i < count($fetch_data); $i+=28){ //echo $fetch_data[$i]['ID'];?>
+                             <?php 
+                             foreach ($fetch_data as $row){ ?>
+                                <tr class = "text-capitalize">
+                                    <td><?php echo $row['sno']; ?> </td>
+                                    <td><?php echo $row['smCode']; ?> </td>
+                                    <td><?php echo $row['smName']; ?> </td>
+                                    <td><?php echo $row['aapiCode']; ?> </td>
+                                    <td><?php echo $row['aapiName']; ?> </td>
+                                    <td><?php echo $row['mohallaName']; ?> </td>
+                                    <td><?php echo $row['date']; ?> </td>
+                                    <td><?php echo $row['aapiVisited']; ?> </td>
+                                    <td><a href="<?php echo site_url('SocialMobilizerController/getDetailsOfSMBySNo/'.$row['sno'])?>">View More.. <!--<button type="button" class="btn btn-info">View</button> --> </a></td>
+                            <?php
+                             }
+                             /* for($i = 0; $i < count($fetch_data); $i+=28){ //echo $fetch_data[$i]['ID'];?>
                             <tr class = "text-capitalize">
                                 <td><?php echo $fetch_data[$i]['Response'];?></td>
                                 <td><?php echo $fetch_data[$i+1]['Response'];?></td>
@@ -68,7 +82,7 @@
                                 <td><?php echo $fetch_data[$i+10]['Response'];?></td>
                                 <td><a href="<?php echo site_url('SocialMobilizerController/getDetailsOfSMBySNo/'.$fetch_data[$i]['ID'])?>">View More.. <!--<button type="button" class="btn btn-info">View</button> --> </a></td>
                             </tr>
-                            <?php }?>
+                             <?php }*/ ?>
                        </tbody>
                    </table>
                </div>
@@ -95,7 +109,10 @@
 	<script src="<?php echo base_url(); ?>js/bootstrap.min.js"> </script>
 <script>
     $(document).ready(function(){
-            $('#women_data').DataTable();
+            $('#women_data').DataTable({
+               
+                
+            });
     });
 </script>
 </body>

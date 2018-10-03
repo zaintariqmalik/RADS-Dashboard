@@ -217,13 +217,10 @@ nav.top1.navbar.navbar-default.navbar-static-top {
 }
 h1 a.navbar-brand {
 	color: #fff !important;
-	font-size: 30px;
-	font-weight: 500;
-    padding: 20px 0px;
-    background: #d95459;
-    text-align: center;
-	width:248px;
-	height: 60px;
+    background: #f9f9f9;
+    width: 250px;
+    border-bottom: 1px solid #e8dada;
+    height: 76px;
 	
 }
 .navbar-default .navbar-brand:hover {
@@ -298,9 +295,9 @@ ul.nav.navbar-nav.navbar-right {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.hvr-bounce-to-right:hover, .hvr-bounce-to-right:focus, .hvr-bounce-to-right:active {
+/* .hvr-bounce-to-right:hover, .hvr-bounce-to-right:focus, .hvr-bounce-to-right:active {
    
-}
+} */
 .hvr-bounce-to-right:hover:before, .hvr-bounce-to-right:focus:before, .hvr-bounce-to-right:active:before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
@@ -356,9 +353,9 @@ a.dropdown-toggle.dropdown-at {
 .navbar-right-left{
 	float: right;
 }
-.navbar-toolbar{
+/* .navbar-toolbar{
 	
-}
+} */
 .full-top{
 	float:left;
 }
@@ -2918,4 +2915,16 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 .custom_padding{ 
     padding: 15px 54px 0px 0px !important;
+}
+.ppiflogo{
+    height: 70px;
+    width: 250px;
+    background: #f9f9f9;
+    border-bottom: 1px solid gray;
+}
+.a{
+    color: black;
+}
+a.a:focus, a.a:hover, a.a:active {
+    text-decoration: none !important;
 }

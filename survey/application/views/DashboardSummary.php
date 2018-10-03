@@ -66,77 +66,93 @@
                                             <div class="row">
                                                 <div class="col-sm-3 col-xs-6">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-home nav_icon" style="color: #f75e00; font-size: 30px;"></i>
-                                                        <h3 class="statistic-counter_two" style="color: #f75e00"> 
-                                                        <span><?php print $fetchHousehold->householdCount; ?></span>
-                                                        </h3>
-                                                        <p>Household Interviews</p>
+                                                        <a href = "<?php echo site_url('SearchController/HH_jan_data')?>" class = "a" target = "_blank">
+                                                            <i class="fa fa-home nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                            <h3 class="statistic-counter_two" style="color: #f75e00"> 
+                                                            <span><?php print $fetchHousehold->householdCount; ?></span>
+                                                            </h3>
+                                                            <p>Household Interviews</p>
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-undo nav_icon" style="color: #f75e00; font-size: 30px;"></i>
-                                                        <h3 class="statistic-counter_two" style="color: #f75e00">
-                                                            <span><?php print $fetchFollowUp_HH->fetchFollowUpHHCount; ?></span>
-                                                        </h3>
-                                                        <p>Follow Up Households</p>
+                                                        <a href = "<?php echo site_url('SearchController/HH_followup')?>" class = "a" target = "_blank">
+                                                            <i class="fa fa-undo nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                            <h3 class="statistic-counter_two" style="color: #f75e00">
+                                                                <span><?php print $fetchFollowUp_HH->fetchFollowUpHHCount; ?></span>
+                                                            </h3>
+                                                            <p>Follow Up Households</p>
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-undo nav_icon" style="color: #f75e00; font-size: 30px;"></i>
-                                                        <h3 class="statistic-counter_two" style="color: #f75e00">
-                                                        <span><?php print $fetchFollowUp->followUpCount; ?></span>
-                                                        </h3>
-                                                        <p>Total Follow Ups</p>
+                                                        <!-- <a href = "#" class = "a" target = "_blank"> -->
+                                                            <i class="fa fa-undo nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                            <h3 class="statistic-counter_two" style="color: #f75e00">
+                                                                <span><?php print $fetchFollowUp->followUpCount; ?></span>
+                                                            </h3>
+                                                            <p>Total Follow Ups</p>
+                                                        <!-- </a> -->
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
                                                 <div class="col-sm-3 col-xs-6">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-users nav_icon" style="color: #f75e00; font-size: 30px;"></i>
-                                                        <h3 class="statistic-counter_two" style="color: #f75e00">
-                                                        <span><?php print $fetchSM->smVisitsCount; ?></span>
-                                                        </h3>
-                                                        <p>Social Mobilizers Visits</p>
+                                                        <a href = "<?php echo site_url('SocialMobilizerController')?>" class = "a" target = "_blank">
+                                                            <i class="fa fa-users nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                            <h3 class="statistic-counter_two" style="color: #f75e00">
+                                                            <span><?php print $fetchSM->smVisitsCount; ?></span>
+                                                            </h3>
+                                                            <p>Social Mobilizers Visits</p>
+                                                        </a>
                                                     </div>
                                                 </div><!-- End off col-sm-3 -->
                                                 <div class="col-sm-3 col-xs-6">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-check-circle-o nav_icon" style="color: #f75e00; font-size: 30px;"></i>
-                                                        <h3 class="statistic-counter_two" style="color: #f75e00">
-                                                        <span><?php print $fetchMonitoring->monitoringCount; ?></span>
-                                                        </h3>
-                                                        <p>M &amp; E Visits</p>
+                                                        <a href = "<?php echo site_url('MonitoringAndEvaluationController')?>" class = "a" target = "_blank">
+                                                            <i class="fa fa-check-circle-o nav_icon" style="color: #f75e00; font-size: 30px;"></i>
+                                                            <h3 class="statistic-counter_two" style="color: #f75e00">
+                                                            <span><?php print $fetchMonitoring->monitoringCount; ?></span>
+                                                            </h3>
+                                                            <p>M &amp; E Visits</p>
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3 col-xs-6">
                                                     <div class="single_counter_two_right">
-                                                        <!--<i class="fa fa-street-view nav_icon" style="color: green; font-size: 30px;"></i> -->
-                                                        <i class="fas fa-sync-alt nav_icon" style="color: green; font-size: 30px;"></i>
-                                                        <h3 class="statistic-counter_two" style="color: green">
-                                                        <span><?php print $conversions->conversions_count; ?></span>
-                                                        </h3>
-                                                        <p>Conversions</p>
+                                                        <a href = "<?php echo site_url('SearchController/conversions')?>" class = "a" target = "_blank">
+                                                            <!--<i class="fa fa-street-view nav_icon" style="color: green; font-size: 30px;"></i> -->
+                                                            <i class="fas fa-sync-alt nav_icon" style="color: green; font-size: 30px;"></i>
+                                                            <h3 class="statistic-counter_two" style="color: green">
+                                                            <span><?php print $conversions->conversions_count; ?></span>
+                                                            </h3>
+                                                            <p>Conversions</p>
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3 col-xs-6">
                                                     <div class="single_counter_two_right">
-                                                        <i class="fa fa-street-view nav_icon" style="color: green; font-size: 30px;"></i>
-                                                        <h3 class="statistic-counter_two" style="color: green">
-                                                        <span><?php print $larcs_conversions->larcs_conversions_count; ?></span>
-                                                        </h3>
-                                                        <p>LARCs</p>
+                                                        <a href = "<?php echo site_url('SearchController/searchLarcs')?>" class = "a" target = "_blank">
+                                                            <i class="fa fa-street-view nav_icon" style="color: green; font-size: 30px;"></i>
+                                                            <h3 class="statistic-counter_two" style="color: green">
+                                                            <span><?php print $larcs_conversions->larcs_conversions_count; ?></span>
+                                                            </h3>
+                                                            <p>LARCs</p>
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3 col-xs-6">
                                                     <div class="single_counter_two_right">
-                                                        <i class="far fa-address-card nav_icon" style="color: green; font-size: 30px;"></i>
-                                                        <h3 class="statistic-counter_two" style="color: green">
-                                                        <span><?php print $fetchNewUser->newUserCount + 371; ?></span>
-                                                        </h3>
-                                                        <p>New Users</p>
+                                                        <a href = "<?php echo site_url('SearchController/getNewUsers')?>" class = "a" target = "_blank">
+                                                            <i class="far fa-address-card nav_icon" style="color: green; font-size: 30px;"></i>
+                                                            <h3 class="statistic-counter_two" style="color: green">
+                                                            <span><?php print $fetchNewUser->newUserCount + 371; ?></span>
+                                                            </h3>
+                                                            <p>New Users</p>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div><!-- End off col-sm-3 -->

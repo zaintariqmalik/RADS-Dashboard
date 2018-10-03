@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Created by PhpStorm.
  * User: Waqas Ahmad
  * Date: 3/1/2018
@@ -14,9 +14,21 @@ class SearchModel extends CI_Model{
     public  function  getWomenGeneralInfo(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM `household`');
-        $result1 =$query->result();
-        return $result1;
+        return $query->result();
     }
+
+    public  function  notYetFollowedUp(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT * FROM household WHERE SNO not in (SELECT SNO FROM followup ) AND CurrentlyUsingFPMethod LIKE 'no' AND WantToUseAnyFPMethod LIKE 'yes'");
+        return  $query->result();
+    }
+
+    public  function  notNewUsers(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT * FROM household WHERE areYouPregnant LIKE 'no' AND currentFPMethodName in ('','tm','traditional method') AND WantToUseAnyFPMethod like 'yes' AND SNO NOT IN ( SELECT SNO FROM followup WHERE conclusion LIKE 'new user case closed')");
+        return  $query->result();
+    }
+//-------------------------------------------------------------------------------
     public  function  jan_data(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-01-01" and "2018-01-31"');
@@ -52,13 +64,20 @@ class SearchModel extends CI_Model{
         $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-07-01" and "2018-07-31"');
         return $query->result();
     }
-    /*
+    
     public  function  aug_data(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-08-01" and "2018-08-31"');
         return $query->result();
+    }
+    /*
+    public  function  sept_data(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query('SELECT `SNO`,`MUHALA`, `APIName`, `API`, `SM`, `Name`,`Age`, `Date`  FROM household where date between "2018-09-01" and "2018-09-30"');
+        return $query->result();
     }*/
 
+//************************************************************** */
     public  function getWomenSpecificInfo($SNO){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query("SELECT * FROM `household` where `SNO` ='$SNO'");
@@ -89,6 +108,31 @@ class SearchModel extends CI_Model{
         return $query->result();
     }
 
+    public function HH_followup(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT * from followup where followUpNumber = 1");
+        return $query->result();
+    }
+    
+    public function searchLarcs(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query(" SELECT h.*,f.conclusion, f.methodName
+                                    FROM household h join followup f on h.SNO = f.SNO  
+                                    WHERE f.methodName IN ('injection','implant','IUCD') 
+                                    AND h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' 
+                                    AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM')
+                                    OR ((
+                                    h.currentFPMethodName LIKE 'condom' AND f.methodName IN ('injection','pills','iucd','implant','tl') 
+                                    OR h.currentFPMethodName LIKE 'pills' AND f.methodName IN ('injection', 'iucd', 'implant', 'tl') 
+                                    OR h.currentFPMethodName LIKE 'injection' AND f.methodName IN ('iucd', 'implant', 'tl') 
+                                    OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl') 
+                                    OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl')
+                                ) 
+                                AND f.methodName IN ('injection','implant','iucd')
+                                )
+                                ");
+        return $query->result();
+    }
     
     public function getCommunityMeetings(){
         $otherdb = $this->load->database('otherdb',TRUE);

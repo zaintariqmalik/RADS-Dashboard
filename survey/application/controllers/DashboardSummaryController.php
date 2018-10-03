@@ -3,7 +3,7 @@
 * Filename: DashboardSummaryController.php
 * Created By: Zain Tariq
 * Date: 02-05-2018
-* Change history:
+* Change history: Modified by Zeeshan
 * ---
 */
 
@@ -32,7 +32,11 @@ class DashboardSummaryController extends CI_Controller{
 				$this->data['hh_may_data'] = $household['may_data'];
 				$this->data['hh_jun_data'] = $household['jun_data'];
 				$this->data['hh_jul_data'] = $household['jul_data'];
-				
+				$this->data['hh_aug_data'] = $household['aug_data'];
+				$this->data['hh_sept_data'] = $household['sept_data'];
+				$this->data['hh_oct_data'] = $household['oct_data'];
+		
+		// Get Follow Up Count Month Wise
 			$followup = $this->DashboardSummaryModel->monthWiseFollowupCount();
 
 				$this->data['fu_jan_data'] = $followup['jan_data'];
@@ -42,7 +46,11 @@ class DashboardSummaryController extends CI_Controller{
 				$this->data['fu_may_data'] = $followup['may_data'];
 				$this->data['fu_jun_data'] = $followup['jun_data'];
 				$this->data['fu_jul_data'] = $followup['jul_data'];
+				$this->data['fu_aug_data'] = $followup['aug_data'];
+				$this->data['fu_sept_data'] = $followup['sept_data'];
+				$this->data['fu_oct_data'] = $followup['oct_data'];
 
+		// Get CBT Count Month Wise
 			$cbt = $this->DashboardSummaryModel->monthWiseCBT();
 
 				$this->data['cbt_jan_data'] = $cbt['jan_data'];
@@ -52,6 +60,9 @@ class DashboardSummaryController extends CI_Controller{
 				$this->data['cbt_may_data'] = $cbt['may_data'];
 				$this->data['cbt_jun_data'] = $cbt['jun_data'];
 				$this->data['cbt_jul_data'] = $cbt['jul_data'];
+				$this->data['cbt_aug_data'] = $cbt['aug_data'];
+				$this->data['cbt_sept_data'] = $cbt['sept_data'];
+				$this->data['cbt_oct_data'] = $cbt['oct_data'];
 
 			$this->data['count_larcs'] = $this->DashboardSummaryModel->count_larcs();
 			$this->data['count_permanent'] = $this->DashboardSummaryModel->count_permanent();

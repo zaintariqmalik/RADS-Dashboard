@@ -27,6 +27,28 @@ class SearchController extends CI_Controller{
         else // Display login page session is not set
             $this->load->view('login');
     } 
+    public function notFollowedUp()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->notYetFollowedUp();
+            $this->load->view('notFollowedUpView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
+    public function notNewUsers()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->notNewUsers();
+            $this->load->view('notNewUsersView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
     public function HH_jan_data()
     {
         if($this->session->userdata('User_Logged_In'))
@@ -103,7 +125,7 @@ class SearchController extends CI_Controller{
         }
         else // Display login page session is not set
             $this->load->view('login');
-    }/*
+    }
     public function HH_aug_data()
     {
         if($this->session->userdata('User_Logged_In'))
@@ -114,7 +136,39 @@ class SearchController extends CI_Controller{
         }
         else // Display login page session is not set
             $this->load->view('login');
+    } /*
+    public function HH_sept_data()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetch_data"] = $this->SearchModel->sept_data();
+            $this->load->view('SearchView',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
     } */
+
+    public function HH_followup(){
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["HH_followup"] = $this->SearchModel->HH_followup();
+            $this->load->view('HH_followup',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    }
+    public function searchLarcs(){
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["larcs"] = $this->SearchModel->searchLarcs();
+            $this->load->view('searchLarcs',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    }
    
     public function communityMeetings()
     {

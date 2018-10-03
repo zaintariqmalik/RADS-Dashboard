@@ -28,17 +28,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <h1 style = "margin-top: 0px !important;"> 
-                        <a class="navbar-brand" href="<?php echo site_url('DashboardSummaryController')?>">
-                            AHKRC 
-                        </a>
-                    </h1>
+                    <!-- <h1 style = "margin-top: 0px !important;"> 
+                        <a class="navbar-brand" href="https://www.ppif.org.pk/" target="_blank"><img src="<?php echo base_url(); ?>images/logo/ppif_logo.png"></a> 
+                    </h1> -->
 
                 </div>
             </div>
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
 
+                    <li>
+                        <a href ="https://www.ppif.org.pk/" class= "ppiflogo" target="_blank"><img style="margin: 10px 30px;" src="<?php echo base_url(); ?>images\logo\ppif_logo.png"></a>
+                    </li>
                     <li>
                         <a href="<?php echo site_url('DashboardSummaryController')?>" class=" hvr-bounce-to-right"><i class="fa fa-sticky-note-o nav_icon"></i> <span class="nav-label">Overview</span> </a>
                     </li>
@@ -57,21 +58,34 @@
                             <li><a href="<?php echo site_url('SearchController/HH_may_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>May</a></li>
                             <li><a href="<?php echo site_url('SearchController/HH_jun_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>June</a></li>
                             <li><a href="<?php echo site_url('SearchController/HH_jul_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>July</a></li>
+                            <li><a href="<?php echo site_url('SearchController/HH_aug_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>August</a></li>
                             <!--
                                 <li><a href="<?php echo site_url('SearchController/HH_jul_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>July</a></li>
                             -->
                         </ul>
                     </li>
-                    <?php // if($this->session->userdata('userUserName') <> 'ahkrc') {?>
+                    <?php  if($this->session->userdata('userUserName') <> 'ahkrc') {?>
+                        <li>
+                            <a href="<?php echo site_url('SearchController/notFollowedUp')?>" class=" hvr-bounce-to-right"><i class="far fa-address-card nav_icon"></i> <span class="nav-label">Not Followed Up</span> </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo site_url('SearchController/notNewUsers')?>" class=" hvr-bounce-to-right"><i class="far fa-address-card nav_icon"></i> <span class="nav-label">Not Yet New Users</span> </a>
+                        </li>
+                    
+                    <?php  } ?>
             
                     <li>
                         <a href="<?php echo site_url('SearchController/getNewUsers')?>" class=" hvr-bounce-to-right"><i class="far fa-address-card nav_icon"></i> <span class="nav-label">New Users - HH Visit</span> </a>
                     </li>
+                    <?php  if($this->session->userdata('userUserName') <> 'ahkrc') {?>
+                    <li>
+                        <a href="<?php echo site_url('HouseholdFormController')?>" class=" hvr-bounce-to-right"><i class="far fa-address-card nav_icon"></i> <span class="nav-label">Household Form Questions</span> </a>
+                    </li>
+                    <?php  } ?>
 
                     <li>
                         <a href="<?php echo site_url('SearchController/pwdHealthCamp')?>" class=" hvr-bounce-to-right"><i class="far fa-plus-square nav_icon"></i> <span class="nav-label">New Users - PWD Health Camp</span> </a>
                     </li>
-                    <?php // } ?>
 
                     <li>
                         <a href="<?php echo site_url('SearchController/conversions')?>" class=" hvr-bounce-to-right"><i class="fas fa-sync-alt nav_icon"></i> <span class="nav-label">Conversions</span> </a>
@@ -106,14 +120,14 @@
                     <li>
                         <a href="<?php echo site_url('LogoutController')?>"class=" hvr-bounce-to-right"><i class="fa fa-sign-out  nav_icon"></i> <span class="nav-label">Logout</span> </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <div style="padding: 15px;color: #d95459; text-align: left;background-color: #EAEAEA">
                             <h6 style=" text-overflow: clip;">
                                 The information contained in this Dashboard is confidential, privileged and only for the
                                 information of the intended recipients.<br><br> No part of this information may be used, published and redistributed without prior written permission from AHKRC.
                             </h6>
                         </div>
-                    </li>
+                    </li> -->
 
                 </ul>
             </div>
