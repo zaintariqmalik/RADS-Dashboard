@@ -366,14 +366,14 @@ class DashboardSummaryModel extends CI_Model{
         $query =  $otherdb->query("SELECT(
                                     SELECT count(*) 
                                     FROM household h join followup f on h.SNO = f.SNO  
-                                    WHERE f.methodName IN ('injection','implant','IUCD') 
+                                    WHERE f.methodName IN ('injection','implant','IUCD','tl','operation','tubal ligation') 
                                     AND h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' 
                                     AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM')
                                     )
                                     +
                                     ( SELECT count(*)  
                                       FROM pwdhealthcamp 
-                                      WHERE methodName IN ('injection','implant','IUCD')
+                                      WHERE methodName IN ('injection','implant','IUCD','tl','tubal ligation','operation')
                                     )
                                     +
                                     ( SELECT count(*) 
@@ -385,7 +385,7 @@ class DashboardSummaryModel extends CI_Model{
                                         OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl') 
                                         OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl')
                                       ) 
-                                      AND f.methodName IN ('injection','implant','iucd')
+                                      AND f.methodName IN ('injection','implant','iucd','tl','tubal ligation','operation')
                                 ) as larcs_conversions_count");
                                 
             //print_r($query->result());exit();

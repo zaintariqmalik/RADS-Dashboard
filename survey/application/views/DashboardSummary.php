@@ -146,7 +146,7 @@
                                                 </div>
                                                 <div class="col-sm-3 col-xs-6">
                                                     <div class="single_counter_two_right">
-                                                        <a href = "<?php echo site_url('SearchController/getNewUsers')?>" class = "a" target = "_blank">
+                                                        <a href = "<?php echo site_url('SearchController/NU_q2')?>" class = "a" target = "_blank">
                                                             <i class="far fa-address-card nav_icon" style="color: green; font-size: 30px;"></i>
                                                             <h3 class="statistic-counter_two" style="color: green">
                                                             <span><?php print $fetchNewUser->newUserCount + 371; ?></span>

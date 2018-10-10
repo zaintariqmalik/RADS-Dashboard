@@ -89,21 +89,39 @@ class SearchModel extends CI_Model{
         $query = $otherdb->query("SELECT * FROM `followup` where `SNO` ='$SNO' and followUpNumber <> 0 ");
         return $query->result();
     }
-
+/*
     public function getNewUsersInfo(){
         $otherdb = $this->load->database('otherdb',TRUE);
-        $query = $otherdb->query("SELECT * FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM') AND f.conclusion LIKE 'new user case closed'");
+        $query = $otherdb->query("SELECT * FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM' OR h.currentFPMethodName LIKE 'traditional Method') AND f.conclusion LIKE 'new user case closed' AND h.date between '2018-01-01' AND '2018-04-30'");
+        return $query->result();
+    }
+*/
+    public function NU_q2(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT * FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM' OR h.currentFPMethodName LIKE 'traditional Method') AND f.conclusion LIKE 'new user case closed' AND h.date between '2018-01-01' AND '2018-04-30'");
+        return $query->result();
+    }
+
+    public function NU_q3(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT * FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM' OR h.currentFPMethodName LIKE 'traditional Method') AND f.conclusion LIKE 'new user case closed' AND h.date between '2018-05-01' AND '2018-07-31'");
+        return $query->result();
+    }
+
+    public function NU_q4(){
+        $otherdb = $this->load->database('otherdb',TRUE);
+        $query = $otherdb->query("SELECT * FROM household h JOIN followup f ON h.SNO = f.SNO WHERE h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM' OR h.currentFPMethodName LIKE 'traditional Method') AND f.conclusion LIKE 'new user case closed' AND h.date between '2018-08-01' AND '2018-10-31'");
         return $query->result();
     }
 
     public function getConversions(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query =  $otherdb->query("SELECT h.*, f.conclusion, f.methodName FROM household h JOIN followup f ON h.SNO = f.SNO 
-                                    WHERE h.currentFPMethodName LIKE 'condom' AND f.methodName IN ('injection','pills','iucd','implant','tl') 
-                                    OR h.currentFPMethodName LIKE 'pills' AND f.methodName IN ('injection', 'iucd', 'implant', 'tl') 
-                                    OR h.currentFPMethodName LIKE 'injection' AND f.methodName IN ('iucd', 'implant', 'tl') 
-                                    OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl') 
-                                    OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl')
+                                    WHERE h.currentFPMethodName LIKE 'condom' AND f.methodName IN ('injection','pills','iucd','implant','tl', 'tubal ligation', 'operation') 
+                                    OR h.currentFPMethodName LIKE 'pills' AND f.methodName IN ('injection', 'iucd', 'implant', 'tl', 'tubal ligation', 'operation') 
+                                    OR h.currentFPMethodName LIKE 'injection' AND f.methodName IN ('iucd', 'implant', 'tl', 'tubal ligation', 'operation') 
+                                    OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl', 'tubal ligation', 'operation') 
+                                    OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl', 'tubal ligation', 'operation')
                                 "); 
         return $query->result();
     }
@@ -113,20 +131,20 @@ class SearchModel extends CI_Model{
         $query = $otherdb->query("SELECT * from followup where followUpNumber = 1");
         return $query->result();
     }
-    
+
     public function searchLarcs(){
         $otherdb = $this->load->database('otherdb',TRUE);
         $query = $otherdb->query(" SELECT h.*,f.conclusion, f.methodName
                                     FROM household h join followup f on h.SNO = f.SNO  
                                     WHERE f.methodName IN ('injection','implant','IUCD') 
                                     AND h.areYouPregnant LIKE 'no' AND h.everFPMethod <> 'TL' AND h.everFPMethod <> 'operation' 
-                                    AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM')
+                                    AND (h.currentFPMethodName = '' OR h.currentFPMethodName LIKE 'TM' OR h.currentFPMethodName LIKE 'traditional method')
                                     OR ((
-                                    h.currentFPMethodName LIKE 'condom' AND f.methodName IN ('injection','pills','iucd','implant','tl') 
-                                    OR h.currentFPMethodName LIKE 'pills' AND f.methodName IN ('injection', 'iucd', 'implant', 'tl') 
-                                    OR h.currentFPMethodName LIKE 'injection' AND f.methodName IN ('iucd', 'implant', 'tl') 
-                                    OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl') 
-                                    OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl')
+                                    h.currentFPMethodName LIKE 'condom' AND f.methodName IN ('injection','pills','iucd','implant','tl', 'tubal ligation', 'operation') 
+                                    OR h.currentFPMethodName LIKE 'pills' AND f.methodName IN ('injection', 'iucd', 'implant', 'tl', 'tubal ligation', 'operation') 
+                                    OR h.currentFPMethodName LIKE 'injection' AND f.methodName IN ('iucd', 'implant', 'tl', 'tubal ligation', 'operation') 
+                                    OR h.currentFPMethodName LIKE 'iucd' AND f.methodName IN ('tl', 'tubal ligation', 'operation') 
+                                    OR h.currentFPMethodName LIKE 'implant' AND f.methodName IN ('tl', 'tubal ligation', 'operation')
                                 ) 
                                 AND f.methodName IN ('injection','implant','iucd')
                                 )

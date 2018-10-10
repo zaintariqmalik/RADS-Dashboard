@@ -205,6 +205,39 @@ class SearchController extends CI_Controller{
         else // Display login page session is not set
             $this->load->view('login');
     } 
+    public function NU_q2()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetchNewUsers"] = $this->SearchModel->NU_q2();
+            $this->load->view('searchNewUser',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
+    public function NU_q3()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetchNewUsers"] = $this->SearchModel->NU_q3();
+            $this->load->view('searchNewUser',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
+    public function NU_q4()
+    {
+        if($this->session->userdata('User_Logged_In'))
+        {
+            $this->load->model('SearchModel');
+            $data["fetchNewUsers"] = $this->SearchModel->NU_q4();
+            $this->load->view('searchNewUser',$data);
+        }
+        else // Display login page session is not set
+            $this->load->view('login');
+    } 
 
     public function conversions(){
         if($this->session->userdata('User_Logged_In'))

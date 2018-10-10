@@ -75,7 +75,15 @@
                     <?php  } ?>
             
                     <li>
-                        <a href="<?php echo site_url('SearchController/getNewUsers')?>" class=" hvr-bounce-to-right"><i class="far fa-address-card nav_icon"></i> <span class="nav-label">New Users - HH Visit</span> </a>
+                        <a href="#" class=" hvr-bounce-to-right"><i class="far fa-address-card nav_icon"></i> <span class="nav-label">New Users - HH Visit</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="<?php echo site_url('SearchController/NU_q2')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>Quarter 2</a></li>
+                            <li><a href="<?php echo site_url('SearchController/NU_q3')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>Quarter 3</a></li>
+                            <li><a href="<?php echo site_url('SearchController/NU_q4')?>" class=" hvr-bounce-to-right"><i class="fa fa-calendar nav_icon"></i>Quarter 4</a></li>
+                            <!--
+                                <li><a href="<?php echo site_url('SearchController/HH_jul_data')?>" class=" hvr-bounce-to-right"><i class="fa fa-eye nav_icon"></i>July</a></li>
+                            -->
+                        </ul>
                     </li>
                     <?php  if($this->session->userdata('userUserName') <> 'ahkrc') {?>
                     <li>
